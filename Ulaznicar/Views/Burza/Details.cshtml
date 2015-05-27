@@ -1,0 +1,58 @@
+﻿@model Ulaznicar.Models.Burza
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Burza</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Korisnik.korisnickoime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Korisnik.korisnickoime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdKarta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdKarta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datumponude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datumponude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datumprodaje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datumprodaje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cijena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cijena)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
