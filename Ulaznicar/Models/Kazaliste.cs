@@ -12,15 +12,11 @@ namespace Ulaznicar.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Burza
+    public partial class Kazaliste
     {
         public int Id { get; set; }
-        public Nullable<int> IdKupac { get; set; }
-        public int IdKarta { get; set; }
-        public System.DateTime datumponude { get; set; }
-        public Nullable<System.DateTime> datumprodaje { get; set; }
-        public decimal cijena { get; set; }
+        public int IdDogadjaj { get; set; }
     
-        public virtual Korisnik Korisnik { get; set; }
+        public virtual Dogadjaj Dogadjaj { get; set; }
     }
 }

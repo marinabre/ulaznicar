@@ -12,7 +12,7 @@ namespace Ulaznicar.Controllers
 {
     public class BurzaController : Controller
     {
-        private BazaUlaznice db = new BazaUlaznice();
+        private bazaUlazniceEntities db = new bazaUlazniceEntities();
 
         // GET: Burza
         public ActionResult Index()

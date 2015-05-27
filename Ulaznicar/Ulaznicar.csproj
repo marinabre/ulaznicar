@@ -178,19 +178,59 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\BazaUlaznice.cs" />
-    <Compile Include="Models\Burza.cs" />
-    <Compile Include="Models\Dogadjaj.cs" />
-    <Compile Include="Models\Grad.cs" />
+    <Compile Include="Models\bazaulaznice.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bazaulaznice.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bazaulaznice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bazaulaznice.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bazaulaznice.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Burza.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dogadjaj.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Grad.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Izvodjac.cs" />
-    <Compile Include="Models\Karta.cs" />
-    <Compile Include="Models\Koncert.cs" />
-    <Compile Include="Models\Korisnik.cs" />
-    <Compile Include="Models\KupljeneKarte.cs" />
-    <Compile Include="Models\Lokacija.cs" />
+    <Compile Include="Models\Izvodjac.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Karta.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Kazaliste.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Klub.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Koncert.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Korisnik.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KupljeneKarte.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lokacija.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\VrstaKarte.cs" />
+    <Compile Include="Models\VrstaKarte.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -203,6 +243,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\bazaulaznice.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>bazaulaznice.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\bazaulaznice.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bazaulaznice.edmx</DependentUpon>
+      <LastGenOutput>bazaulaznice.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\bazaulaznice.edmx.diagram">
+      <DependentUpon>bazaulaznice.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\bazaulaznice.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bazaulaznice.edmx</DependentUpon>
+      <LastGenOutput>bazaulaznice.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -266,6 +323,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
