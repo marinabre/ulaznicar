@@ -15,14 +15,14 @@ namespace Ulaznicar.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Svrha i ideja iza Ulazničara";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Kontakt na koji se možete javiti s pitanjima.";
 
             return View();
         }

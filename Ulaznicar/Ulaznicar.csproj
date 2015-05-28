@@ -172,6 +172,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BurzaController.cs" />
+    <Compile Include="Controllers\DogadjajController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -312,6 +313,11 @@
     <Content Include="Views\Burza\Details.cshtml" />
     <Content Include="Views\Burza\Edit.cshtml" />
     <Content Include="Views\Burza\Index.cshtml" />
+    <Content Include="Views\Dogadjaj\Create.cshtml" />
+    <Content Include="Views\Dogadjaj\Delete.cshtml" />
+    <Content Include="Views\Dogadjaj\Details.cshtml" />
+    <Content Include="Views\Dogadjaj\Edit.cshtml" />
+    <Content Include="Views\Dogadjaj\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

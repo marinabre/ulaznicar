@@ -1,0 +1,58 @@
+﻿@model Ulaznicar.Models.Dogadjaj
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Dogadjaj</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.brojmjesta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.brojmjesta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.plakat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plakat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lokacija.adresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lokacija.adresa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

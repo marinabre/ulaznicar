@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Ulaznicar.Models.Dogadjaj>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.brojmjesta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.plakat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lokacija.adresa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.brojmjesta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.plakat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lokacija.adresa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
