@@ -11,11 +11,9 @@
         <EntityTypeShape EntityType="bazaUlazniceModel.Karta" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Kazaliste" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Klub" Width="1.5" PointX="7.5" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaUlazniceModel.Korisnik" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.KupljeneKarte" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Lokacija" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.VrstaKarte" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
-        <AssociationConnector Association="bazaUlazniceModel.FK__Burza__IdKupac__534D60F1" ManuallyRouted="false" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Dogadjaj__IdLoka__4D94879B" ManuallyRouted="false" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Karta__IdDogadja__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Kazaliste__IdDog__59063A47" ManuallyRouted="false" />
@@ -23,11 +21,13 @@
         <AssociationConnector Association="bazaUlazniceModel.FK__Lokacija__IdGrad__49C3F6B7" ManuallyRouted="false" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Karta__IdVrstaka__4E88ABD4" ManuallyRouted="false" />
         <AssociationConnector Association="bazaUlazniceModel.FK__KupljeneK__IdKar__4CA06362" ManuallyRouted="false" />
-        <AssociationConnector Association="bazaUlazniceModel.FK__KupljeneK__IdKor__4BAC3F29" ManuallyRouted="false" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Izvodjac" Width="1.5" PointX="1.25" PointY="10.875" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Koncert" Width="1.5" PointX="3.25" PointY="8.625" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Koncert__IdDogad__5EBF139D" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Koncert__IdIzvod__5FB337D6" />
+        <EntityTypeShape EntityType="bazaUlazniceModel.Korisnik" Width="1.5" PointX="12" PointY="5.5" />
+        <AssociationConnector Association="bazaUlazniceModel.FK__Burza__IdKupac__693CA210" />
+        <AssociationConnector Association="bazaUlazniceModel.FK__KupljeneK__IdKor__68487DD7" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -62,19 +62,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Korisnik">
-      <EntityTypeMapping TypeName="bazaUlazniceModel.Korisnik">
-        <MappingFragment StoreEntitySet="Korisnik">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="korisnickoime" ColumnName="korisnickoime" />
-          <ScalarProperty Name="ime" ColumnName="ime" />
-          <ScalarProperty Name="prezime" ColumnName="prezime" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="OIB" ColumnName="OIB" />
-          <ScalarProperty Name="IdGrad" ColumnName="IdGrad" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="KupljeneKarte">
       <EntityTypeMapping TypeName="bazaUlazniceModel.KupljeneKarte">
         <MappingFragment StoreEntitySet="KupljeneKarte">
@@ -115,6 +102,20 @@
         <MappingFragment StoreEntitySet="Koncert">
           <ScalarProperty Name="IdIzvodjac" ColumnName="IdIzvodjac" />
           <ScalarProperty Name="IdDogadjaj" ColumnName="IdDogadjaj" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Korisnik">
+      <EntityTypeMapping TypeName="bazaUlazniceModel.Korisnik">
+        <MappingFragment StoreEntitySet="Korisnik">
+          <ScalarProperty Name="IdGrad" ColumnName="IdGrad" />
+          <ScalarProperty Name="OIB" ColumnName="OIB" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="prezime" ColumnName="prezime" />
+          <ScalarProperty Name="ime" ColumnName="ime" />
+          <ScalarProperty Name="lozinka" ColumnName="lozinka" />
+          <ScalarProperty Name="korisnickoime" ColumnName="korisnickoime" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

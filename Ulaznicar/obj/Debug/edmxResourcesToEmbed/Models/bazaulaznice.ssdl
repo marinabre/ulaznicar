@@ -74,13 +74,14 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="korisnickoime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="lozinka" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ime" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="prezime" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="OIB" Type="nchar" MaxLength="11" Nullable="false" />
-    <Property Name="IdGrad" Type="int" Nullable="false" />
+    <Property Name="IdGrad" Type="int" />
   </EntityType>
   <EntityType Name="KupljeneKarte">
     <Key>
@@ -109,7 +110,7 @@
   <!--Errors Found During Generation:
 warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK__Burza__IdKarta__5441852A" />-->
-  <Association Name="FK__Burza__IdKupac__534D60F1">
+  <Association Name="FK__Burza__IdKupac__693CA210">
     <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
     <End Role="Burza" Type="Self.Burza" Multiplicity="*" />
     <ReferentialConstraint>
@@ -217,7 +218,7 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__KupljeneK__IdKor__4BAC3F29">
+  <Association Name="FK__KupljeneK__IdKor__68487DD7">
     <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
     <End Role="KupljeneKarte" Type="Self.KupljeneKarte" Multiplicity="*" />
     <ReferentialConstraint>
@@ -254,7 +255,7 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
     <EntitySet Name="KupljeneKarte" EntityType="Self.KupljeneKarte" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lokacija" EntityType="Self.Lokacija" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VrstaKarte" EntityType="Self.VrstaKarte" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Burza__IdKupac__534D60F1" Association="Self.FK__Burza__IdKupac__534D60F1">
+    <AssociationSet Name="FK__Burza__IdKupac__693CA210" Association="Self.FK__Burza__IdKupac__693CA210">
       <End Role="Korisnik" EntitySet="Korisnik" />
       <End Role="Burza" EntitySet="Burza" />
     </AssociationSet>
@@ -290,7 +291,7 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
       <End Role="Karta" EntitySet="Karta" />
       <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
     </AssociationSet>
-    <AssociationSet Name="FK__KupljeneK__IdKor__4BAC3F29" Association="Self.FK__KupljeneK__IdKor__4BAC3F29">
+    <AssociationSet Name="FK__KupljeneK__IdKor__68487DD7" Association="Self.FK__KupljeneK__IdKor__68487DD7">
       <End Role="Korisnik" EntitySet="Korisnik" />
       <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
     </AssociationSet>

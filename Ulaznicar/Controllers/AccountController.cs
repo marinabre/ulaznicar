@@ -15,6 +15,7 @@ namespace Ulaznicar.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        bazaUlazniceEntities context = new bazaUlazniceEntities();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -86,7 +87,7 @@ namespace Ulaznicar.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Neispravan pokušaj prijave.");
                     return View(model);
             }
         }
@@ -129,7 +130,7 @@ namespace Ulaznicar.Controllers
                     return View("Lockout");
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid code.");
+                    ModelState.AddModelError("", "Neispravan kod.");
                     return View(model);
             }
         }
@@ -151,25 +152,43 @@ namespace Ulaznicar.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.username, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    bool exist = false;
+
+                    foreach (var korisnik in context.Korisnik)
+                    {
+                        if (korisnik.korisnickoime == model.username)
+                        {
+                            exist = true;
+                            ModelState.AddModelError("", "Odabrano korisničko ime je već zauzeto.");
+                            return View(model);
+                        }
+                    }
+
+                   context.Korisnik.Add(new Korisnik{
+                       ime = model.ime, 
+                       prezime = model.prezime,
+                       korisnickoime = model.username,
+                       OIB = model.OIB,
+                       email = model.Email,
+                       lozinka = model.Password.GetHashCode().ToString(),
+                   });
+
+
+                    context.SaveChanges();
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
+                // If we got this far, something failed, redisplay form
+                return View(model);
+       
         }
 
         //

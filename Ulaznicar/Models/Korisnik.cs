@@ -22,11 +22,12 @@ namespace Ulaznicar.Models
     
         public int Id { get; set; }
         public string korisnickoime { get; set; }
+        public string lozinka { get; set; }
         public string ime { get; set; }
         public string prezime { get; set; }
         public string email { get; set; }
         public string OIB { get; set; }
-        public int IdGrad { get; set; }
+        public Nullable<int> IdGrad { get; set; }
     
         public virtual ICollection<Burza> Burza { get; set; }
         public virtual ICollection<KupljeneKarte> KupljeneKarte { get; set; }

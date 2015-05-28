@@ -55,10 +55,10 @@ namespace Ulaznicar.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Lozinka")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Zapamti me?")]
         public bool RememberMe { get; set; }
     }
 
@@ -70,14 +70,31 @@ namespace Ulaznicar.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Korisničko ime")]
+        public string username { get; set; }
+
+        [Required]
+        [Display(Name = "Ime")]
+        public string ime { get; set; }
+
+        [Required]
+        [Display(Name = "Prezime")]
+        public string prezime { get; set; }
+
+        [Required]
+        [StringLength(11, ErrorMessage = "OIB mora imati 11 znamenki.", MinimumLength = 11)]
+        [Display(Name = "OIB")]
+        public string OIB { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "{0} mora imati barem {2} znakova.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Lozinka")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Potvrdi lozinku")]
+        [Compare("Password", ErrorMessage = "Lozinka i potvrdna lozinka se razlikuju.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -89,14 +106,14 @@ namespace Ulaznicar.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} mora imati barem {2} znakova.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Lozinka")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Potvrdi lozinku")]
+        [Compare("Password", ErrorMessage = "Lozinka i potvrdna lozinka se razlikuju.")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }

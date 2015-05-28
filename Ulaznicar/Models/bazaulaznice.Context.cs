@@ -31,11 +31,11 @@ namespace Ulaznicar.Models
         public virtual DbSet<Karta> Karta { get; set; }
         public virtual DbSet<Kazaliste> Kazaliste { get; set; }
         public virtual DbSet<Klub> Klub { get; set; }
-        public virtual DbSet<Korisnik> Korisnik { get; set; }
         public virtual DbSet<KupljeneKarte> KupljeneKarte { get; set; }
         public virtual DbSet<Lokacija> Lokacija { get; set; }
         public virtual DbSet<VrstaKarte> VrstaKarte { get; set; }
         public virtual DbSet<Izvodjac> Izvodjac { get; set; }
         public virtual DbSet<Koncert> Koncert { get; set; }
+        public virtual DbSet<Korisnik> Korisnik { get; set; }
     }
 }

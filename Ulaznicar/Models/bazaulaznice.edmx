@@ -79,13 +79,14 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="korisnickoime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lozinka" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ime" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="prezime" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="OIB" Type="nchar" MaxLength="11" Nullable="false" />
-          <Property Name="IdGrad" Type="int" Nullable="false" />
+          <Property Name="IdGrad" Type="int" />
         </EntityType>
         <EntityType Name="KupljeneKarte">
           <Key>
@@ -114,7 +115,7 @@
         <!--Errors Found During Generation:
 warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK__Burza__IdKarta__5441852A" />-->
-        <Association Name="FK__Burza__IdKupac__534D60F1">
+        <Association Name="FK__Burza__IdKupac__693CA210">
           <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
           <End Role="Burza" Type="Self.Burza" Multiplicity="*" />
           <ReferentialConstraint>
@@ -222,7 +223,7 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KupljeneK__IdKor__4BAC3F29">
+        <Association Name="FK__KupljeneK__IdKor__68487DD7">
           <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
           <End Role="KupljeneKarte" Type="Self.KupljeneKarte" Multiplicity="*" />
           <ReferentialConstraint>
@@ -259,7 +260,7 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
           <EntitySet Name="KupljeneKarte" EntityType="Self.KupljeneKarte" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lokacija" EntityType="Self.Lokacija" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VrstaKarte" EntityType="Self.VrstaKarte" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Burza__IdKupac__534D60F1" Association="Self.FK__Burza__IdKupac__534D60F1">
+          <AssociationSet Name="FK__Burza__IdKupac__693CA210" Association="Self.FK__Burza__IdKupac__693CA210">
             <End Role="Korisnik" EntitySet="Korisnik" />
             <End Role="Burza" EntitySet="Burza" />
           </AssociationSet>
@@ -295,7 +296,7 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
             <End Role="Karta" EntitySet="Karta" />
             <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
           </AssociationSet>
-          <AssociationSet Name="FK__KupljeneK__IdKor__4BAC3F29" Association="Self.FK__KupljeneK__IdKor__4BAC3F29">
+          <AssociationSet Name="FK__KupljeneK__IdKor__68487DD7" Association="Self.FK__KupljeneK__IdKor__68487DD7">
             <End Role="Korisnik" EntitySet="Korisnik" />
             <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
           </AssociationSet>
@@ -318,7 +319,7 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
           <Property Name="datumponude" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="datumprodaje" Type="DateTime" Precision="3" />
           <Property Name="cijena" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <NavigationProperty Name="Korisnik" Relationship="Self.FK__Burza__IdKupac__534D60F1" FromRole="Burza" ToRole="Korisnik" />
+          <NavigationProperty Name="Korisnik" Relationship="bazaUlazniceModel.FK__Burza__IdKupac__693CA210" FromRole="Burza" ToRole="Korisnik" />
         </EntityType>
         <EntityType Name="Dogadjaj">
           <Key>
@@ -375,20 +376,6 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
           <Property Name="IdDogadjaj" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Dogadjaj" Relationship="Self.FK__Klub__IdDogadjaj__59FA5E80" FromRole="Klub" ToRole="Dogadjaj" />
         </EntityType>
-        <EntityType Name="Korisnik">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="korisnickoime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OIB" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="IdGrad" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Burza" Relationship="Self.FK__Burza__IdKupac__534D60F1" FromRole="Korisnik" ToRole="Burza" />
-          <NavigationProperty Name="KupljeneKarte" Relationship="Self.FK__KupljeneK__IdKor__4BAC3F29" FromRole="Korisnik" ToRole="KupljeneKarte" />
-        </EntityType>
         <EntityType Name="KupljeneKarte">
           <Key>
             <PropertyRef Name="Id" />
@@ -397,7 +384,7 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
           <Property Name="IdKorisnik" Type="Int32" Nullable="false" />
           <Property Name="IdKarta" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Karta" Relationship="Self.FK__KupljeneK__IdKar__4CA06362" FromRole="KupljeneKarte" ToRole="Karta" />
-          <NavigationProperty Name="Korisnik" Relationship="Self.FK__KupljeneK__IdKor__4BAC3F29" FromRole="KupljeneKarte" ToRole="Korisnik" />
+          <NavigationProperty Name="Korisnik" Relationship="bazaUlazniceModel.FK__KupljeneK__IdKor__68487DD7" FromRole="KupljeneKarte" ToRole="Korisnik" />
         </EntityType>
         <EntityType Name="Lokacija">
           <Key>
@@ -418,18 +405,6 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
           <Property Name="imevrste" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Karta" Relationship="Self.FK__Karta__IdVrstaka__4E88ABD4" FromRole="VrstaKarte" ToRole="Karta" />
         </EntityType>
-        <Association Name="FK__Burza__IdKupac__534D60F1">
-          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
-          <End Role="Burza" Type="Self.Burza" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Korisnik">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Burza">
-              <PropertyRef Name="IdKupac" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Dogadjaj__IdLoka__4D94879B">
           <End Role="Lokacija" Type="Self.Lokacija" Multiplicity="1" />
           <End Role="Dogadjaj" Type="Self.Dogadjaj" Multiplicity="*" />
@@ -514,18 +489,6 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KupljeneK__IdKor__4BAC3F29">
-          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
-          <End Role="KupljeneKarte" Type="Self.KupljeneKarte" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Korisnik">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="KupljeneKarte">
-              <PropertyRef Name="IdKorisnik" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="bazaUlazniceEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Burza" EntityType="Self.Burza" />
           <EntitySet Name="Dogadjaj" EntityType="Self.Dogadjaj" />
@@ -533,14 +496,9 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
           <EntitySet Name="Karta" EntityType="Self.Karta" />
           <EntitySet Name="Kazaliste" EntityType="Self.Kazaliste" />
           <EntitySet Name="Klub" EntityType="Self.Klub" />
-          <EntitySet Name="Korisnik" EntityType="Self.Korisnik" />
           <EntitySet Name="KupljeneKarte" EntityType="Self.KupljeneKarte" />
           <EntitySet Name="Lokacija" EntityType="Self.Lokacija" />
           <EntitySet Name="VrstaKarte" EntityType="Self.VrstaKarte" />
-          <AssociationSet Name="FK__Burza__IdKupac__534D60F1" Association="Self.FK__Burza__IdKupac__534D60F1">
-            <End Role="Korisnik" EntitySet="Korisnik" />
-            <End Role="Burza" EntitySet="Burza" />
-          </AssociationSet>
           <AssociationSet Name="FK__Dogadjaj__IdLoka__4D94879B" Association="Self.FK__Dogadjaj__IdLoka__4D94879B">
             <End Role="Lokacija" EntitySet="Lokacija" />
             <End Role="Dogadjaj" EntitySet="Dogadjaj" />
@@ -569,10 +527,6 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
             <End Role="Karta" EntitySet="Karta" />
             <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
           </AssociationSet>
-          <AssociationSet Name="FK__KupljeneK__IdKor__4BAC3F29" Association="Self.FK__KupljeneK__IdKor__4BAC3F29">
-            <End Role="Korisnik" EntitySet="Korisnik" />
-            <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
-          </AssociationSet>
           <EntitySet Name="Izvodjac" EntityType="bazaUlazniceModel.Izvodjac" />
           <EntitySet Name="Koncert" EntityType="bazaUlazniceModel.Koncert" />
           <AssociationSet Name="FK__Koncert__IdDogad__5EBF139D" Association="bazaUlazniceModel.FK__Koncert__IdDogad__5EBF139D">
@@ -582,6 +536,15 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
           <AssociationSet Name="FK__Koncert__IdIzvod__5FB337D6" Association="bazaUlazniceModel.FK__Koncert__IdIzvod__5FB337D6">
             <End Role="Izvodjac" EntitySet="Izvodjac" />
             <End Role="Koncert" EntitySet="Koncert" />
+          </AssociationSet>
+          <EntitySet Name="Korisnik" EntityType="bazaUlazniceModel.Korisnik" />
+          <AssociationSet Name="FK__Burza__IdKupac__693CA210" Association="bazaUlazniceModel.FK__Burza__IdKupac__693CA210">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Burza" EntitySet="Burza" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KupljeneK__IdKor__68487DD7" Association="bazaUlazniceModel.FK__KupljeneK__IdKor__68487DD7">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Izvodjac">
@@ -623,6 +586,45 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
             </Principal>
             <Dependent Role="Koncert">
               <PropertyRef Name="IdIzvodjac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Korisnik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="korisnickoime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lozinka" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="prezime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OIB" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="IdGrad" Type="Int32" />
+          <NavigationProperty Name="Burza" Relationship="bazaUlazniceModel.FK__Burza__IdKupac__693CA210" FromRole="Korisnik" ToRole="Burza" />
+          <NavigationProperty Name="KupljeneKarte" Relationship="bazaUlazniceModel.FK__KupljeneK__IdKor__68487DD7" FromRole="Korisnik" ToRole="KupljeneKarte" />
+        </EntityType>
+        <Association Name="FK__Burza__IdKupac__693CA210">
+          <End Type="bazaUlazniceModel.Korisnik" Role="Korisnik" Multiplicity="0..1" />
+          <End Type="bazaUlazniceModel.Burza" Role="Burza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Burza">
+              <PropertyRef Name="IdKupac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KupljeneK__IdKor__68487DD7">
+          <End Type="bazaUlazniceModel.Korisnik" Role="Korisnik" Multiplicity="1" />
+          <End Type="bazaUlazniceModel.KupljeneKarte" Role="KupljeneKarte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KupljeneKarte">
+              <PropertyRef Name="IdKorisnik" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -693,19 +695,6 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Korisnik">
-            <EntityTypeMapping TypeName="bazaUlazniceModel.Korisnik">
-              <MappingFragment StoreEntitySet="Korisnik">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="korisnickoime" ColumnName="korisnickoime" />
-                <ScalarProperty Name="ime" ColumnName="ime" />
-                <ScalarProperty Name="prezime" ColumnName="prezime" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="OIB" ColumnName="OIB" />
-                <ScalarProperty Name="IdGrad" ColumnName="IdGrad" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="KupljeneKarte">
             <EntityTypeMapping TypeName="bazaUlazniceModel.KupljeneKarte">
               <MappingFragment StoreEntitySet="KupljeneKarte">
@@ -746,6 +735,20 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
               <MappingFragment StoreEntitySet="Koncert">
                 <ScalarProperty Name="IdIzvodjac" ColumnName="IdIzvodjac" />
                 <ScalarProperty Name="IdDogadjaj" ColumnName="IdDogadjaj" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Korisnik">
+            <EntityTypeMapping TypeName="bazaUlazniceModel.Korisnik">
+              <MappingFragment StoreEntitySet="Korisnik">
+                <ScalarProperty Name="IdGrad" ColumnName="IdGrad" />
+                <ScalarProperty Name="OIB" ColumnName="OIB" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="lozinka" ColumnName="lozinka" />
+                <ScalarProperty Name="korisnickoime" ColumnName="korisnickoime" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
