@@ -11,6 +11,7 @@ namespace Ulaznicar.Models
 {
     using System;
     using System.Collections.Generic;
+    using PagedList;
     
     public partial class Dogadjaj
     {

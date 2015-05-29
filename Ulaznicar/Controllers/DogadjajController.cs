@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Ulaznicar.Models;
+using PagedList;
 
 namespace Ulaznicar.Controllers
 {
@@ -14,11 +15,57 @@ namespace Ulaznicar.Controllers
     {
         private bazaUlazniceEntities db = new bazaUlazniceEntities();
 
+
         // GET: Dogadjaj
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var dogadjaj = db.Dogadjaj.Include(d => d.Lokacija);
-            return View(dogadjaj.ToList());
+
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NazivSortParm = String.IsNullOrEmpty(sortOrder) ? "naziv_desc" : "";
+            ViewBag.DatumSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.LokSortParm = String.IsNullOrEmpty(sortOrder) ? "lok_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var dogadjaj = db.Dogadjaj.Where(s => s.datum >= DateTime.Today).Include(d => d.Lokacija);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                dogadjaj = dogadjaj.Where(s => s.naziv.Contains(searchString)
+                                       || s.Lokacija.naziv.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "naziv_desc":
+                    dogadjaj = dogadjaj.OrderByDescending(s => s.naziv);
+                    break;
+                case "Date":
+                    dogadjaj = dogadjaj.OrderByDescending(s => s.datum);
+                    break;
+                case "date_desc":
+                    dogadjaj = dogadjaj.OrderByDescending(s => s.datum);
+                    break;
+                case "lok_desc":
+                    dogadjaj = dogadjaj.OrderByDescending(s => s.Lokacija.naziv);
+                    break;
+                default:  // Name ascending 
+                    dogadjaj = dogadjaj.OrderBy(s => s.datum);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(dogadjaj.ToPagedList(pageNumber, pageSize));
+
         }
 
         // GET: Dogadjaj/Details/5
@@ -119,7 +166,17 @@ namespace Ulaznicar.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult Show(byte[] plakat)
+        {
+            if (plakat == null)
+            {
+                return base.File("~/Content/noimage.png", "image/png");
+            }
 
+            return new FileContentResult(plakat, "img/gif");
+        }
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)

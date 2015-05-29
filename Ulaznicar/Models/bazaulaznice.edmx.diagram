@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d3dc8e5e0f694a37bcd0f42cffef6fdc" Name="Diagram1">
+      <Diagram DiagramId="d3dc8e5e0f694a37bcd0f42cffef6fdc" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="bazaUlazniceModel.Burza" Width="1.5" PointX="9.75" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Dogadjaj" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Grad" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Karta" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Kazaliste" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaUlazniceModel.Klub" Width="1.5" PointX="7.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaUlazniceModel.Klub" Width="1.5" PointX="5.625" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.KupljeneKarte" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Lokacija" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaUlazniceModel.VrstaKarte" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaUlazniceModel.VrstaKarte" Width="1.5" PointX="5.375" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Dogadjaj__IdLoka__4D94879B" ManuallyRouted="false" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Karta__IdDogadja__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Kazaliste__IdDog__59063A47" ManuallyRouted="false" />

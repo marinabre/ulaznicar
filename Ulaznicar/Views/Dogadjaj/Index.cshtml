@@ -1,36 +1,53 @@
-﻿@model IEnumerable<Ulaznicar.Models.Dogadjaj>
+﻿@model PagedList.IPagedList<Ulaznicar.Models.Dogadjaj>
+@using PagedList;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+
+@*@model IEnumerable<Ulaznicar.Models.Dogadjaj>*@
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Popis događaja";
 }
 
-<h2>Index</h2>
+<h2>Događaji</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj novi događaj", "Create")
 </p>
+@using (Html.BeginForm("Index", "Događaj", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.naziv)
+            Plakat
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.datum)
+            @Html.ActionLink("Naziv", "Index", new { sortOrder = ViewBag.NazivSortParm, currentFilter=ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.brojmjesta)
+            @Html.ActionLink("Datum održavanja", "Index", new { sortOrder = ViewBag.DatumSortParm, currentFilter=ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.plakat)
+           @Html.ActionLink("Lokacija", "Index", new { sortOrder = ViewBag.LokSortParm, currentFilter=ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Lokacija.adresa)
+            Broj mjesta
         </th>
+
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @<img id="the-image" src="@Url.Action("Show", "Dogadjaj", new { plakat = item.plakat })" style="max-height:250px; max-width:300px; border-radius:10px" />
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.naziv)
         </td>
@@ -38,20 +55,23 @@
             @Html.DisplayFor(modelItem => item.datum)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.brojmjesta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.plakat)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Lokacija.adresa)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.DisplayFor(modelItem => item.brojmjesta)
+        </td>
+        <td>
+            @Html.ActionLink("Uredi", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
 
 </table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
