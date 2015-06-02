@@ -11,6 +11,9 @@ using Gma.QrCodeNet.Encoding;
 using Gma.QrCodeNet.Encoding.Windows.Controls;
 using System.Drawing;
 using System.Drawing.Imaging;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 
 namespace Ulaznicar.Controllers
 {
@@ -21,7 +24,18 @@ namespace Ulaznicar.Controllers
         // GET: Karta
         public ActionResult Index()
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            var userUserName = User.Identity.GetUserName();
+            var id = (context.Korisnik.Where(x => x.korisnickoime == userUserName).First()).Id;
+
+            var kupljene = context.KupljeneKarte.Where(x => x.IdKorisnik == id);
+            List<Karta> karte = new List<Karta>();
+
+            foreach (var kup in kupljene)
+            {
+                karte.Add(context.Karta.Find(kup.IdKarta));
+            }
+            return View(karte);
         }
 
         // GET: Karta/Details/5
