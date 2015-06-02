@@ -24,6 +24,7 @@
                     <li>@Html.ActionLink("Početna", "Index", "Home")</li>
                     <li>@Html.ActionLink("O ulazničaru", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Popis događaja", "Common", "Dogadjaj")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -40,6 +41,5 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    @*@RenderSection("body", required: false)*@
 </body>
 </html>

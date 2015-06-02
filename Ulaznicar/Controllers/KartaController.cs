@@ -14,6 +14,7 @@ using System.Drawing.Imaging;
 
 namespace Ulaznicar.Controllers
 {
+    
     public class KartaController : Controller
     {
         bazaUlazniceEntities context = new bazaUlazniceEntities();
@@ -65,14 +66,16 @@ namespace Ulaznicar.Controllers
         }
 
         // GET: Karta/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Pokloni(int id)
         {
-            return View();
+            var karta = context.Karta.Find(id);
+            ViewBag.IdKorisnik = new SelectList(context.Korisnik, "Id", "korisnickoime");
+            return View(karta);
         }
 
         // POST: Karta/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Pokloni(int id, FormCollection collection)
         {
             try
             {

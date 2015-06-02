@@ -18,6 +18,12 @@ namespace Ulaznicar.Controllers
         public ActionResult Index()
         {
             var burza = db.Burza.Include(b => b.Korisnik);
+            List<Dogadjaj> dogadjaj = new List<Dogadjaj>(); 
+            foreach (var kar in burza)
+            {
+                dogadjaj.Add(db.Dogadjaj.Find(((db.Karta.Find(kar.IdKarta)).IdDogadjaj)));
+            }
+            ViewBag.dogadjaji = dogadjaj;
             return View(burza.ToList());
         }
 

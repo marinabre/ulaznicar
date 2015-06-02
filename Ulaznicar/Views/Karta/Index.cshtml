@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Ulaznicar.Models.Karta>
+
+@{
+    ViewBag.Title = "Moje ulaznice";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Kupi novu", "Index", "Dogadjaj")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.QR_KOD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dogadjaj.naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cijena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.brojkarte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VrstaKarte.imevrste)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        @if (item.Dogadjaj.datum <= DateTime.Today)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.QR_KOD)
+            </td>
+        }
+        <td>
+            @Html.DisplayFor(modelItem => item.Dogadjaj.naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cijena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.brojkarte)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.VrstaKarte.imevrste)
+        </td>
+        <td>
+            @Html.ActionLink("Stavi na burzu", "Edit", "Burza", new { id = item.Id }) |
+            @Html.ActionLink("Detalji", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Pokloni prijatelju", "Pokloni", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

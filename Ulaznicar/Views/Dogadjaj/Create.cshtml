@@ -1,22 +1,21 @@
 ﻿@model Ulaznicar.Models.Dogadjaj
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Stvori novi događaj";
 }
 
-<h2>Create</h2>
+<h2>Stvori novi događaj</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Dogadjaj", null, FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Dogadjaj</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.naziv, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Naziv", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.naziv, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.naziv, "", new { @class = "text-danger" })
@@ -24,7 +23,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.datum, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Datum", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.datum, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.datum, "", new { @class = "text-danger" })
@@ -32,7 +31,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdLokacija, "IdLokacija", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.IdLokacija, "Lokacija", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdLokacija", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdLokacija, "", new { @class = "text-danger" })
@@ -40,7 +39,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.brojmjesta, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Broj mjesta", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.brojmjesta, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.brojmjesta, "", new { @class = "text-danger" })
@@ -48,9 +47,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.plakat, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Plakat", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.plakat, new { htmlAttributes = new { @class = "form-control" } })
+                <input type="file" id="image" name="upload" />
                 @Html.ValidationMessageFor(model => model.plakat, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -64,7 +63,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Natrag na popis", "Index")
 </div>
 
 @section Scripts {

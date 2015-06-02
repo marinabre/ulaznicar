@@ -8,13 +8,13 @@ using System.Web;
 using System.Web.Mvc;
 using Ulaznicar.Models;
 using PagedList;
+using System.Data.Entity.Infrastructure;
 
 namespace Ulaznicar.Controllers
 {
     public class DogadjajController : Controller
     {
         private bazaUlazniceEntities db = new bazaUlazniceEntities();
-
 
         // GET: Dogadjaj
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
@@ -95,16 +95,31 @@ namespace Ulaznicar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,naziv,datum,IdLokacija,brojmjesta,plakat")] Dogadjaj dogadjaj)
+        public ActionResult Create(HttpPostedFileBase upload, [Bind(Include = "Id,naziv,datum,IdLokacija,brojmjesta,plakat")] Dogadjaj dogadjaj)
         {
-            if (ModelState.IsValid)
+             try
             {
-                db.Dogadjaj.Add(dogadjaj);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        dogadjaj.plakat = reader.ReadBytes(upload.ContentLength);
+                    }
+                }
+                if (ModelState.IsValid)
+                {
+                    db.Dogadjaj.Add(dogadjaj);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.IdLokacija = new SelectList(db.Lokacija, "Id", "adresa", dogadjaj.IdLokacija);
+                ViewBag.IdLokacija = new SelectList(db.Lokacija, "Id", "adresa", dogadjaj.IdLokacija);
+            }
+             catch (RetryLimitExceededException /* dex */  )
+             {
+                 //Log the error (uncomment dex variable name and add a line here to write a log.
+                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+             }
             return View(dogadjaj);
         }
 

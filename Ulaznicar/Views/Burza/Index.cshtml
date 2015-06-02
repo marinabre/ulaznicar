@@ -4,27 +4,27 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Karte na burzi</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Stavi svoju kartu na burzu", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.IdKarta)
+            Karta za dogadjaj
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.datumponude)
+            Datum ponude
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.datumprodaje)
+            Datum prodaje
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cijena)
+            Cijena
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Korisnik.korisnickoime)
+            Kupac
         </th>
         <th></th>
     </tr>
@@ -32,7 +32,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.IdKarta)
+            @Html.DisplayFor(modelItem => item.Karta.Dogadjaj.naziv)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.datumponude)
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.Korisnik.korisnickoime)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Uredi", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

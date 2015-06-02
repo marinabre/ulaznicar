@@ -22,5 +22,6 @@ namespace Ulaznicar.Models
         public decimal cijena { get; set; }
     
         public virtual Korisnik Korisnik { get; set; }
+        public virtual Karta Karta { get; set; }
     }
 }
