@@ -8,6 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using Ulaznicar.Models;
 using PagedList;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using System.Data.Entity.Infrastructure;
 
 namespace Ulaznicar.Controllers
@@ -19,6 +22,11 @@ namespace Ulaznicar.Controllers
         // GET: Dogadjaj
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            var userId = User.Identity.GetUserId();
+            var userUserName = User.Identity.GetUserName();
+            ViewBag.user = userUserName;
+
+
 
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NazivSortParm = String.IsNullOrEmpty(sortOrder) ? "naziv_desc" : "";

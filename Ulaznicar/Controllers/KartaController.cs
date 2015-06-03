@@ -14,6 +14,7 @@ using System.Drawing.Imaging;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System.IO;
 
 namespace Ulaznicar.Controllers
 {
@@ -47,42 +48,75 @@ namespace Ulaznicar.Controllers
         // GET: Karta/Create
         public ActionResult Create(int id)
         {
+            var userId = User.Identity.GetUserId();
+            var userUserName = User.Identity.GetUserName();
+            var idkorisnik = (context.Korisnik.Where(x => x.korisnickoime == userUserName).First()).Id;
+
+
             var dogadjaj = context.Dogadjaj.Find(id);
             var brojevnostanje = (context.Karta.Where(x => x.IdDogadjaj == id)).Max(x => x.brojkarte);
             if (dogadjaj.brojmjesta - brojevnostanje > 0)
             {
-                //QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.H);
-                //QrCode qrCode = qrEncoder.Encode("stvari ke idu unutra");
+                string zastitni = id.ToString() + " " + (brojevnostanje + 1).ToString();
+                QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.H);
+                QrCode qrCode = qrEncoder.Encode(zastitni);
 
-                //Renderer renderer = new Renderer(5, Brushes.Black, Brushes.White);
-                //renderer.CreateImageFile(qrCode.Matrix, @"c:\temp\HelloWorld.png", ImageFormat.Png);
+                Renderer renderer = new Renderer(5, Brushes.Black, Brushes.White);
+                Stream memoryStream = new MemoryStream();
+                renderer.WriteToStream(qrCode.Matrix, memoryStream, ImageFormat.Png);
+
+                memoryStream.Position = 0;
+                byte[] kod = ((MemoryStream)memoryStream).ToArray();
+
+                Karta novaKarta = new Karta
+                {
+                    IdDogadjaj = id,
+                    QR_KOD = kod,
+                    brojkarte = brojevnostanje + 1,
+                    IdVrstakarte = 1,
+                    cijena = 20m
+                };
+
+                context.Karta.Add(novaKarta);
+                context.SaveChanges();
+
+                KupljeneKarte kup = new KupljeneKarte
+                {
+                    IdKarta = context.Karta.FirstOrDefault(k => k.brojkarte == brojevnostanje + 1).Id,
+                    IdKorisnik = idkorisnik
+                };
+
+                context.KupljeneKarte.Add(kup);
+                context.SaveChanges();
+
+               // return RedirectToAction("Index");
             }
 
-
-
-            return View();
+            return RedirectToAction("Index");
         }
 
-        // POST: Karta/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
+        //// POST: Karta/Create
+        //[HttpPost]
+        //public ActionResult Create(FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
         // GET: Karta/Edit/5
+
         public ActionResult Pokloni(int id)
         {
             var karta = context.Karta.Find(id);
+            ViewBag.odabran = karta.Dogadjaj;
             ViewBag.IdKorisnik = new SelectList(context.Korisnik, "Id", "korisnickoime");
             return View(karta);
         }

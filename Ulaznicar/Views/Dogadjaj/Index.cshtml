@@ -65,7 +65,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.brojmjesta)
         </td>
-        @if (Request.IsAuthenticated)
+        @if (ViewBag.user == "ADMIN")
         {
         <td>
             @Html.ActionLink("Uredi", "Edit", new { id=item.Id }) |
@@ -73,6 +73,13 @@
             @Html.ActionLink("Izbriši", "Delete", new { id=item.Id })
         </td>
         }
+        @if (Request.IsAuthenticated)
+        {
+            <td>
+                @Html.ActionLink("Kupi ulaznicu!", "Create", "Karta", new { id = item.Id })
+            </td>
+        }
+
     </tr>
 }
 

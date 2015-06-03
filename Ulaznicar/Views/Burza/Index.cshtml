@@ -46,11 +46,20 @@
         <td>
             @Html.DisplayFor(modelItem => item.Korisnik.korisnickoime)
         </td>
-        <td>
-            @Html.ActionLink("Uredi", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Detalji", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Izbriši", "Delete", new { id=item.Id })
-        </td>
+        @if (ViewBag.user == "ADMIN")
+        {
+            <td>
+                @Html.ActionLink("Uredi", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalji", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Izbriši", "Delete", new { id = item.Id })
+            </td>
+        }
+        @if (Request.IsAuthenticated)
+        {
+            <td>
+                @Html.ActionLink("Kupi ulaznicu!", "Edit", new { id = item.IdKarta })
+            </td>
+        }
     </tr>
 }
 

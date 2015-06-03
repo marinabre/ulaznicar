@@ -1,0 +1,62 @@
+﻿@model Ulaznicar.Models.KupljeneKarte
+
+@{
+    ViewBag.Title = "Pokloni";
+}
+
+<h2>Pokloni</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>KupljeneKarte</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.IdKarta)
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.IdKarta, "IdKarta", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdKarta", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdKarta, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdKarta, "Odabrana ulaznica", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <p>@Html.ViewBag.odabran.naziv</p>
+                <p>@Html.ViewBag.odabran.datum</p>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdKorisnik, "Korisničko ime", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdKorisnik", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdKorisnik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Vrati se na popis kupljenih ulaznica", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
