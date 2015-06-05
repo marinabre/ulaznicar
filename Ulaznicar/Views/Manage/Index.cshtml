@@ -7,7 +7,7 @@
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Uredite podatke o svojem korisničkom računu</h4>
+    <h4>Ažurirajte podatke o svojem korisničkom računu</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>Lozinka:</dt>
@@ -35,13 +35,13 @@
         <dd>[]</dd>
 @if (ViewBag.user == "ADMIN")
 {
-    <dt>Uredi lokacije</dt>
+    <dt>Ažuriraj lokacije</dt>
     <dd>[@Html.ActionLink("Lokacije", "Index", "Lokacija")]</dd>
-    <dt>Uredi događaje</dt>
+    <dt>Ažuriraj događaje</dt>
     <dd>[@Html.ActionLink("Događaji", "Index", "Dogadjaj")]</dd>
-    <dt>Uredi vrste karata</dt>
+    <dt>Ažuriraj vrste karata</dt>
     <dd>[@Html.ActionLink("Vrste karata", "Index", "VrstaKarte")]</dd>
-    <dt>Uredi cijene karata</dt>
+    <dt>Ažuriraj cijene karata</dt>
     <dd>[@Html.ActionLink("Cijene karata", "Index", "CijenaKarte")]</dd>
 
 }
