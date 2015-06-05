@@ -59,7 +59,7 @@ namespace Ulaznicar.Controllers
             if (userUserName == "ADMIN")
             {
                 ViewBag.IdDogadjaj = new SelectList(db.Dogadjaj, "Id", "naziv");
-                ViewBag.IdVrstaKarte = new SelectList(db.VrstaKarte, "Id", "IdLokacija" + "imekategorije");
+                ViewBag.IdVrstaKarte = new SelectList(db.VrstaKarte, "Id", "imekategorije");
                 return View();
             }
             return RedirectToAction("Index", "Dogadjaj");
