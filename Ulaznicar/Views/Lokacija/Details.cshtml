@@ -1,17 +1,17 @@
 ﻿@model Ulaznicar.Models.Lokacija
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalji";
 }
 
-<h2>Details</h2>
+<h2>Detalji</h2>
 
 <div>
     <h4>Lokacija</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.adresa)
+            Adresa
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.naziv)
+            Naziv
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Grad.imegrad)
+            Ime grada
         </dt>
 
         <dd>
@@ -37,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Uredi", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Povratak na popis", "Index")
 </p>

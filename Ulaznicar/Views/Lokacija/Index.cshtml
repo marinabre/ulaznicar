@@ -1,24 +1,24 @@
 ﻿@model IEnumerable<Ulaznicar.Models.Lokacija>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Popis lokacija";
 }
 
-<h2>Index</h2>
+<h2>Popis lokacija</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Stvori novu", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.adresa)
+            Adresa
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.naziv)
+            Naziv
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Grad.imegrad)
+            Ime grada
         </th>
         <th></th>
     </tr>
@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.Grad.imegrad)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Uredi", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

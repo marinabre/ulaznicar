@@ -1,10 +1,10 @@
 ﻿@model Ulaznicar.Models.Lokacija
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Stvori";
 }
 
-<h2>Create</h2>
+<h2>Stvori novu lokaciju</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -15,7 +15,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.adresa, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.adresa,"Adresa", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.adresa, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.adresa, "", new { @class = "text-danger" })
@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.naziv, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.naziv,"Naziv", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.naziv, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.naziv, "", new { @class = "text-danger" })
@@ -31,7 +31,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdGrad, "IdGrad", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.IdGrad, "Grad", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdGrad", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdGrad, "", new { @class = "text-danger" })
@@ -47,5 +47,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Povratak na popis", "Index")
 </div>

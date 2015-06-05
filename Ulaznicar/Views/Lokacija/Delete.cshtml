@@ -1,18 +1,18 @@
 ﻿@model Ulaznicar.Models.Lokacija
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Izbriši";
 }
 
-<h2>Delete</h2>
+<h2>Izbriši</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Jeste li sigurni da želite izbrisati ovaj zapis?</h3>
 <div>
     <h4>Lokacija</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.adresa)
+            Adresa
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.naziv)
+            Naziv
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Grad.imegrad)
+            Ime grada
         </dt>
 
         <dd>
@@ -42,7 +42,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Povratak na popis", "Index")
         </div>
     }
 </div>

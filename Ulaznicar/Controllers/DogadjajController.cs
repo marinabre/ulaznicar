@@ -96,7 +96,7 @@ namespace Ulaznicar.Controllers
         // GET: Dogadjaj/Create
         public ActionResult Create()
         {
-            ViewBag.IdLokacija = new SelectList(db.Lokacija, "Id", "adresa");
+            ViewBag.IdLokacija = new SelectList(db.Lokacija, "Id", "naziv");
             return View();
         }
 
