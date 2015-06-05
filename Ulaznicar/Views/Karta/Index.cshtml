@@ -42,14 +42,14 @@
             @Html.DisplayFor(modelItem => item.Dogadjaj.naziv)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cijena)
+            @Html.DisplayFor(modelItem => item.CijenaKarte.cijena)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.brojkarte)
         </td>
 
         <td>
-            @Html.DisplayFor(modelItem => item.VrstaKarte.imevrste)
+            @Html.DisplayFor(modelItem => item.CijenaKarte.VrstaKarte.imekategorije)
         </td>
         <td>
             @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { id = item.Id }) |
