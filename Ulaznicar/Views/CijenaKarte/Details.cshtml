@@ -1,0 +1,42 @@
+﻿@model Ulaznicar.Models.CijenaKarte
+
+@{
+    ViewBag.Title = "Detalji";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    <h4>Cijena karte</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Cijena
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cijena)
+        </dd>
+
+        <dt>
+            Naziv događaja
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dogadjaj.naziv)
+        </dd>
+
+        <dt>
+            Ime kategorije karte
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VrstaKarte.imekategorije)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Uredi", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Povratak na popis", "Index")
+</p>

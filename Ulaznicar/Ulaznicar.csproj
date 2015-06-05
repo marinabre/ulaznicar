@@ -181,11 +181,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BurzaController.cs" />
+    <Compile Include="Controllers\CijenaKarteController.cs" />
     <Compile Include="Controllers\DogadjajController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KartaController.cs" />
     <Compile Include="Controllers\LokacijaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\VrstaKarteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -345,6 +347,16 @@
     <Content Include="Views\Lokacija\Details.cshtml" />
     <Content Include="Views\Lokacija\Edit.cshtml" />
     <Content Include="Views\Lokacija\Index.cshtml" />
+    <Content Include="Views\VrstaKarte\Create.cshtml" />
+    <Content Include="Views\VrstaKarte\Delete.cshtml" />
+    <Content Include="Views\VrstaKarte\Details.cshtml" />
+    <Content Include="Views\VrstaKarte\Edit.cshtml" />
+    <Content Include="Views\VrstaKarte\Index.cshtml" />
+    <Content Include="Views\CijenaKarte\Create.cshtml" />
+    <Content Include="Views\CijenaKarte\Delete.cshtml" />
+    <Content Include="Views\CijenaKarte\Details.cshtml" />
+    <Content Include="Views\CijenaKarte\Edit.cshtml" />
+    <Content Include="Views\CijenaKarte\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

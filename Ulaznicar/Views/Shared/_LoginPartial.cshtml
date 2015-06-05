@@ -5,10 +5,16 @@
     {
     @Html.AntiForgeryToken()
     <ul class="nav navbar-nav">
-        <li>
-            @Html.ActionLink("Burza", "Index", "Burza")
-        </li>
+
+        <li>@Html.ActionLink("Burza", "Index", "Burza")</li>
         <li>@Html.ActionLink("Moje ulaznice", "Index", "Karta")</li>
+
+        @if (User.Identity.GetUserName() == "ADMIN")
+        {
+            <li>@Html.ActionLink("Lokacije", "Index", "Lokacija")</li>
+            <li>@Html.ActionLink("Vrste karata", "Index", "VrstaKarte")</li>
+            <li>@Html.ActionLink("Cijene karata", "Index", "CijenaKarte")</li>
+        }
     </ul>
 
 

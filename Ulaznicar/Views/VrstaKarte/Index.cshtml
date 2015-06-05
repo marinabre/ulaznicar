@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Ulaznicar.Models.VrstaKarte>
+
+@{
+    ViewBag.Title = "Vrste Karata";
+}
+
+<h2>Vrste Karata</h2>
+
+<p>
+    @Html.ActionLink("Stvori novu", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Naziv lokacije
+        </th>
+        <th>
+            Ime kategorije karte
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lokacija.naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imekategorije)
+        </td>
+
+        <td>
+            @Html.ActionLink("Uredi", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
