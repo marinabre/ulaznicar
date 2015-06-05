@@ -154,10 +154,23 @@ namespace Ulaznicar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,naziv,datum,IdLokacija,brojmjesta,plakat")] Dogadjaj dogadjaj)
+        public ActionResult Edit(HttpPostedFileBase upload, [Bind(Include = "Id,naziv,datum,IdLokacija,brojmjesta,plakat")] Dogadjaj dogadjaj)
         {
+            if (upload == null)
+            {
+                var dogadjaji = (db.Dogadjaj.AsNoTracking().Where(x => x.Id == dogadjaj.Id));
+                dogadjaj.plakat = dogadjaji.FirstOrDefault(x => x.Id == dogadjaj.Id).plakat;
+            }
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        dogadjaj.plakat = reader.ReadBytes(upload.ContentLength);
+                    }
+                }
+
                 db.Entry(dogadjaj).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
