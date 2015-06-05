@@ -46,15 +46,36 @@ namespace Ulaznicar.Controllers
         }
 
         // GET: Karta/Create
-        public ActionResult Create(int id)
+        public ActionResult Create(int id , int? idcijena)
         {
-            var userId = User.Identity.GetUserId();
-            var userUserName = User.Identity.GetUserName();
-            var idkorisnik = (context.Korisnik.Where(x => x.korisnickoime == userUserName).First()).Id;
-
-
             var dogadjaj = context.Dogadjaj.Find(id);
             var brojevnostanje = (context.Karta.Where(x => x.IdDogadjaj == id)).Max(x => x.brojkarte);
+
+            //provjera da nije vec stvorena karta, a da je netko odustao od kupovine
+            var kupljene = context.KupljeneKarte;
+            var karte = context.Karta.Where(x => x.IdDogadjaj == id);
+            foreach (var kart in karte)
+            {
+                if (kupljene.FirstOrDefault(x => x.IdKarta == kart.Id) == null && kart.IdCijena == idcijena)
+                {
+                    return RedirectToAction("Kupovina", kart.Id);
+                }
+            }
+
+            if (idcijena == null)
+            {
+                var cijena = context.CijenaKarte.Where(x => x.IdDogadjaj == id);
+
+                if (cijena.Count(x => x.IdDogadjaj == id) == 1)
+                {
+                    idcijena = cijena.First(x => x.IdDogadjaj == id).Id;
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Niste odabrali koju vrstu ulaznice želite!");
+                    return RedirectToAction("Details", "Dogadjaj", id);
+                }
+            }
             if (dogadjaj.brojmjesta - brojevnostanje > 0)
             {
                 string zastitni = id.ToString() + " " + (brojevnostanje + 1).ToString();
@@ -70,32 +91,25 @@ namespace Ulaznicar.Controllers
 
                 Karta novaKarta = new Karta
                 {
+                    zastitnikod = zastitni,
                     IdDogadjaj = id,
                     QR_KOD = kod,
                     brojkarte = brojevnostanje + 1,
-                    IdVrstakarte = 1,
-                    cijena = 20m
+                    IdCijena = (int)idcijena
                 };
 
                 context.Karta.Add(novaKarta);
                 context.SaveChanges();
 
-                KupljeneKarte kup = new KupljeneKarte
-                {
-                    IdKarta = context.Karta.FirstOrDefault(k => k.brojkarte == brojevnostanje + 1).Id,
-                    IdKorisnik = idkorisnik
-                };
+                var idkarte = context.Karta.Where(x => x.zastitnikod == zastitni);
 
-                context.KupljeneKarte.Add(kup);
-                context.SaveChanges();
-
-               // return RedirectToAction("Index");
+                return RedirectToAction("Kupovina", idkarte);
             }
 
             return RedirectToAction("Index");
         }
 
-        //// POST: Karta/Create
+        // POST: Karta/Create
         //[HttpPost]
         //public ActionResult Create(FormCollection collection)
         //{
@@ -118,16 +132,22 @@ namespace Ulaznicar.Controllers
             var karta = context.Karta.Find(id);
             ViewBag.odabran = karta.Dogadjaj;
             ViewBag.IdKorisnik = new SelectList(context.Korisnik, "Id", "korisnickoime");
-            return View(karta);
+            var kupljena = context.KupljeneKarte.Where(x => x.IdKarta == id);
+            return View(kupljena);
         }
 
         // POST: Karta/Edit/5
         [HttpPost]
-        public ActionResult Pokloni(int id, FormCollection collection)
+        public ActionResult Pokloni([Bind(Include = "Id,IdKorisnik,IdKarta")] KupljeneKarte kupljenakarta)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    context.Entry(kupljenakarta).State = EntityState.Modified;
+                    context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
                 return RedirectToAction("Index");
             }
@@ -136,6 +156,49 @@ namespace Ulaznicar.Controllers
                 return View();
             }
         }
+
+        public ActionResult Kupovina(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var userUserName = User.Identity.GetUserName();
+            var korisnik = (context.Korisnik.Where(x => x.korisnickoime == userUserName).First());
+
+            var karta = context.Karta.Find(id);
+
+            ViewBag.naziv = karta.Dogadjaj.naziv;
+            ViewBag.datum = karta.Dogadjaj.datum;
+            ViewBag.cijena = karta.CijenaKarte.cijena;
+            ViewBag.korisnik = korisnik;
+
+            return View(karta);
+        }
+
+        public ActionResult Kupovina_konacna(int id)
+        {
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                var userUserName = User.Identity.GetUserName();
+                var korisnik = (context.Korisnik.Where(x => x.korisnickoime == userUserName).First()).Id;
+
+                KupljeneKarte karta = new KupljeneKarte
+                {
+                    IdKarta = id,
+                    IdKorisnik = korisnik
+                };
+
+                context.KupljeneKarte.Add(karta);
+                context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("Kupovina");
+            }
+        }
+
+
 
         // GET: Karta/Delete/5
         public ActionResult Delete(int id)
@@ -158,5 +221,12 @@ namespace Ulaznicar.Controllers
                 return View();
             }
         }
+
+        [HttpGet]
+        public ActionResult Show(byte[] image)
+        {
+            return new FileContentResult(image, "img/gif");
+        }
+
     }
 }

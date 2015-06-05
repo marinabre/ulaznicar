@@ -11,16 +11,16 @@ namespace Ulaznicar.Models
 {
     using System;
     using System.Collections.Generic;
-    using PagedList;
     
     public partial class Dogadjaj
     {
         public Dogadjaj()
         {
-            this.Karta = new HashSet<Karta>();
             this.Kazaliste = new HashSet<Kazaliste>();
             this.Klub = new HashSet<Klub>();
             this.Koncert = new HashSet<Koncert>();
+            this.CijenaKarte = new HashSet<CijenaKarte>();
+            this.Karta = new HashSet<Karta>();
         }
     
         public int Id { get; set; }
@@ -31,9 +31,10 @@ namespace Ulaznicar.Models
         public byte[] plakat { get; set; }
     
         public virtual Lokacija Lokacija { get; set; }
-        public virtual ICollection<Karta> Karta { get; set; }
         public virtual ICollection<Kazaliste> Kazaliste { get; set; }
         public virtual ICollection<Klub> Klub { get; set; }
         public virtual ICollection<Koncert> Koncert { get; set; }
+        public virtual ICollection<CijenaKarte> CijenaKarte { get; set; }
+        public virtual ICollection<Karta> Karta { get; set; }
     }
 }

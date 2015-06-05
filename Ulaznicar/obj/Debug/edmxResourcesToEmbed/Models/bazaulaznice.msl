@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="bazaUlazniceModelStoreContainer" CdmEntityContainer="bazaUlazniceEntities">
-    <EntitySetMapping Name="Burza">
-      <EntityTypeMapping TypeName="bazaUlazniceModel.Burza">
-        <MappingFragment StoreEntitySet="Burza">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdKupac" ColumnName="IdKupac" />
-          <ScalarProperty Name="IdKarta" ColumnName="IdKarta" />
-          <ScalarProperty Name="datumponude" ColumnName="datumponude" />
-          <ScalarProperty Name="datumprodaje" ColumnName="datumprodaje" />
-          <ScalarProperty Name="cijena" ColumnName="cijena" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Dogadjaj">
       <EntityTypeMapping TypeName="bazaUlazniceModel.Dogadjaj">
         <MappingFragment StoreEntitySet="Dogadjaj">
@@ -33,19 +21,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Karta">
-      <EntityTypeMapping TypeName="bazaUlazniceModel.Karta">
-        <MappingFragment StoreEntitySet="Karta">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdVrstakarte" ColumnName="IdVrstakarte" />
-          <ScalarProperty Name="cijena" ColumnName="cijena" />
-          <ScalarProperty Name="IdDogadjaj" ColumnName="IdDogadjaj" />
-          <ScalarProperty Name="zastitnikod" ColumnName="zastitnikod" />
-          <ScalarProperty Name="QR_KOD" ColumnName="QR_KOD" />
-          <ScalarProperty Name="brojkarte" ColumnName="brojkarte" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Kazaliste">
       <EntityTypeMapping TypeName="bazaUlazniceModel.Kazaliste">
         <MappingFragment StoreEntitySet="Kazaliste">
@@ -62,15 +37,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="KupljeneKarte">
-      <EntityTypeMapping TypeName="bazaUlazniceModel.KupljeneKarte">
-        <MappingFragment StoreEntitySet="KupljeneKarte">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdKorisnik" ColumnName="IdKorisnik" />
-          <ScalarProperty Name="IdKarta" ColumnName="IdKarta" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Lokacija">
       <EntityTypeMapping TypeName="bazaUlazniceModel.Lokacija">
         <MappingFragment StoreEntitySet="Lokacija">
@@ -78,14 +44,6 @@
           <ScalarProperty Name="adresa" ColumnName="adresa" />
           <ScalarProperty Name="naziv" ColumnName="naziv" />
           <ScalarProperty Name="IdGrad" ColumnName="IdGrad" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="VrstaKarte">
-      <EntityTypeMapping TypeName="bazaUlazniceModel.VrstaKarte">
-        <MappingFragment StoreEntitySet="VrstaKarte">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="imevrste" ColumnName="imevrste" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -116,6 +74,58 @@
           <ScalarProperty Name="ime" ColumnName="ime" />
           <ScalarProperty Name="lozinka" ColumnName="lozinka" />
           <ScalarProperty Name="korisnickoime" ColumnName="korisnickoime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Burza">
+      <EntityTypeMapping TypeName="bazaUlazniceModel.Burza">
+        <MappingFragment StoreEntitySet="Burza">
+          <ScalarProperty Name="cijena" ColumnName="cijena" />
+          <ScalarProperty Name="datumprodaje" ColumnName="datumprodaje" />
+          <ScalarProperty Name="datumponude" ColumnName="datumponude" />
+          <ScalarProperty Name="IdKarta" ColumnName="IdKarta" />
+          <ScalarProperty Name="IdKupac" ColumnName="IdKupac" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CijenaKarte">
+      <EntityTypeMapping TypeName="bazaUlazniceModel.CijenaKarte">
+        <MappingFragment StoreEntitySet="CijenaKarte">
+          <ScalarProperty Name="cijena" ColumnName="cijena" />
+          <ScalarProperty Name="IdVrstaKarte" ColumnName="IdVrstaKarte" />
+          <ScalarProperty Name="IdDogadjaj" ColumnName="IdDogadjaj" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Karta">
+      <EntityTypeMapping TypeName="bazaUlazniceModel.Karta">
+        <MappingFragment StoreEntitySet="Karta">
+          <ScalarProperty Name="brojkarte" ColumnName="brojkarte" />
+          <ScalarProperty Name="QR_KOD" ColumnName="QR_KOD" />
+          <ScalarProperty Name="zastitnikod" ColumnName="zastitnikod" />
+          <ScalarProperty Name="IdCijena" ColumnName="IdCijena" />
+          <ScalarProperty Name="IdDogadjaj" ColumnName="IdDogadjaj" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KupljeneKarte">
+      <EntityTypeMapping TypeName="bazaUlazniceModel.KupljeneKarte">
+        <MappingFragment StoreEntitySet="KupljeneKarte">
+          <ScalarProperty Name="IdKarta" ColumnName="IdKarta" />
+          <ScalarProperty Name="IdKorisnik" ColumnName="IdKorisnik" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VrstaKarte">
+      <EntityTypeMapping TypeName="bazaUlazniceModel.VrstaKarte">
+        <MappingFragment StoreEntitySet="VrstaKarte">
+          <ScalarProperty Name="IdLokacija" ColumnName="IdLokacija" />
+          <ScalarProperty Name="imekategorije" ColumnName="imekategorije" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -12,19 +12,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.QR_KOD)
+            QR kod ulaznice
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Dogadjaj.naziv)
+            Naziv događaja
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cijena)
+            Cijena
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.brojkarte)
+            Broj ulaznice
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.VrstaKarte.imevrste)
+            Vrsta ulaznice
         </th>
         <th></th>
     </tr>
@@ -52,7 +52,7 @@
             @Html.DisplayFor(modelItem => item.VrstaKarte.imevrste)
         </td>
         <td>
-            @Html.ActionLink("Stavi na burzu", "Edit", "Burza", new { id = item.Id }) |
+            @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { id = item.Id }) |
             @Html.ActionLink("Detalji", "Details", new { id = item.Id }) |
             @Html.ActionLink("Pokloni prijatelju", "Pokloni", new { id = item.Id })
         </td>

@@ -12,22 +12,20 @@ namespace Ulaznicar.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Karta
+    public partial class CijenaKarte
     {
-        public Karta()
+        public CijenaKarte()
         {
-            this.KupljeneKarte = new HashSet<KupljeneKarte>();
+            this.Karta = new HashSet<Karta>();
         }
     
         public int Id { get; set; }
         public int IdDogadjaj { get; set; }
-        public int IdCijena { get; set; }
-        public string zastitnikod { get; set; }
-        public byte[] QR_KOD { get; set; }
-        public Nullable<int> brojkarte { get; set; }
+        public int IdVrstaKarte { get; set; }
+        public decimal cijena { get; set; }
     
-        public virtual CijenaKarte CijenaKarte { get; set; }
         public virtual Dogadjaj Dogadjaj { get; set; }
-        public virtual ICollection<KupljeneKarte> KupljeneKarte { get; set; }
+        public virtual VrstaKarte VrstaKarte { get; set; }
+        public virtual ICollection<Karta> Karta { get; set; }
     }
 }

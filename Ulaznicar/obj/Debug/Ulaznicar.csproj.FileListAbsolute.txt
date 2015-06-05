@@ -4,6 +4,7 @@ C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Ulaznicar.pdb
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Antlr3.Runtime.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\EntityFramework.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\EntityFramework.SqlServer.dll
+C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Gma.QrCodeNet.Encoding.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -19,6 +20,8 @@ C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Microsoft.Owin.Secur
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Newtonsoft.Json.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Owin.dll
+C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\PagedList.dll
+C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\PagedList.Mvc.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\System.Net.Http.Formatting.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\System.Web.Helpers.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\System.Web.Http.dll
@@ -30,6 +33,8 @@ C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\System.Web.WebPages.
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\System.Web.WebPages.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\System.Web.WebPages.Razor.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\WebGrease.dll
+C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\PagedList.xml
+C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\PagedList.Mvc.xml
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\System.Web.Helpers.xml
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\System.Web.Mvc.xml
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\System.Web.Optimization.xml
@@ -58,9 +63,4 @@ C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Microsoft.Owin.Secur
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\obj\Debug\Ulaznicar.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\obj\Debug\Ulaznicar.pdb
-C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Gma.QrCodeNet.Encoding.dll
-C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\PagedList.dll
-C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\PagedList.Mvc.dll
-C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\PagedList.xml
-C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\PagedList.Mvc.xml
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\obj\Debug\Ulaznicar.csprojResolveAssemblyReference.cache

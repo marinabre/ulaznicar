@@ -1,17 +1,23 @@
 ﻿@model Ulaznicar.Models.Dogadjaj
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalji";
 }
-
-<h2>Details</h2>
+@using Microsoft.AspNet.Identity
+<h2>Detalji</h2>
 
 <div>
-    <h4>Dogadjaj</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.naziv)
+            Plakat
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plakat)
+        </dd>
+        <dt>
+            Naziv
         </dt>
 
         <dd>
@@ -19,7 +25,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.datum)
+            Datum
         </dt>
 
         <dd>
@@ -27,7 +33,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.brojmjesta)
+            Broj mjesta
         </dt>
 
         <dd>
@@ -35,24 +41,38 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.plakat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.plakat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Lokacija.adresa)
+            Adresa lokacije
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Lokacija.adresa)
         </dd>
-
     </dl>
 </div>
+<div>
+    @if (ViewBag.cijene != null)
+    {
+        foreach (var cijena in ViewBag.cijene)
+        {
+            <dl>
+                <dt>
+                    Vrsta ulaznice
+                </dt>
+                <dd>@cijena.VrstaKarte.imekategorije</dd>
+                <dt>
+                    Cijena 
+                </dt>
+                <dd>@cijena.cijena</dd>
+                @Html.ActionLink("Kupi!", "Create", "Karta", new { id = Model.Id, idcijena = cijena.Id }, new { @class = "btn btn-success" })
+            </dl>
+
+        }
+    }
+</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Uredi", "Edit", new { id = Model.Id })
+}
+    @Html.ActionLink("Povratak na popis događaja", "Index")
 </p>

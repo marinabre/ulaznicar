@@ -5,29 +5,34 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d3dc8e5e0f694a37bcd0f42cffef6fdc" Name="Diagram1" ZoomLevel="86">
-        <EntityTypeShape EntityType="bazaUlazniceModel.Burza" Width="1.5" PointX="9.75" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Dogadjaj" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Grad" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaUlazniceModel.Karta" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Kazaliste" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Klub" Width="1.5" PointX="5.625" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaUlazniceModel.KupljeneKarte" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Lokacija" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaUlazniceModel.VrstaKarte" Width="1.5" PointX="5.375" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Dogadjaj__IdLoka__4D94879B" ManuallyRouted="false" />
-        <AssociationConnector Association="bazaUlazniceModel.FK__Karta__IdDogadja__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Kazaliste__IdDog__59063A47" ManuallyRouted="false" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Klub__IdDogadjaj__59FA5E80" ManuallyRouted="false" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Lokacija__IdGrad__49C3F6B7" ManuallyRouted="false" />
-        <AssociationConnector Association="bazaUlazniceModel.FK__Karta__IdVrstaka__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="bazaUlazniceModel.FK__KupljeneK__IdKar__4CA06362" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="bazaUlazniceModel.Izvodjac" Width="1.5" PointX="1.25" PointY="10.875" />
+        <EntityTypeShape EntityType="bazaUlazniceModel.Izvodjac" Width="1.5" PointX="1.125" PointY="9.125" />
         <EntityTypeShape EntityType="bazaUlazniceModel.Koncert" Width="1.5" PointX="3.25" PointY="8.625" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Koncert__IdDogad__5EBF139D" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Koncert__IdIzvod__5FB337D6" />
-        <EntityTypeShape EntityType="bazaUlazniceModel.Korisnik" Width="1.5" PointX="12" PointY="5.5" />
+        <EntityTypeShape EntityType="bazaUlazniceModel.Korisnik" Width="1.5" PointX="13.75" PointY="7.375" />
+        <EntityTypeShape EntityType="bazaUlazniceModel.Burza" Width="1.5" PointX="11" PointY="9.125" />
+        <EntityTypeShape EntityType="bazaUlazniceModel.CijenaKarte" Width="1.5" PointX="7.5" PointY="2.625" />
+        <EntityTypeShape EntityType="bazaUlazniceModel.Karta" Width="1.5" PointX="9.375" PointY="5.75" />
+        <EntityTypeShape EntityType="bazaUlazniceModel.KupljeneKarte" Width="1.5" PointX="11.625" PointY="5.875" />
+        <EntityTypeShape EntityType="bazaUlazniceModel.VrstaKarte" Width="1.5" PointX="4.125" PointY="2.5" />
+        <AssociationConnector Association="bazaUlazniceModel.FK__Burza__IdKarta__797309D9" />
         <AssociationConnector Association="bazaUlazniceModel.FK__Burza__IdKupac__693CA210" />
+        <AssociationConnector Association="bazaUlazniceModel.FK__CijenaKar__IdDog__71D1E811" />
+        <AssociationConnector Association="bazaUlazniceModel.FK__CijenaKar__IdVrs__72C60C4A" />
+        <AssociationConnector Association="bazaUlazniceModel.FK__Karta__IdCijena__787EE5A0" />
+        <AssociationConnector Association="bazaUlazniceModel.FK__Karta__IdDogadja__778AC167" />
+        <AssociationConnector Association="bazaUlazniceModel.FK__KupljeneK__IdKar__76969D2E" />
         <AssociationConnector Association="bazaUlazniceModel.FK__KupljeneK__IdKor__68487DD7" />
+        <AssociationConnector Association="bazaUlazniceModel.FK__VrstaKart__IdLok__73BA3083" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -72,6 +72,7 @@ namespace Ulaznicar.Controllers
 
             int pageSize = 10;
             int pageNumber = (page ?? 1);
+
             return View(dogadjaj.ToPagedList(pageNumber, pageSize));
 
         }
@@ -84,6 +85,7 @@ namespace Ulaznicar.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Dogadjaj dogadjaj = db.Dogadjaj.Find(id);
+            ViewBag.cijene = db.CijenaKarte.Where(x => x.IdDogadjaj == id);
             if (dogadjaj == null)
             {
                 return HttpNotFound();

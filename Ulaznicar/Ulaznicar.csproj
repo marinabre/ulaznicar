@@ -207,6 +207,9 @@
     <Compile Include="Models\Burza.cs">
       <DependentUpon>bazaulaznice.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CijenaKarte.cs">
+      <DependentUpon>bazaulaznice.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Dogadjaj.cs">
       <DependentUpon>bazaulaznice.tt</DependentUpon>
     </Compile>
@@ -334,6 +337,8 @@
     <Content Include="Views\Dogadjaj\Common.cshtml" />
     <Content Include="Views\Karta\Index.cshtml" />
     <Content Include="Views\Karta\Pokloni.cshtml" />
+    <Content Include="Views\Karta\Details.cshtml" />
+    <Content Include="Views\Karta\Kupovina.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

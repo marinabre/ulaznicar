@@ -21,7 +21,7 @@ namespace Ulaznicar.Models
         public Nullable<System.DateTime> datumprodaje { get; set; }
         public decimal cijena { get; set; }
     
+        public virtual KupljeneKarte KupljeneKarte { get; set; }
         public virtual Korisnik Korisnik { get; set; }
-        public virtual Karta Karta { get; set; }
     }
 }

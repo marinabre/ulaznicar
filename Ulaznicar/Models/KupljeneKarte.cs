@@ -14,10 +14,16 @@ namespace Ulaznicar.Models
     
     public partial class KupljeneKarte
     {
+        public KupljeneKarte()
+        {
+            this.Burza = new HashSet<Burza>();
+        }
+    
         public int Id { get; set; }
         public int IdKorisnik { get; set; }
         public int IdKarta { get; set; }
     
+        public virtual ICollection<Burza> Burza { get; set; }
         public virtual Karta Karta { get; set; }
         public virtual Korisnik Korisnik { get; set; }
     }

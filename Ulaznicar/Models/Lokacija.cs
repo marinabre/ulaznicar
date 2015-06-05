@@ -17,6 +17,7 @@ namespace Ulaznicar.Models
         public Lokacija()
         {
             this.Dogadjaj = new HashSet<Dogadjaj>();
+            this.VrstaKarte = new HashSet<VrstaKarte>();
         }
     
         public int Id { get; set; }
@@ -26,5 +27,6 @@ namespace Ulaznicar.Models
     
         public virtual ICollection<Dogadjaj> Dogadjaj { get; set; }
         public virtual Grad Grad { get; set; }
+        public virtual ICollection<VrstaKarte> VrstaKarte { get; set; }
     }
 }

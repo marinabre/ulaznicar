@@ -1,0 +1,50 @@
+﻿@model Ulaznicar.Models.Karta
+
+@{
+    ViewBag.Title = "Kupovina";
+}
+<div>
+<h2>Kupovina</h2>
+
+    <dl>
+        Trenutno ste prijavljeni kao :
+        <dt>@Html.ViewBag.korisnik</dt>
+    </dl>
+<dl class="dl-horizontal">
+    <dt>
+        Naziv događaja :
+    </dt>
+
+    <dd>
+        @Html.ViewBag.naziv
+    </dd>
+
+    <dt>
+        Datum događaja :
+    </dt>
+
+    <dd>
+        @Html.ViewBag.datum
+    </dd>
+
+    <dt>
+        Cijena :
+    </dt>
+
+    <dd>
+        @Html.ViewBag.cijena
+    </dd>
+</dl>
+</div>
+
+<div style="background-color:ActiveCaption"><h2>Unesite broj računa kojim želite platiti kartu: </h2>
+    <input type="text" id="text" name="brrac" />
+    @Html.ActionLink("Kupi ulaznicu", "Kupovina_konacna", "Karta", new { id = Model.Id }, new { @class = "btn btn-success" })
+</div>
+    
+
+
+<p>
+    @Html.ActionLink("Odustani od kupovine", "Index", "Dogadjaji", null, new { @class = "btn btn-danger" })
+</p>
+

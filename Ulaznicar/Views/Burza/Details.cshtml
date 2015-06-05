@@ -1,25 +1,25 @@
 ﻿@model Ulaznicar.Models.Burza
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalji";
 }
 
-<h2>Details</h2>
+<h2>Detalji</h2>
 
 <div>
     <h4>Burza</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.IdKarta)
+            Naziv događaja
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.IdKarta)
+            @Html.DisplayFor(model => model.Karta.Dogadjaj.naziv)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.datumponude)
+            Datum ponude
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.datumprodaje)
+            Datum prodaje
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.cijena)
+            Cijena
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Korisnik.korisnickoime)
+            Kupac
         </dt>
 
         <dd>
@@ -53,6 +53,9 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (Model.IdKupac == null)
+    {
+        @Html.ActionLink("Kupi ovu ulaznicu", "Edit", new { id = Model.Id })
+    }
+    @Html.ActionLink("Povratak na burzu", "Index")
 </p>

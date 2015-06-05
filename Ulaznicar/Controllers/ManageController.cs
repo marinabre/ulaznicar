@@ -13,6 +13,7 @@ namespace Ulaznicar.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        bazaUlazniceEntities context = new bazaUlazniceEntities();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -232,6 +233,13 @@ namespace Ulaznicar.Controllers
             if (result.Succeeded)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                
+                Korisnik kor = context.Korisnik.First(x => x.email == user.Email);
+                kor.lozinka = model.NewPassword.GetHashCode().ToString();
+
+                context.SaveChanges();
+
+                
                 if (user != null)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -261,6 +269,11 @@ namespace Ulaznicar.Controllers
                 if (result.Succeeded)
                 {
                     var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                    
+                    Korisnik kor = context.Korisnik.First(x => x.email == user.Email);
+                    kor.lozinka = model.NewPassword.GetHashCode().ToString();
+
+                    context.SaveChanges();
                     if (user != null)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);

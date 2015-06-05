@@ -1,0 +1,62 @@
+﻿@model Ulaznicar.Models.Karta
+
+@{
+    ViewBag.Title = "Detalji";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    <h4>Ulaznica</h4>
+    <hr />
+    <dl class="dl-horizontal">
+@if (Model.Dogadjaj.datum <= DateTime.Today)
+        {
+        <dt>
+            QR kod ulaznice :
+        </dt>
+
+        <dd>
+            <img src="@Url.Action("Show", "Karta", new { id = Model.QR_KOD })" alt="image" />
+        </dd>
+}
+        <dt>
+            Naziv događaja : 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dogadjaj.naziv)
+        </dd>
+
+        <dt>
+            Vrsta ulaznice :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VrstaKarte.imevrste)
+        </dd>
+        <dt>
+            Cijena : 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cijena)
+        </dd>
+
+        <dt>
+            Broj ulaznice :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.brojkarte)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { id = Model.Id }) |
+    @Html.ActionLink("Pokloni", "Pokloni", new { id = Model.Id }) |
+    @Html.ActionLink("Povratak na moje ulaznice", "Index")
+</p>

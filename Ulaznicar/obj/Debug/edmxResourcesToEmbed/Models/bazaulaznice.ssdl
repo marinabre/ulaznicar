@@ -11,6 +11,15 @@
     <Property Name="datumprodaje" Type="datetime" />
     <Property Name="cijena" Type="decimal" Precision="18" Scale="2" Nullable="false" />
   </EntityType>
+  <EntityType Name="CijenaKarte">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdDogadjaj" Type="int" Nullable="false" />
+    <Property Name="IdVrstaKarte" Type="int" Nullable="false" />
+    <Property Name="cijena" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
   <EntityType Name="Dogadjaj">
     <Key>
       <PropertyRef Name="Id" />
@@ -41,9 +50,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdVrstakarte" Type="int" Nullable="false" />
-    <Property Name="cijena" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="IdDogadjaj" Type="int" Nullable="false" />
+    <Property Name="IdCijena" Type="int" Nullable="false" />
     <Property Name="zastitnikod" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="QR_KOD" Type="image" Nullable="false" />
     <Property Name="brojkarte" Type="int" />
@@ -105,11 +113,21 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="imevrste" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="imekategorije" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdLokacija" Type="int" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK__Burza__IdKarta__5441852A" />-->
+  <Association Name="FK__Burza__IdKarta__797309D9">
+    <End Role="KupljeneKarte" Type="Self.KupljeneKarte" Multiplicity="1" />
+    <End Role="Burza" Type="Self.Burza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KupljeneKarte">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Burza">
+        <PropertyRef Name="IdKarta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Burza__IdKupac__693CA210">
     <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
     <End Role="Burza" Type="Self.Burza" Multiplicity="*" />
@@ -119,6 +137,30 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
       </Principal>
       <Dependent Role="Burza">
         <PropertyRef Name="IdKupac" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CijenaKar__IdDog__71D1E811">
+    <End Role="Dogadjaj" Type="Self.Dogadjaj" Multiplicity="1" />
+    <End Role="CijenaKarte" Type="Self.CijenaKarte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dogadjaj">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CijenaKarte">
+        <PropertyRef Name="IdDogadjaj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CijenaKar__IdVrs__72C60C4A">
+    <End Role="VrstaKarte" Type="Self.VrstaKarte" Multiplicity="1" />
+    <End Role="CijenaKarte" Type="Self.CijenaKarte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VrstaKarte">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CijenaKarte">
+        <PropertyRef Name="IdVrstaKarte" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -134,7 +176,19 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Karta__IdDogadja__4F7CD00D">
+  <Association Name="FK__Karta__IdCijena__787EE5A0">
+    <End Role="CijenaKarte" Type="Self.CijenaKarte" Multiplicity="1" />
+    <End Role="Karta" Type="Self.Karta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CijenaKarte">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Karta">
+        <PropertyRef Name="IdCijena" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Karta__IdDogadja__778AC167">
     <End Role="Dogadjaj" Type="Self.Dogadjaj" Multiplicity="1" />
     <End Role="Karta" Type="Self.Karta" Multiplicity="*" />
     <ReferentialConstraint>
@@ -143,18 +197,6 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
       </Principal>
       <Dependent Role="Karta">
         <PropertyRef Name="IdDogadjaj" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Karta__IdVrstaka__4E88ABD4">
-    <End Role="VrstaKarte" Type="Self.VrstaKarte" Multiplicity="1" />
-    <End Role="Karta" Type="Self.Karta" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="VrstaKarte">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Karta">
-        <PropertyRef Name="IdVrstakarte" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -206,7 +248,7 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__KupljeneK__IdKar__4CA06362">
+  <Association Name="FK__KupljeneK__IdKar__76969D2E">
     <End Role="Karta" Type="Self.Karta" Multiplicity="1" />
     <End Role="KupljeneKarte" Type="Self.KupljeneKarte" Multiplicity="*" />
     <ReferentialConstraint>
@@ -242,8 +284,21 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__VrstaKart__IdLok__73BA3083">
+    <End Role="Lokacija" Type="Self.Lokacija" Multiplicity="1" />
+    <End Role="VrstaKarte" Type="Self.VrstaKarte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lokacija">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VrstaKarte">
+        <PropertyRef Name="IdLokacija" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="bazaUlazniceModelStoreContainer">
     <EntitySet Name="Burza" EntityType="Self.Burza" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CijenaKarte" EntityType="Self.CijenaKarte" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Dogadjaj" EntityType="Self.Dogadjaj" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Grad" EntityType="Self.Grad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Izvodjac" EntityType="Self.Izvodjac" Schema="dbo" store:Type="Tables" />
@@ -255,20 +310,32 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
     <EntitySet Name="KupljeneKarte" EntityType="Self.KupljeneKarte" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lokacija" EntityType="Self.Lokacija" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VrstaKarte" EntityType="Self.VrstaKarte" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Burza__IdKarta__797309D9" Association="Self.FK__Burza__IdKarta__797309D9">
+      <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
+      <End Role="Burza" EntitySet="Burza" />
+    </AssociationSet>
     <AssociationSet Name="FK__Burza__IdKupac__693CA210" Association="Self.FK__Burza__IdKupac__693CA210">
       <End Role="Korisnik" EntitySet="Korisnik" />
       <End Role="Burza" EntitySet="Burza" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CijenaKar__IdDog__71D1E811" Association="Self.FK__CijenaKar__IdDog__71D1E811">
+      <End Role="Dogadjaj" EntitySet="Dogadjaj" />
+      <End Role="CijenaKarte" EntitySet="CijenaKarte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CijenaKar__IdVrs__72C60C4A" Association="Self.FK__CijenaKar__IdVrs__72C60C4A">
+      <End Role="VrstaKarte" EntitySet="VrstaKarte" />
+      <End Role="CijenaKarte" EntitySet="CijenaKarte" />
     </AssociationSet>
     <AssociationSet Name="FK__Dogadjaj__IdLoka__4D94879B" Association="Self.FK__Dogadjaj__IdLoka__4D94879B">
       <End Role="Lokacija" EntitySet="Lokacija" />
       <End Role="Dogadjaj" EntitySet="Dogadjaj" />
     </AssociationSet>
-    <AssociationSet Name="FK__Karta__IdDogadja__4F7CD00D" Association="Self.FK__Karta__IdDogadja__4F7CD00D">
-      <End Role="Dogadjaj" EntitySet="Dogadjaj" />
+    <AssociationSet Name="FK__Karta__IdCijena__787EE5A0" Association="Self.FK__Karta__IdCijena__787EE5A0">
+      <End Role="CijenaKarte" EntitySet="CijenaKarte" />
       <End Role="Karta" EntitySet="Karta" />
     </AssociationSet>
-    <AssociationSet Name="FK__Karta__IdVrstaka__4E88ABD4" Association="Self.FK__Karta__IdVrstaka__4E88ABD4">
-      <End Role="VrstaKarte" EntitySet="VrstaKarte" />
+    <AssociationSet Name="FK__Karta__IdDogadja__778AC167" Association="Self.FK__Karta__IdDogadja__778AC167">
+      <End Role="Dogadjaj" EntitySet="Dogadjaj" />
       <End Role="Karta" EntitySet="Karta" />
     </AssociationSet>
     <AssociationSet Name="FK__Kazaliste__IdDog__59063A47" Association="Self.FK__Kazaliste__IdDog__59063A47">
@@ -287,7 +354,7 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
       <End Role="Izvodjac" EntitySet="Izvodjac" />
       <End Role="Koncert" EntitySet="Koncert" />
     </AssociationSet>
-    <AssociationSet Name="FK__KupljeneK__IdKar__4CA06362" Association="Self.FK__KupljeneK__IdKar__4CA06362">
+    <AssociationSet Name="FK__KupljeneK__IdKar__76969D2E" Association="Self.FK__KupljeneK__IdKar__76969D2E">
       <End Role="Karta" EntitySet="Karta" />
       <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
     </AssociationSet>
@@ -298,6 +365,10 @@ warning 6035: The relationship 'FK__Burza__IdKarta__5441852A' has columns that a
     <AssociationSet Name="FK__Lokacija__IdGrad__49C3F6B7" Association="Self.FK__Lokacija__IdGrad__49C3F6B7">
       <End Role="Grad" EntitySet="Grad" />
       <End Role="Lokacija" EntitySet="Lokacija" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VrstaKart__IdLok__73BA3083" Association="Self.FK__VrstaKart__IdLok__73BA3083">
+      <End Role="Lokacija" EntitySet="Lokacija" />
+      <End Role="VrstaKarte" EntitySet="VrstaKarte" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

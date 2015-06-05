@@ -1,17 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="bazaUlazniceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Burza">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdKupac" Type="Int32" />
-    <Property Name="IdKarta" Type="Int32" Nullable="false" />
-    <Property Name="datumponude" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="datumprodaje" Type="DateTime" Precision="3" />
-    <Property Name="cijena" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-    <NavigationProperty Name="Korisnik" Relationship="bazaUlazniceModel.FK__Burza__IdKupac__693CA210" FromRole="Burza" ToRole="Korisnik" />
-  </EntityType>
   <EntityType Name="Dogadjaj">
     <Key>
       <PropertyRef Name="Id" />
@@ -23,10 +11,11 @@
     <Property Name="brojmjesta" Type="Int32" Nullable="false" />
     <Property Name="plakat" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="Lokacija" Relationship="Self.FK__Dogadjaj__IdLoka__4D94879B" FromRole="Dogadjaj" ToRole="Lokacija" />
-    <NavigationProperty Name="Karta" Relationship="Self.FK__Karta__IdDogadja__4F7CD00D" FromRole="Dogadjaj" ToRole="Karta" />
     <NavigationProperty Name="Kazaliste" Relationship="Self.FK__Kazaliste__IdDog__59063A47" FromRole="Dogadjaj" ToRole="Kazaliste" />
     <NavigationProperty Name="Klub" Relationship="Self.FK__Klub__IdDogadjaj__59FA5E80" FromRole="Dogadjaj" ToRole="Klub" />
     <NavigationProperty Name="Koncert" Relationship="bazaUlazniceModel.FK__Koncert__IdDogad__5EBF139D" FromRole="Dogadjaj" ToRole="Koncert" />
+    <NavigationProperty Name="CijenaKarte" Relationship="bazaUlazniceModel.FK__CijenaKar__IdDog__71D1E811" FromRole="Dogadjaj" ToRole="CijenaKarte" />
+    <NavigationProperty Name="Karta" Relationship="bazaUlazniceModel.FK__Karta__IdDogadja__778AC167" FromRole="Dogadjaj" ToRole="Karta" />
   </EntityType>
   <EntityType Name="Grad">
     <Key>
@@ -35,21 +24,6 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="imegrad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Lokacija" Relationship="Self.FK__Lokacija__IdGrad__49C3F6B7" FromRole="Grad" ToRole="Lokacija" />
-  </EntityType>
-  <EntityType Name="Karta">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdVrstakarte" Type="Int32" Nullable="false" />
-    <Property Name="cijena" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-    <Property Name="IdDogadjaj" Type="Int32" Nullable="false" />
-    <Property Name="zastitnikod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="QR_KOD" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-    <Property Name="brojkarte" Type="Int32" />
-    <NavigationProperty Name="Dogadjaj" Relationship="Self.FK__Karta__IdDogadja__4F7CD00D" FromRole="Karta" ToRole="Dogadjaj" />
-    <NavigationProperty Name="VrstaKarte" Relationship="Self.FK__Karta__IdVrstaka__4E88ABD4" FromRole="Karta" ToRole="VrstaKarte" />
-    <NavigationProperty Name="KupljeneKarte" Relationship="Self.FK__KupljeneK__IdKar__4CA06362" FromRole="Karta" ToRole="KupljeneKarte" />
   </EntityType>
   <EntityType Name="Kazaliste">
     <Key>
@@ -67,16 +41,6 @@
     <Property Name="IdDogadjaj" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Dogadjaj" Relationship="Self.FK__Klub__IdDogadjaj__59FA5E80" FromRole="Klub" ToRole="Dogadjaj" />
   </EntityType>
-  <EntityType Name="KupljeneKarte">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdKorisnik" Type="Int32" Nullable="false" />
-    <Property Name="IdKarta" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Karta" Relationship="Self.FK__KupljeneK__IdKar__4CA06362" FromRole="KupljeneKarte" ToRole="Karta" />
-    <NavigationProperty Name="Korisnik" Relationship="bazaUlazniceModel.FK__KupljeneK__IdKor__68487DD7" FromRole="KupljeneKarte" ToRole="Korisnik" />
-  </EntityType>
   <EntityType Name="Lokacija">
     <Key>
       <PropertyRef Name="Id" />
@@ -87,14 +51,7 @@
     <Property Name="IdGrad" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Dogadjaj" Relationship="Self.FK__Dogadjaj__IdLoka__4D94879B" FromRole="Lokacija" ToRole="Dogadjaj" />
     <NavigationProperty Name="Grad" Relationship="Self.FK__Lokacija__IdGrad__49C3F6B7" FromRole="Lokacija" ToRole="Grad" />
-  </EntityType>
-  <EntityType Name="VrstaKarte">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="imevrste" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Karta" Relationship="Self.FK__Karta__IdVrstaka__4E88ABD4" FromRole="VrstaKarte" ToRole="Karta" />
+    <NavigationProperty Name="VrstaKarte" Relationship="bazaUlazniceModel.FK__VrstaKart__IdLok__73BA3083" FromRole="Lokacija" ToRole="VrstaKarte" />
   </EntityType>
   <Association Name="FK__Dogadjaj__IdLoka__4D94879B">
     <End Role="Lokacija" Type="Self.Lokacija" Multiplicity="1" />
@@ -105,18 +62,6 @@
       </Principal>
       <Dependent Role="Dogadjaj">
         <PropertyRef Name="IdLokacija" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Karta__IdDogadja__4F7CD00D">
-    <End Role="Dogadjaj" Type="Self.Dogadjaj" Multiplicity="1" />
-    <End Role="Karta" Type="Self.Karta" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Dogadjaj">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Karta">
-        <PropertyRef Name="IdDogadjaj" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -156,47 +101,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Karta__IdVrstaka__4E88ABD4">
-    <End Role="VrstaKarte" Type="Self.VrstaKarte" Multiplicity="1" />
-    <End Role="Karta" Type="Self.Karta" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="VrstaKarte">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Karta">
-        <PropertyRef Name="IdVrstakarte" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__KupljeneK__IdKar__4CA06362">
-    <End Role="Karta" Type="Self.Karta" Multiplicity="1" />
-    <End Role="KupljeneKarte" Type="Self.KupljeneKarte" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Karta">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="KupljeneKarte">
-        <PropertyRef Name="IdKarta" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="bazaUlazniceEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Burza" EntityType="Self.Burza" />
     <EntitySet Name="Dogadjaj" EntityType="Self.Dogadjaj" />
     <EntitySet Name="Grad" EntityType="Self.Grad" />
-    <EntitySet Name="Karta" EntityType="Self.Karta" />
     <EntitySet Name="Kazaliste" EntityType="Self.Kazaliste" />
     <EntitySet Name="Klub" EntityType="Self.Klub" />
-    <EntitySet Name="KupljeneKarte" EntityType="Self.KupljeneKarte" />
     <EntitySet Name="Lokacija" EntityType="Self.Lokacija" />
-    <EntitySet Name="VrstaKarte" EntityType="Self.VrstaKarte" />
     <AssociationSet Name="FK__Dogadjaj__IdLoka__4D94879B" Association="Self.FK__Dogadjaj__IdLoka__4D94879B">
       <End Role="Lokacija" EntitySet="Lokacija" />
       <End Role="Dogadjaj" EntitySet="Dogadjaj" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Karta__IdDogadja__4F7CD00D" Association="Self.FK__Karta__IdDogadja__4F7CD00D">
-      <End Role="Dogadjaj" EntitySet="Dogadjaj" />
-      <End Role="Karta" EntitySet="Karta" />
     </AssociationSet>
     <AssociationSet Name="FK__Kazaliste__IdDog__59063A47" Association="Self.FK__Kazaliste__IdDog__59063A47">
       <End Role="Dogadjaj" EntitySet="Dogadjaj" />
@@ -210,14 +123,6 @@
       <End Role="Grad" EntitySet="Grad" />
       <End Role="Lokacija" EntitySet="Lokacija" />
     </AssociationSet>
-    <AssociationSet Name="FK__Karta__IdVrstaka__4E88ABD4" Association="Self.FK__Karta__IdVrstaka__4E88ABD4">
-      <End Role="VrstaKarte" EntitySet="VrstaKarte" />
-      <End Role="Karta" EntitySet="Karta" />
-    </AssociationSet>
-    <AssociationSet Name="FK__KupljeneK__IdKar__4CA06362" Association="Self.FK__KupljeneK__IdKar__4CA06362">
-      <End Role="Karta" EntitySet="Karta" />
-      <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
-    </AssociationSet>
     <EntitySet Name="Izvodjac" EntityType="bazaUlazniceModel.Izvodjac" />
     <EntitySet Name="Koncert" EntityType="bazaUlazniceModel.Koncert" />
     <AssociationSet Name="FK__Koncert__IdDogad__5EBF139D" Association="bazaUlazniceModel.FK__Koncert__IdDogad__5EBF139D">
@@ -229,13 +134,46 @@
       <End Role="Koncert" EntitySet="Koncert" />
     </AssociationSet>
     <EntitySet Name="Korisnik" EntityType="bazaUlazniceModel.Korisnik" />
+    <EntitySet Name="Burza" EntityType="bazaUlazniceModel.Burza" />
+    <EntitySet Name="CijenaKarte" EntityType="bazaUlazniceModel.CijenaKarte" />
+    <EntitySet Name="Karta" EntityType="bazaUlazniceModel.Karta" />
+    <EntitySet Name="KupljeneKarte" EntityType="bazaUlazniceModel.KupljeneKarte" />
+    <EntitySet Name="VrstaKarte" EntityType="bazaUlazniceModel.VrstaKarte" />
+    <AssociationSet Name="FK__Burza__IdKarta__797309D9" Association="bazaUlazniceModel.FK__Burza__IdKarta__797309D9">
+      <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
+      <End Role="Burza" EntitySet="Burza" />
+    </AssociationSet>
     <AssociationSet Name="FK__Burza__IdKupac__693CA210" Association="bazaUlazniceModel.FK__Burza__IdKupac__693CA210">
       <End Role="Korisnik" EntitySet="Korisnik" />
       <End Role="Burza" EntitySet="Burza" />
     </AssociationSet>
+    <AssociationSet Name="FK__CijenaKar__IdDog__71D1E811" Association="bazaUlazniceModel.FK__CijenaKar__IdDog__71D1E811">
+      <End Role="Dogadjaj" EntitySet="Dogadjaj" />
+      <End Role="CijenaKarte" EntitySet="CijenaKarte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CijenaKar__IdVrs__72C60C4A" Association="bazaUlazniceModel.FK__CijenaKar__IdVrs__72C60C4A">
+      <End Role="VrstaKarte" EntitySet="VrstaKarte" />
+      <End Role="CijenaKarte" EntitySet="CijenaKarte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Karta__IdCijena__787EE5A0" Association="bazaUlazniceModel.FK__Karta__IdCijena__787EE5A0">
+      <End Role="CijenaKarte" EntitySet="CijenaKarte" />
+      <End Role="Karta" EntitySet="Karta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Karta__IdDogadja__778AC167" Association="bazaUlazniceModel.FK__Karta__IdDogadja__778AC167">
+      <End Role="Dogadjaj" EntitySet="Dogadjaj" />
+      <End Role="Karta" EntitySet="Karta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KupljeneK__IdKar__76969D2E" Association="bazaUlazniceModel.FK__KupljeneK__IdKar__76969D2E">
+      <End Role="Karta" EntitySet="Karta" />
+      <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
+    </AssociationSet>
     <AssociationSet Name="FK__KupljeneK__IdKor__68487DD7" Association="bazaUlazniceModel.FK__KupljeneK__IdKor__68487DD7">
       <End Role="Korisnik" EntitySet="Korisnik" />
       <End Role="KupljeneKarte" EntitySet="KupljeneKarte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VrstaKart__IdLok__73BA3083" Association="bazaUlazniceModel.FK__VrstaKart__IdLok__73BA3083">
+      <End Role="Lokacija" EntitySet="Lokacija" />
+      <End Role="VrstaKarte" EntitySet="VrstaKarte" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Izvodjac">
@@ -295,6 +233,78 @@
     <NavigationProperty Name="Burza" Relationship="bazaUlazniceModel.FK__Burza__IdKupac__693CA210" FromRole="Korisnik" ToRole="Burza" />
     <NavigationProperty Name="KupljeneKarte" Relationship="bazaUlazniceModel.FK__KupljeneK__IdKor__68487DD7" FromRole="Korisnik" ToRole="KupljeneKarte" />
   </EntityType>
+  <EntityType Name="Burza">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdKupac" Type="Int32" />
+    <Property Name="IdKarta" Type="Int32" Nullable="false" />
+    <Property Name="datumponude" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="datumprodaje" Type="DateTime" Precision="3" />
+    <Property Name="cijena" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="KupljeneKarte" Relationship="bazaUlazniceModel.FK__Burza__IdKarta__797309D9" FromRole="Burza" ToRole="KupljeneKarte" />
+    <NavigationProperty Name="Korisnik" Relationship="bazaUlazniceModel.FK__Burza__IdKupac__693CA210" FromRole="Burza" ToRole="Korisnik" />
+  </EntityType>
+  <EntityType Name="CijenaKarte">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdDogadjaj" Type="Int32" Nullable="false" />
+    <Property Name="IdVrstaKarte" Type="Int32" Nullable="false" />
+    <Property Name="cijena" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="Dogadjaj" Relationship="bazaUlazniceModel.FK__CijenaKar__IdDog__71D1E811" FromRole="CijenaKarte" ToRole="Dogadjaj" />
+    <NavigationProperty Name="VrstaKarte" Relationship="bazaUlazniceModel.FK__CijenaKar__IdVrs__72C60C4A" FromRole="CijenaKarte" ToRole="VrstaKarte" />
+    <NavigationProperty Name="Karta" Relationship="bazaUlazniceModel.FK__Karta__IdCijena__787EE5A0" FromRole="CijenaKarte" ToRole="Karta" />
+  </EntityType>
+  <EntityType Name="Karta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdDogadjaj" Type="Int32" Nullable="false" />
+    <Property Name="IdCijena" Type="Int32" Nullable="false" />
+    <Property Name="zastitnikod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QR_KOD" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="brojkarte" Type="Int32" />
+    <NavigationProperty Name="CijenaKarte" Relationship="bazaUlazniceModel.FK__Karta__IdCijena__787EE5A0" FromRole="Karta" ToRole="CijenaKarte" />
+    <NavigationProperty Name="Dogadjaj" Relationship="bazaUlazniceModel.FK__Karta__IdDogadja__778AC167" FromRole="Karta" ToRole="Dogadjaj" />
+    <NavigationProperty Name="KupljeneKarte" Relationship="bazaUlazniceModel.FK__KupljeneK__IdKar__76969D2E" FromRole="Karta" ToRole="KupljeneKarte" />
+  </EntityType>
+  <EntityType Name="KupljeneKarte">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdKorisnik" Type="Int32" Nullable="false" />
+    <Property Name="IdKarta" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Burza" Relationship="bazaUlazniceModel.FK__Burza__IdKarta__797309D9" FromRole="KupljeneKarte" ToRole="Burza" />
+    <NavigationProperty Name="Karta" Relationship="bazaUlazniceModel.FK__KupljeneK__IdKar__76969D2E" FromRole="KupljeneKarte" ToRole="Karta" />
+    <NavigationProperty Name="Korisnik" Relationship="bazaUlazniceModel.FK__KupljeneK__IdKor__68487DD7" FromRole="KupljeneKarte" ToRole="Korisnik" />
+  </EntityType>
+  <EntityType Name="VrstaKarte">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="imekategorije" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdLokacija" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CijenaKarte" Relationship="bazaUlazniceModel.FK__CijenaKar__IdVrs__72C60C4A" FromRole="VrstaKarte" ToRole="CijenaKarte" />
+    <NavigationProperty Name="Lokacija" Relationship="bazaUlazniceModel.FK__VrstaKart__IdLok__73BA3083" FromRole="VrstaKarte" ToRole="Lokacija" />
+  </EntityType>
+  <Association Name="FK__Burza__IdKarta__797309D9">
+    <End Type="bazaUlazniceModel.KupljeneKarte" Role="KupljeneKarte" Multiplicity="1" />
+    <End Type="bazaUlazniceModel.Burza" Role="Burza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KupljeneKarte">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Burza">
+        <PropertyRef Name="IdKarta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Burza__IdKupac__693CA210">
     <End Type="bazaUlazniceModel.Korisnik" Role="Korisnik" Multiplicity="0..1" />
     <End Type="bazaUlazniceModel.Burza" Role="Burza" Multiplicity="*" />
@@ -307,6 +317,66 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__CijenaKar__IdDog__71D1E811">
+    <End Type="bazaUlazniceModel.Dogadjaj" Role="Dogadjaj" Multiplicity="1" />
+    <End Type="bazaUlazniceModel.CijenaKarte" Role="CijenaKarte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dogadjaj">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CijenaKarte">
+        <PropertyRef Name="IdDogadjaj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CijenaKar__IdVrs__72C60C4A">
+    <End Type="bazaUlazniceModel.VrstaKarte" Role="VrstaKarte" Multiplicity="1" />
+    <End Type="bazaUlazniceModel.CijenaKarte" Role="CijenaKarte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VrstaKarte">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CijenaKarte">
+        <PropertyRef Name="IdVrstaKarte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Karta__IdCijena__787EE5A0">
+    <End Type="bazaUlazniceModel.CijenaKarte" Role="CijenaKarte" Multiplicity="1" />
+    <End Type="bazaUlazniceModel.Karta" Role="Karta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CijenaKarte">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Karta">
+        <PropertyRef Name="IdCijena" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Karta__IdDogadja__778AC167">
+    <End Type="bazaUlazniceModel.Dogadjaj" Role="Dogadjaj" Multiplicity="1" />
+    <End Type="bazaUlazniceModel.Karta" Role="Karta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dogadjaj">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Karta">
+        <PropertyRef Name="IdDogadjaj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KupljeneK__IdKar__76969D2E">
+    <End Type="bazaUlazniceModel.Karta" Role="Karta" Multiplicity="1" />
+    <End Type="bazaUlazniceModel.KupljeneKarte" Role="KupljeneKarte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Karta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="KupljeneKarte">
+        <PropertyRef Name="IdKarta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__KupljeneK__IdKor__68487DD7">
     <End Type="bazaUlazniceModel.Korisnik" Role="Korisnik" Multiplicity="1" />
     <End Type="bazaUlazniceModel.KupljeneKarte" Role="KupljeneKarte" Multiplicity="*" />
@@ -316,6 +386,18 @@
       </Principal>
       <Dependent Role="KupljeneKarte">
         <PropertyRef Name="IdKorisnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VrstaKart__IdLok__73BA3083">
+    <End Type="bazaUlazniceModel.Lokacija" Role="Lokacija" Multiplicity="1" />
+    <End Type="bazaUlazniceModel.VrstaKarte" Role="VrstaKarte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lokacija">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VrstaKarte">
+        <PropertyRef Name="IdLokacija" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

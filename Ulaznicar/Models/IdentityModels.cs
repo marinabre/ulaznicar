@@ -21,7 +21,7 @@ namespace Ulaznicar.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("MyConnString", throwIfV1Schema: false)
         {
         }
 

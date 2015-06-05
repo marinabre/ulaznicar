@@ -25,17 +25,18 @@ namespace Ulaznicar.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Burza> Burza { get; set; }
         public virtual DbSet<Dogadjaj> Dogadjaj { get; set; }
         public virtual DbSet<Grad> Grad { get; set; }
-        public virtual DbSet<Karta> Karta { get; set; }
         public virtual DbSet<Kazaliste> Kazaliste { get; set; }
         public virtual DbSet<Klub> Klub { get; set; }
-        public virtual DbSet<KupljeneKarte> KupljeneKarte { get; set; }
         public virtual DbSet<Lokacija> Lokacija { get; set; }
-        public virtual DbSet<VrstaKarte> VrstaKarte { get; set; }
         public virtual DbSet<Izvodjac> Izvodjac { get; set; }
         public virtual DbSet<Koncert> Koncert { get; set; }
         public virtual DbSet<Korisnik> Korisnik { get; set; }
+        public virtual DbSet<Burza> Burza { get; set; }
+        public virtual DbSet<CijenaKarte> CijenaKarte { get; set; }
+        public virtual DbSet<Karta> Karta { get; set; }
+        public virtual DbSet<KupljeneKarte> KupljeneKarte { get; set; }
+        public virtual DbSet<VrstaKarte> VrstaKarte { get; set; }
     }
 }

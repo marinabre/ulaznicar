@@ -16,12 +16,14 @@ namespace Ulaznicar.Models
     {
         public VrstaKarte()
         {
-            this.Karta = new HashSet<Karta>();
+            this.CijenaKarte = new HashSet<CijenaKarte>();
         }
     
         public int Id { get; set; }
-        public string imevrste { get; set; }
+        public string imekategorije { get; set; }
+        public int IdLokacija { get; set; }
     
-        public virtual ICollection<Karta> Karta { get; set; }
+        public virtual ICollection<CijenaKarte> CijenaKarte { get; set; }
+        public virtual Lokacija Lokacija { get; set; }
     }
 }
