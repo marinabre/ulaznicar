@@ -55,6 +55,10 @@ namespace Ulaznicar.Controllers
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
+            var userId = User.Identity.GetUserId();
+            var userUserName = User.Identity.GetUserName();
+            ViewBag.user = userUserName;
+
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Vaša lozinka je promijenjena."
                 : message == ManageMessageId.SetPasswordSuccess ? "Vaša lozinka je postavljena."
@@ -64,7 +68,6 @@ namespace Ulaznicar.Controllers
                 : message == ManageMessageId.RemovePhoneSuccess ? "Vaš broj telefona je uklonjen."
                 : "";
 
-            var userId = User.Identity.GetUserId();
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),

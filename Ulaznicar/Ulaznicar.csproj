@@ -184,6 +184,7 @@
     <Compile Include="Controllers\DogadjajController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KartaController.cs" />
+    <Compile Include="Controllers\LokacijaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -339,6 +340,11 @@
     <Content Include="Views\Karta\Pokloni.cshtml" />
     <Content Include="Views\Karta\Details.cshtml" />
     <Content Include="Views\Karta\Kupovina.cshtml" />
+    <Content Include="Views\Lokacija\Create.cshtml" />
+    <Content Include="Views\Lokacija\Delete.cshtml" />
+    <Content Include="Views\Lokacija\Details.cshtml" />
+    <Content Include="Views\Lokacija\Edit.cshtml" />
+    <Content Include="Views\Lokacija\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

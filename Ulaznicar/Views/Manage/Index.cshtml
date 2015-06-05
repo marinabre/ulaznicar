@@ -33,6 +33,13 @@
         <dd>[@Html.ActionLink("Ulaznice", "Index", "Karta")]</dd>
         <dt>Pošalji kartu na ispis:</dt>
         <dd>[]</dd>
+@if (ViewBag.user == "ADMIN")
+{
+    <dt>Uredi lokacije</dt>
+    <dd>[@Html.ActionLink("Lokacije", "Index", "Lokacija")]</dd>
+    <dt>Uredi događaje</dt>
+    <dd>[@Html.ActionLink("Događaji", "Index", "Dogadjaj")]</dd>
+}
 
         @*<dt>External Logins:</dt>
             <dd>
