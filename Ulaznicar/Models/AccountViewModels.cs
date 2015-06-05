@@ -49,9 +49,8 @@ namespace Ulaznicar.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Korisničko ime")]
+        public string username { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
