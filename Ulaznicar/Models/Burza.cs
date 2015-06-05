@@ -11,13 +11,18 @@ namespace Ulaznicar.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Burza
     {
         public int Id { get; set; }
         public Nullable<int> IdKupac { get; set; }
         public int IdKarta { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
         public System.DateTime datumponude { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
         public Nullable<System.DateTime> datumprodaje { get; set; }
         public decimal cijena { get; set; }
     

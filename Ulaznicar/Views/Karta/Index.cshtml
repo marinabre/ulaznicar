@@ -18,6 +18,9 @@
             Naziv događaja
         </th>
         <th>
+            Lokacija
+        </th>
+        <th>
             Cijena
         </th>
         <th>
@@ -32,14 +35,19 @@
 @foreach (var item in Model)
 {
     <tr>
-        @if (item.Dogadjaj.datum <= DateTime.Today)
-        {
-            <td>
+        
+        <td>
+            @if (item.Dogadjaj.datum <= DateTime.Today)
+            {
                 @Html.DisplayFor(modelItem => item.QR_KOD)
-            </td>
-        }
+            }
+        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.Dogadjaj.naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dogadjaj.Lokacija.naziv)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CijenaKarte.cijena)

@@ -11,6 +11,7 @@ namespace Ulaznicar.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Dogadjaj
     {
@@ -25,6 +26,8 @@ namespace Ulaznicar.Models
     
         public int Id { get; set; }
         public string naziv { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
         public System.DateTime datum { get; set; }
         public int IdLokacija { get; set; }
         public int brojmjesta { get; set; }

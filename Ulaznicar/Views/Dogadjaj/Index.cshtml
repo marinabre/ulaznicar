@@ -13,7 +13,7 @@
 
 <h2>Događaji</h2>
 
-@if (Request.IsAuthenticated) 
+@if (ViewBag.user == "ADMIN") 
 { 
 <p>
     @Html.ActionLink("Dodaj novi događaj", "Create")
@@ -38,7 +38,7 @@
             @Html.ActionLink("Datum održavanja", "Index", new { sortOrder = ViewBag.DatumSortParm, currentFilter=ViewBag.CurrentFilter })
         </th>
         <th>
-           @Html.ActionLink("Lokacija", "Index", new { sortOrder = ViewBag.LokSortParm, currentFilter=ViewBag.CurrentFilter })
+            @Html.ActionLink("Lokacija", "Index", new { sortOrder = ViewBag.LokSortParm, currentFilter=ViewBag.CurrentFilter })
         </th>
         <th>
             Broj mjesta
@@ -48,42 +48,49 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <img id="the-image" src="@Url.Action("Show", "Dogadjaj", new { plakat = item.plakat })" style="max-height:250px; max-width:300px; border-radius:10px" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.naziv)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.datum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lokacija.adresa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.brojmjesta)
-        </td>
-        @if (ViewBag.user == "ADMIN")
-        {
-        <td>
-            @Html.ActionLink("Ažuriraj", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Detalji", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Izbriši", "Delete", new { id=item.Id })
-        </td>
-        }
-        @if (Request.IsAuthenticated)
-        {
+    @foreach (var item in Model)
+{
+        <tr>
             <td>
-                @Html.ActionLink("Kupi ulaznicu!", "Create", "Karta", new { id = item.Id })
+                <img id="the-image" src="@Url.Action("Show", "Dogadjaj", new { plakat = item.plakat })" style="max-height:150px; max-width:150px; border-radius:10px" />
             </td>
-        }
-
-    </tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.datum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lokacija.naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brojmjesta)
+            </td>
+           
+            <td>
+                @if (ViewBag.user == "ADMIN")
+                {
+                    <p>
+                        @Html.ActionLink("Ažuriraj", "Edit", new { id = item.Id })
+                    </p>
+                    <p>
+                        @Html.ActionLink("Izbriši", "Delete", new { id = item.Id })
+                    </p>
+                }
+                @if (Request.IsAuthenticated)
+                {
+                    <p>
+                        @Html.ActionLink("Detalji", "Details", new { id = item.Id })
+                    </p>
+                    <p>
+                        @Html.ActionLink("Kupi ulaznicu!", "Create", "Karta", new { id = item.Id }, null)
+                    </p>
+                }
+            </td>
+            </tr>
 }
 
-</table>
+        </table>
 <div class="col-sm-10">
     <div class="center">
         <br />

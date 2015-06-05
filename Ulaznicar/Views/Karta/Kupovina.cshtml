@@ -5,12 +5,13 @@
 }
 <div>
 <h2>Kupovina</h2>
-
-    <dl>
-        Trenutno ste prijavljeni kao :
-        <dt>@Html.ViewBag.korisnik</dt>
-    </dl>
-<dl class="dl-horizontal">
+    <div >
+        <h3 >
+            Trenutno ste prijavljeni kao :
+        </h3>
+        <h1>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;@Html.ViewBag.korisnik</h1>
+    </div>
+<dl class="dl-horizontal" style="font-size:medium; background-color:aliceblue">
     <dt>
         Naziv događaja :
     </dt>
@@ -18,13 +19,26 @@
     <dd>
         @Html.ViewBag.naziv
     </dd>
-
     <dt>
         Datum događaja :
     </dt>
 
     <dd>
         @Html.ViewBag.datum
+    </dd>
+    <dt>
+        Lokacija :
+    </dt>
+
+    <dd>
+        @Html.ViewBag.mjesto
+    </dd>
+    <dt>
+        Adresa lokacije :
+    </dt>
+
+    <dd>
+        @Html.ViewBag.adresa
     </dd>
 
     <dt>
@@ -37,14 +51,17 @@
 </dl>
 </div>
 
-<div style="background-color:ActiveCaption"><h2>Unesite broj računa kojim želite platiti kartu: </h2>
+<div><h2>Unesite broj računa kojim želite platiti ulaznicu: </h2>
     <input type="text" id="text" name="brrac" />
-    @Html.ActionLink("Kupi ulaznicu", "Kupovina_konacna", "Karta", new { id = Model.Id }, new { @class = "btn btn-success" })
+
+    &nbsp; &nbsp; &nbsp; @Html.ActionLink("Kupi ulaznicu", "Kupovina_konacna", "Karta", new { id = Model.Id }, new { @class = "btn btn-success" })
+
+    <p style="padding-top:20px">
+        @Html.ActionLink("Odustani od kupovine", "Index", "Dogadjaji", null, new { @class = "btn btn-danger" })
+    </p>
+
 </div>
     
 
 
-<p>
-    @Html.ActionLink("Odustani od kupovine", "Index", "Dogadjaji", null, new { @class = "btn btn-danger" })
-</p>
 

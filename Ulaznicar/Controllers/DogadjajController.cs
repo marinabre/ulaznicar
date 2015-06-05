@@ -123,7 +123,7 @@ namespace Ulaznicar.Controllers
                     return RedirectToAction("Index");
                 }
 
-                ViewBag.IdLokacija = new SelectList(db.Lokacija, "Id", "adresa", dogadjaj.IdLokacija);
+                ViewBag.IdLokacija = new SelectList(db.Lokacija, "Id", "naziv", dogadjaj.IdLokacija);
             }
              catch (RetryLimitExceededException /* dex */  )
              {
@@ -145,7 +145,7 @@ namespace Ulaznicar.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdLokacija = new SelectList(db.Lokacija, "Id", "adresa", dogadjaj.IdLokacija);
+            ViewBag.IdLokacija = new SelectList(db.Lokacija, "Id", "naziv", dogadjaj.IdLokacija);
             return View(dogadjaj);
         }
 
@@ -175,7 +175,7 @@ namespace Ulaznicar.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdLokacija = new SelectList(db.Lokacija, "Id", "adresa", dogadjaj.IdLokacija);
+            ViewBag.IdLokacija = new SelectList(db.Lokacija, "Id", "naziv", dogadjaj.IdLokacija);
             return View(dogadjaj);
         }
 

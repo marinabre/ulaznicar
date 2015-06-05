@@ -39,9 +39,15 @@
         <dd>
             @Html.DisplayFor(model => model.brojmjesta)
         </dd>
-
         <dt>
-            Adresa lokacije
+            Naziv lokacije
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lokacija.naziv)
+        </dd>
+        <dt>
+            Adresa
         </dt>
 
         <dd>
@@ -49,30 +55,37 @@
         </dd>
     </dl>
 </div>
-<div>
+<table class="table">
+    <tr>
+        <th>
+        Ime kategorije karte
+        </th>
+        <th>
+            Cijena
+        </th>
+        <th></th>
+    </tr>
     @if (ViewBag.cijene != null)
     {
         foreach (var cijena in ViewBag.cijene)
         {
-            <dl>
-                <dt>
-                    Vrsta ulaznice
-                </dt>
-                <dd>@cijena.VrstaKarte.imekategorije</dd>
-                <dt>
-                    Cijena 
-                </dt>
-                <dd>@cijena.cijena</dd>
-                @Html.ActionLink("Kupi!", "Create", "Karta", new { id = Model.Id, idcijena = cijena.Id }, new { @class = "btn btn-success" })
-            </dl>
+            <tr>
+                <td>@cijena.VrstaKarte.imekategorije</td>
+                <td>@cijena.cijena</td>
+                <td>
+                    @Html.ActionLink("Kupi!", "Create", "Karta", new { id = Model.Id, idcijena = cijena.Id }, new { @class = "btn btn-success" })
+                </td>
+            </tr>
 
         }
     }
-</div>
-<p>
-@if (Request.IsAuthenticated)
-{
-    @Html.ActionLink("Ažuriraj", "Edit", new { id = Model.Id })
-}
-    @Html.ActionLink("Povratak na popis događaja", "Index")
-</p>
+</table>
+    <p>
+        @if (User.Identity.GetUserName() == "ADMIN")
+        {
+            @Html.ActionLink("Ažuriraj", "Edit", new { id = Model.Id })
+        }
+    </p>
+    <p>@Html.ActionLink("Povratak na popis događaja", "Index")</p>
+
+

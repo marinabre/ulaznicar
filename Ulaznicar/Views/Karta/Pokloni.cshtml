@@ -25,18 +25,20 @@
                 @Html.ValidationMessageFor(model => model.IdKarta, "", new { @class = "text-danger" })
             </div>
         </div>*@
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdKarta, "Odabrana ulaznica", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group" style="font-size:medium">
+            @Html.LabelFor(model => model.IdKarta, "Odabrana ulaznica", htmlAttributes: new { @class = "control-label col-md-2 text-primary" })
             <div class="col-md-10">
                 <p>@Html.ViewBag.odabran.naziv</p>
+                <p>@Html.ViewBag.odabran.Lokacija.naziv</p>
                 <p>@Html.ViewBag.odabran.datum</p>
+                <p>@Html.ViewBag.cijena</p>
 
             </div>
         </div>
 
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdKorisnik, "Korisničko ime", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group" style="font-size:medium">
+            @Html.LabelFor(model => model.IdKorisnik, "Korisničko ime", htmlAttributes: new { @class = "control-label col-md-2 text-primary" })
             <div class="col-md-10">
                 @Html.DropDownList("IdKorisnik", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdKorisnik, "", new { @class = "text-danger" })
@@ -47,7 +49,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Pokloni" class="btn btn-primary"/>
             </div>
         </div>
     </div>
