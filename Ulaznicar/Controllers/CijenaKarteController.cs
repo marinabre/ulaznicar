@@ -19,14 +19,58 @@ namespace Ulaznicar.Controllers
         private bazaUlazniceEntities db = new bazaUlazniceEntities();
 
         // GET: CijenaKarte
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             var userId = User.Identity.GetUserId();
             var userUserName = User.Identity.GetUserName();
             if (userUserName == "ADMIN")
             {
+
+                ViewBag.CurrentSort = sortOrder;
+                ViewBag.NazivSortParm = String.IsNullOrEmpty(sortOrder) ? "naziv_desc" : "";
+                ViewBag.ImeSortParm = String.IsNullOrEmpty(sortOrder) ? "ime_desc" : "";
+                ViewBag.CijenaSortParm = String.IsNullOrEmpty(sortOrder) ? "cijena_desc" : "";
+
+                if (searchString != null)
+                {
+                    page = 1;
+                }
+                else
+                {
+                    searchString = currentFilter;
+                }
+
+                ViewBag.CurrentFilter = searchString;
+
                 var cijenaKarte = db.CijenaKarte.Include(c => c.Dogadjaj).Include(c => c.VrstaKarte);
-                return View(cijenaKarte.ToList());
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    cijenaKarte = cijenaKarte.Where(s => s.VrstaKarte.imekategorije.Contains(searchString)
+                                           || s.Dogadjaj.naziv.Contains(searchString));
+                }
+                switch (sortOrder)
+                {
+                    case "naziv_desc":
+                        cijenaKarte = cijenaKarte.OrderByDescending(s => s.Dogadjaj.naziv);
+                        break;
+                    case "ime_desc":
+                        cijenaKarte = cijenaKarte.OrderByDescending(s => s.VrstaKarte.imekategorije);
+                        break;
+                    case "cijena_desc":
+                        cijenaKarte = cijenaKarte.OrderByDescending(s => s.cijena);
+                        break;
+                    default:  // Name ascending 
+                        cijenaKarte = cijenaKarte.OrderBy(s => s.Dogadjaj.naziv);
+                        break;
+                }
+
+                int pageSize = 15;
+                int pageNumber = (page ?? 1);
+
+                return View(cijenaKarte.ToPagedList(pageNumber, pageSize));
+
+
             }
             return RedirectToAction("Index", "Dogadjaj");
         }

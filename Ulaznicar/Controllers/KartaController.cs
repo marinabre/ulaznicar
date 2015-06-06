@@ -67,7 +67,7 @@ namespace Ulaznicar.Controllers
                 else
                 {
                     ModelState.AddModelError("", "Niste odabrali koju vrstu ulaznice želite!");
-                    return RedirectToAction("Details", "Dogadjaj", id);
+                    return RedirectToAction("Details", "Dogadjaj", new { id = id });
                 }
             }
 
@@ -116,7 +116,7 @@ namespace Ulaznicar.Controllers
                 return RedirectToAction("Kupovina", new { id = idkarte });
             }
 
-            return RedirectToAction("Details",id);
+            return RedirectToAction("Details", "Dogadjaj", new { id = id });
         }
 
         // POST: Karta/Create

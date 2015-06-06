@@ -64,7 +64,10 @@
                 }
                 else
                 {
-                    @Html.ActionLink("Kupi ulaznicu!", "Kupovina", new { id = item.Id })
+                    if(item.IdKupac == null)
+                    {
+                        @Html.ActionLink("Kupi ulaznicu!", "Kupovina", new { id = item.Id })
+                    }
                 }
             </td>
         }
