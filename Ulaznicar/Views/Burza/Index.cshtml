@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Ulaznicar.Models.Burza>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Burza";
 }
 
 <h2>Karte na burzi</h2>
@@ -29,7 +29,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.KupljeneKarte.Karta.Dogadjaj.naziv)
@@ -57,7 +58,14 @@
         @if (Request.IsAuthenticated)
         {
             <td>
-                @Html.ActionLink("Kupi ulaznicu!", "Edit", new { id = item.IdKarta })
+                @if (ViewBag.vlastite.IndexOf(item.IdKarta) != -1)
+                {
+                    @Html.ActionLink("Izbriši", "Delete", new { id = item.Id })
+                }
+                else
+                {
+                    @Html.ActionLink("Kupi ulaznicu!", "Edit", new { id = item.IdKarta })
+                }
             </td>
         }
     </tr>

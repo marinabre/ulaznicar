@@ -15,6 +15,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System.IO;
+using PagedList;
 
 namespace Ulaznicar.Controllers
 {
@@ -81,9 +82,9 @@ namespace Ulaznicar.Controllers
                 }
             }
 
-            if (dogadjaj.brojmjesta - brojevnostanje > 0)
+            if (dogadjaj.brojmjesta > 0)
             {
-                string zastitni = id.ToString() + " " + (brojevnostanje + 1).ToString();
+                string zastitni = dogadjaj.naziv + " " + id.ToString() + " " + (brojevnostanje + 1).ToString();
                 QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.H);
                 QrCode qrCode = qrEncoder.Encode(zastitni);
 
@@ -102,8 +103,10 @@ namespace Ulaznicar.Controllers
                     brojkarte = brojevnostanje + 1,
                     IdCijena = (int)idcijena
                 };
-
+                
                 context.Karta.Add(novaKarta);
+                dogadjaj.brojmjesta -= 1;
+                context.Entry(dogadjaj).State = EntityState.Modified;
                 context.SaveChanges();
 
                 context = new bazaUlazniceEntities();
