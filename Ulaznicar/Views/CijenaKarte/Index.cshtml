@@ -16,7 +16,7 @@
 @using (Html.BeginForm())
 {
     <p>
-        Pretraži po nazivu: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        Pretraži : @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
         <input type="submit" value="Pretraži" />
     </p>
 }
@@ -24,7 +24,6 @@
 <table class="table">
     <tr>
         <th>
-            
             @Html.ActionLink("Naziv događaja", "Index", new { sortOrder = ViewBag.NazivSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
@@ -32,7 +31,6 @@
         </th>
         <th>
             @Html.ActionLink("Cijena", "Index", new { sortOrder = ViewBag.CijenaSortParm, currentFilter = ViewBag.CurrentFilter })
-            Cijena
         </th>
         <th></th>
     </tr>

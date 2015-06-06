@@ -20,9 +20,9 @@ namespace Ulaznicar.Controllers
         private bazaUlazniceEntities db = new bazaUlazniceEntities();
 
         // GET: Burza
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var burza = db.Burza.Include(b => b.Korisnik);
+            var burza = db.Burza.Include(b => b.Korisnik).Where(b=>b.IdKupac == null);
 
             var userId = User.Identity.GetUserId();
             var userUserName = User.Identity.GetUserName();
@@ -39,10 +39,52 @@ namespace Ulaznicar.Controllers
                     karte.Add(kup.IdKarta);
                 }
             }
-
             ViewBag.vlastite = karte;
             ViewBag.user = userUserName;
-            return View(burza.ToList());
+
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NazivSortParm = String.IsNullOrEmpty(sortOrder) ? "naziv_desc" : "";
+            ViewBag.DatumSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.CijenaSortParm = String.IsNullOrEmpty(sortOrder) ? "cijena_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                burza = burza.Where(s => s.KupljeneKarte.Karta.Dogadjaj.naziv.Contains(searchString)
+                                       || s.cijena.Equals(Decimal.Parse(searchString)));
+            }
+            switch (sortOrder)
+            {
+                case "naziv_desc":
+                    burza = burza.OrderByDescending(s => s.KupljeneKarte.Karta.Dogadjaj.naziv);
+                    break;
+                case "date_desc":
+                    burza = burza.OrderByDescending(s => s.datumponude);
+                    break;
+                case "cijena_desc":
+                    burza = burza.OrderByDescending(s => s.cijena);
+                    break;
+                default:  // Name ascending 
+                    burza = burza.OrderBy(s => s.datumponude);
+                    break;
+            }
+
+            int pageSize = 15;
+            int pageNumber = (page ?? 1);
+
+            return View(burza.ToPagedList(pageNumber, pageSize));
+
         }
 
         // GET: Burza/Details/5

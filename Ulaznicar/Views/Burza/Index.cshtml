@@ -1,5 +1,8 @@
-﻿@model IEnumerable<Ulaznicar.Models.Burza>
-
+﻿@model PagedList<Ulaznicar.Models.Burza>
+@using PagedList.Mvc;
+@using PagedList;
+@using Microsoft.AspNet.Identity
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Burza";
 }
@@ -9,19 +12,27 @@
 <p>
     @Html.ActionLink("Stavi svoju kartu na burzu", "Create")
 </p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Pretraži : @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Pretraži" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
-            Karta za dogadjaj
+            @Html.ActionLink("Naziv događaja", "Index", new { sortOrder = ViewBag.NazivSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            Datum ponude
+            @Html.ActionLink("Datum ponude", "Index", new { sortOrder = ViewBag.DatumSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
             Datum prodaje
         </th>
         <th>
-            Cijena
+            @Html.ActionLink("Cijena", "Index", new { sortOrder = ViewBag.CijenaSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
             Kupac
@@ -75,3 +86,10 @@
 }
 
 </table>
+<div class="col-sm-10">
+    <div class="center">
+        <br />
+        Stranica @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) od @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+</div>

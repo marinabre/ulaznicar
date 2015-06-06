@@ -47,7 +47,7 @@ namespace Ulaznicar.Controllers
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     cijenaKarte = cijenaKarte.Where(s => s.VrstaKarte.imekategorije.Contains(searchString)
-                                           || s.Dogadjaj.naziv.Contains(searchString));
+                                           || s.Dogadjaj.naziv.Contains(searchString) || s.cijena.Equals(Decimal.Parse(searchString)));
                 }
                 switch (sortOrder)
                 {
