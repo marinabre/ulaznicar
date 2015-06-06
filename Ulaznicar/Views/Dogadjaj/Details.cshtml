@@ -14,7 +14,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.plakat)
+            <img id="the-image" src="@Url.Action("Show", "Dogadjaj", new { plakat = Model.plakat })" style="max-height:200px; max-width:200px; border-radius:10px" />
         </dd>
         <dt>
             Naziv

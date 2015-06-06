@@ -68,15 +68,15 @@
             </td>
            
             <td>
-                @if (ViewBag.user == "ADMIN")
-                {
+                @*@if (ViewBag.user == "ADMIN")
+                {*@
                     <p>
                         @Html.ActionLink("Ažuriraj", "Edit", new { id = item.Id })
                     </p>
                     <p>
                         @Html.ActionLink("Izbriši", "Delete", new { id = item.Id })
                     </p>
-                }
+                @*}*@
                 @if (Request.IsAuthenticated)
                 {
                     <p>

@@ -1,5 +1,8 @@
-﻿@model IEnumerable<Ulaznicar.Models.Lokacija>
-
+﻿@model PagedList<Ulaznicar.Models.Lokacija>
+@using PagedList.Mvc;
+@using PagedList;
+@using Microsoft.AspNet.Identity
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Popis lokacija";
 }
@@ -9,16 +12,25 @@
 <p>
     @Html.ActionLink("Stvori novu", "Create")
 </p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Pretraži po nazivu: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Pretraži" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
-            Adresa
+            @Html.ActionLink("Naziv", "Index", new { sortOrder = ViewBag.NazivSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            Naziv
+            @Html.ActionLink("Adresa", "Index", new { sortOrder = ViewBag.AdresaSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            Ime grada
+            @Html.ActionLink("Ime grada", "Index", new { sortOrder = ViewBag.ImeSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th></th>
     </tr>
@@ -26,20 +38,30 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.adresa)
+            @Html.DisplayFor(modelItem => item.naziv)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.naziv)
+            @Html.DisplayFor(modelItem => item.adresa)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Grad.imegrad)
         </td>
+        @if (User.Identity.GetUserName() == "ADMIN")
+        {
         <td>
             @Html.ActionLink("Ažuriraj", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Detalji", "Details", new { id=item.Id }) |
             @Html.ActionLink("Izbriši", "Delete", new { id=item.Id })
         </td>
+        }
     </tr>
 }
 
 </table>
+<div class="col-sm-10">
+    <div class="center">
+        <br />
+        Stranica @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) od @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+</div>

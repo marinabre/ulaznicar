@@ -69,6 +69,9 @@ namespace Ulaznicar.Controllers
                 case "naziv_desc":
                     burza = burza.OrderByDescending(s => s.KupljeneKarte.Karta.Dogadjaj.naziv);
                     break;
+                case "Date":
+                    burza = burza.OrderByDescending(s => s.datumponude);
+                    break;
                 case "date_desc":
                     burza = burza.OrderByDescending(s => s.datumponude);
                     break;

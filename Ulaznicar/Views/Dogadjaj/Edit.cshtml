@@ -7,7 +7,7 @@
 <h2>Ažuriraj</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Dogadjaj", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     

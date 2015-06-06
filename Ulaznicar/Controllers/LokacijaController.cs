@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using Ulaznicar.Models;
 
 namespace Ulaznicar.Controllers
@@ -15,10 +16,53 @@ namespace Ulaznicar.Controllers
         private bazaUlazniceEntities db = new bazaUlazniceEntities();
 
         // GET: Lokacija
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NazivSortParm = String.IsNullOrEmpty(sortOrder) ? "naziv_desc" : "";
+            ViewBag.ImeSortParm = String.IsNullOrEmpty(sortOrder) ? "ime_desc" : "";
+            ViewBag.AdresaSortParm = String.IsNullOrEmpty(sortOrder) ? "adresa_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
             var lokacija = db.Lokacija.Include(l => l.Grad);
-            return View(lokacija.ToList());
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                lokacija = lokacija.Where(s => s.naziv.Contains(searchString)
+                                       || s.adresa.Contains(searchString) || s.Grad.imegrad.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "naziv_desc":
+                    lokacija = lokacija.OrderByDescending(s => s.naziv);
+                    break;
+                case "ime_desc":
+                    lokacija = lokacija.OrderByDescending(s => s.Grad.imegrad);
+                    break;
+                case "adresa_desc":
+                    lokacija = lokacija.OrderByDescending(s => s.adresa);
+                    break;
+                default:  // Name ascending 
+                    lokacija = lokacija.OrderBy(s => s.naziv);
+                    break;
+            }
+
+            int pageSize = 15;
+            int pageNumber = (page ?? 1);
+
+            return View(lokacija.ToPagedList(pageNumber, pageSize));
+
         }
 
         // GET: Lokacija/Details/5
