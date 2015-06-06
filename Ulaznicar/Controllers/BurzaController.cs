@@ -41,7 +41,7 @@ namespace Ulaznicar.Controllers
             }
 
             ViewBag.vlastite = karte;
-
+            ViewBag.user = userUserName;
             return View(burza.ToList());
         }
 
