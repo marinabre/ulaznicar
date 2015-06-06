@@ -205,14 +205,15 @@ namespace Ulaznicar.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public ActionResult Show(byte[] plakat)
+        public ActionResult Show(int id)
         {
+            var plakat = db.Dogadjaj.Find(id).plakat; 
             if (plakat == null)
             {
                 return base.File("~/Content/noimage.png", "image/png");
             }
 
-            return new FileContentResult(plakat, "img/gif");
+            return new FileContentResult(plakat, "img");
         }
         
         protected override void Dispose(bool disposing)

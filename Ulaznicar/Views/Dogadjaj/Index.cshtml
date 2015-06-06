@@ -52,7 +52,7 @@
 {
         <tr>
             <td>
-                <img id="the-image" src="@Url.Action("Show", "Dogadjaj", new { plakat = item.plakat })" style="max-height:150px; max-width:150px; border-radius:10px" />
+                <img id="the-image" src="@Url.Action("Show", "Dogadjaj", new { id = item.Id })" style="max-height:150px; max-width:150px; border-radius:10px" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.naziv)
