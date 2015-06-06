@@ -1,4 +1,8 @@
-﻿@model IEnumerable<Ulaznicar.Models.VrstaKarte>
+﻿@model PagedList<Ulaznicar.Models.VrstaKarte>
+@using PagedList.Mvc;
+@using PagedList;
+@using Microsoft.AspNet.Identity
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Vrste Karata";
@@ -9,13 +13,22 @@
 <p>
     @Html.ActionLink("Stvori novu", "Create")
 </p>
+
+@using (Html.BeginForm("Index", "VrstaKarte", FormMethod.Get))
+{
+    <p>
+        Pretraži po nazivu: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Pretraži" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
             Naziv lokacije
         </th>
         <th>
-            Ime kategorije karte
+            @Html.ActionLink("Ime kategorije karte", "Index", new { sortOrder = ViewBag.NazivSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
 
         <th></th>
@@ -39,3 +52,11 @@
 }
 
 </table>
+
+<div class="col-sm-10">
+    <div class="center">
+        <br />
+        Stranica @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) od @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+</div>

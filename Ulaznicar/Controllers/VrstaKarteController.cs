@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -18,14 +19,47 @@ namespace Ulaznicar.Controllers
         private bazaUlazniceEntities db = new bazaUlazniceEntities();
 
         // GET: VrstaKarte
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             var userId = User.Identity.GetUserId();
             var userUserName = User.Identity.GetUserName();
             if (userUserName == "ADMIN")
             {
+                ViewBag.CurrentSort = sortOrder;
+                ViewBag.NazivSortParm = String.IsNullOrEmpty(sortOrder) ? "naziv_desc" : "";
+
+                if (searchString != null)
+                {
+                    page = 1;
+                }
+                else
+                {
+                    searchString = currentFilter;
+                }
+
+                ViewBag.CurrentFilter = searchString;
+
                 var vrstaKarte = db.VrstaKarte.Include(v => v.Lokacija);
-                return View(vrstaKarte.ToList());
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    vrstaKarte = vrstaKarte.Where(s => s.imekategorije.Contains(searchString)
+                                           || s.Lokacija.naziv.Contains(searchString));
+                }
+                switch (sortOrder)
+                {
+                    case "naziv_desc":
+                        vrstaKarte = vrstaKarte.OrderByDescending(s => s.imekategorije);
+                        break;
+                    default:  // Name ascending 
+                        vrstaKarte = vrstaKarte.OrderBy(s => s.Lokacija.naziv);
+                        break;
+                }
+
+                int pageSize = 15;
+                int pageNumber = (page ?? 1);
+
+                return View(vrstaKarte.ToPagedList(pageNumber, pageSize));
             }
             return RedirectToAction("Index", "Dogadjaj");
         }
