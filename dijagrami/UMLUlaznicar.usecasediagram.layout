@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UMLUlaznicar">
+  <useCaseModelRootMoniker Id="287fb9a9-ca76-465f-a454-a69fd1dc26f3" />
+  <nestedChildShapes>
+    <actorShape Id="68bca115-1032-417c-92ef-1dd75c7b3a0a" absoluteBounds="2.75, 5, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="05e0f9ac-bf2a-4e63-8566-c82840a10355" LastKnownName="Korisnik" />
+      <relativeChildShapes />
+    </actorShape>
+    <actorShape Id="10aa0110-a413-4ede-84ff-86eff077b05c" absoluteBounds="2.75, 2.375, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="a914dcda-c58a-438a-8b0b-041eb9c30d50" LastKnownName="Administrator" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseGeneralizationConnector edgePoints="[(3.00126221778758 : 5); (3.01199106898197 : 2.875)]" fixedFrom="Algorithm" fixedTo="Caller" customColor="113, 111, 110">
+      <generalizationMoniker Id="40ce0450-a4bf-47fe-a067-8358977c65ce" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="68bca115-1032-417c-92ef-1dd75c7b3a0a" />
+        <actorShapeMoniker Id="10aa0110-a413-4ede-84ff-86eff077b05c" />
+      </nodes>
+    </useCaseGeneralizationConnector>
+    <useCaseShape Id="df0d289b-939e-4559-aea9-b3107a048705" absoluteBounds="4.25, 5.625, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="3022bdcb-564e-444b-b2f5-fe5f796d18a0" LastKnownName="Pregled događaja" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(3.25 : 5.33928571428571); (4.34313326439663 : 5.72969045157023)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="bba333c4-4379-4658-b836-b12e8e03fd93" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="68bca115-1032-417c-92ef-1dd75c7b3a0a" />
+        <useCaseShapeMoniker Id="df0d289b-939e-4559-aea9-b3107a048705" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="f2328b89-86e1-4648-9c80-160a2de73837" absoluteBounds="6.125, 4.25, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="b9def590-46d8-4812-92d2-a87c841d9de4" LastKnownName="Kupovina ulaznica" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseShape Id="aa2d2c52-d0fe-4053-b3ac-37a66051fe92" absoluteBounds="6.375, 4.875, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="c23c9f81-79ae-43fd-90f8-13b8e64deebd" LastKnownName="Poklanjanje ulaznica" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseShape Id="2a95b035-672f-46d5-93ab-d795fbce4270" absoluteBounds="4.375, 4.875, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="bc883122-d744-4faf-bcbc-e54f62cf54a1" LastKnownName="Rukovanje ulaznicama" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(3.25 : 5.23333333333333); (4.37938604965868 : 5.15804093002275)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="a58ee5f3-ba64-43f4-9e40-3dc4b762ce1b" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="68bca115-1032-417c-92ef-1dd75c7b3a0a" />
+        <useCaseShapeMoniker Id="2a95b035-672f-46d5-93ab-d795fbce4270" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <includeConnector edgePoints="[(5.28186673560337 : 4.97969045157023); (6.21813326439663 : 4.64530954842977)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="3779531b-aa58-43ed-9c3d-da4f8f13c2e2" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="2a95b035-672f-46d5-93ab-d795fbce4270" />
+        <useCaseShapeMoniker Id="f2328b89-86e1-4648-9c80-160a2de73837" />
+      </nodes>
+    </includeConnector>
+    <includeConnector edgePoints="[(5.375 : 5.125); (6.375 : 5.125)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="35785b21-104f-4007-8c55-c7fcdde3c3c0" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="2a95b035-672f-46d5-93ab-d795fbce4270" />
+        <useCaseShapeMoniker Id="aa2d2c52-d0fe-4053-b3ac-37a66051fe92" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="a5bc9bf3-0163-406a-a087-8d83b03594a7" absoluteBounds="6.125, 5.5, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="d38df3be-88dd-429f-89dd-c575b975b833" LastKnownName="Stavljanje ulaznica na burzu" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(5.25462830118265 : 5.28769784336399); (6.19087842893777 : 5.68894789811619)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="c3ea02f6-7777-4892-a1d7-d587aaccd6c2" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="2a95b035-672f-46d5-93ab-d795fbce4270" />
+        <useCaseShapeMoniker Id="a5bc9bf3-0163-406a-a087-8d83b03594a7" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="4d355706-211d-45e4-bffb-59dbe41a1888" absoluteBounds="3.75, 2, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="7f70188c-e048-4619-9584-71e04a12a419" LastKnownName="Upravljanje događajima" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(3.25 : 2.55); (3.82125353714373 : 2.37862393885688)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="3ba00840-3357-42b9-a1a1-a1430225d83d" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="10aa0110-a413-4ede-84ff-86eff077b05c" />
+        <useCaseShapeMoniker Id="4d355706-211d-45e4-bffb-59dbe41a1888" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="df228865-0f5e-4f2f-b3fe-2e4bfca638cf" absoluteBounds="3.75, 2.75, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="00269ee8-c4dc-4e33-8fd1-e4e2615c1067" LastKnownName="Upravljanje  lokacijama" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(3.25 : 2.7); (3.82125353714373 : 2.87137606114312)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="409ef243-10f6-4cfa-85d1-4f11d93f737a" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="10aa0110-a413-4ede-84ff-86eff077b05c" />
+        <useCaseShapeMoniker Id="df228865-0f5e-4f2f-b3fe-2e4bfca638cf" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="1cc676d7-d286-4ec7-8267-f84a2a849c6e" absoluteBounds="4.125, 0.75, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="39bb7781-ee65-41c4-9af3-7cd2a00e6e9e" LastKnownName="Dodavanje  novog događaja" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(4.33219949365268 : 2.00340151904196); (4.50373218748183 : 1.4888034375545)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="776992eb-2853-4405-ab04-17311b4f78a5" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="4d355706-211d-45e4-bffb-59dbe41a1888" />
+        <useCaseShapeMoniker Id="1cc676d7-d286-4ec7-8267-f84a2a849c6e" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="4c72a998-db34-42d8-9201-abb5621c826e" absoluteBounds="5.125, 1, 1.875, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="ba8f982b-405d-471c-b7cc-78b709978c42" LastKnownName="Uređivanje postojećeg događaja" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(4.58575971236943 : 2.064753262141); (5.65452938074349 : 1.47508723821049)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="4ea7fe9f-274f-4d49-ba7f-d73dc5e87de1" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="4d355706-211d-45e4-bffb-59dbe41a1888" />
+        <useCaseShapeMoniker Id="4c72a998-db34-42d8-9201-abb5621c826e" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="3363fcb2-ec1c-4ae7-90e8-743bfd98dc87" absoluteBounds="5.625, 1.625, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="252deb53-e87f-426c-a336-53dd47663839" LastKnownName="Brisanje događaja" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(4.71423834544263 : 2.15715233091147); (5.66076165455737 : 1.96784766908853)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="9c3624ce-0262-4c76-8a1f-b66d5943b8a2" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="4d355706-211d-45e4-bffb-59dbe41a1888" />
+        <useCaseShapeMoniker Id="3363fcb2-ec1c-4ae7-90e8-743bfd98dc87" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="12b970a1-c1f9-4a82-aa54-696b4d1fe976" absoluteBounds="5.625, 2.25, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="3a66bd96-770c-49f8-8c91-eb9ca6ac83f0" LastKnownName="Dodavanje nove lokacije" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(4.69117647058824 : 2.88235294117647); (5.68382352941176 : 2.61764705882353)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="ef7bc890-5adf-4c17-8797-bcee3185876a" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="df228865-0f5e-4f2f-b3fe-2e4bfca638cf" />
+        <useCaseShapeMoniker Id="12b970a1-c1f9-4a82-aa54-696b4d1fe976" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="5b68afe6-6b48-45cb-8bbd-7a916026d835" absoluteBounds="5.75, 2.75, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="b2c369c6-a28a-4251-b37e-52746478962f" LastKnownName="Uređivanje lokacije" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(4.75 : 3); (5.75 : 3)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="bda98e78-c607-41d3-8d10-6daae2277186" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="df228865-0f5e-4f2f-b3fe-2e4bfca638cf" />
+        <useCaseShapeMoniker Id="5b68afe6-6b48-45cb-8bbd-7a916026d835" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="da9f1683-d82c-408a-8d6c-c5552d5b65bd" absoluteBounds="5.375, 3.25, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="d13bfd18-e572-4b3f-9f26-c34510f72556" LastKnownName="Brisanje lokacije" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(4.67582915835227 : 3.13102435641608); (5.44917084164773 : 3.36897564358392)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="8a5ddaf9-dc9e-488a-aeab-6b140b91499a" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="df228865-0f5e-4f2f-b3fe-2e4bfca638cf" />
+        <useCaseShapeMoniker Id="da9f1683-d82c-408a-8d6c-c5552d5b65bd" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="9d95a8de-783a-45e3-8211-57efc8a8fc02" absoluteBounds="4, 3.625, 1.25, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="af8d4657-deb1-457c-b610-eacd0020fdbf" LastKnownName="Upravljanje vrstama ulaznica" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(3.25 : 2.81730769230769); (4.33665453959876 : 3.65319579969135)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="d27971e3-56c7-4d50-b5e4-cb519c625ea3" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="10aa0110-a413-4ede-84ff-86eff077b05c" />
+        <useCaseShapeMoniker Id="9d95a8de-783a-45e3-8211-57efc8a8fc02" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="781c9921-94be-43aa-82b2-3d188477531f" absoluteBounds="3.75, 4.25, 1.375, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="25728da4-2228-40a3-9061-969bbc2385ef" LastKnownName="Upravljanje cijenama ulaznica" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(3.19166666666667 : 2.875); (4.25287390737886 : 4.25918335745069)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="cf924f38-eeeb-4354-af4f-94182476c3a8" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="10aa0110-a413-4ede-84ff-86eff077b05c" />
+        <useCaseShapeMoniker Id="781c9921-94be-43aa-82b2-3d188477531f" />
+      </nodes>
+    </useCaseAssociationConnector>
+  </nestedChildShapes>
+</useCaseDiagram>

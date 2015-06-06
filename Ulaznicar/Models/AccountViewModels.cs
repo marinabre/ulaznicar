@@ -72,15 +72,12 @@ namespace Ulaznicar.Models
         [Display(Name = "Korisničko ime")]
         public string username { get; set; }
 
-        [Required]
         [Display(Name = "Ime")]
         public string ime { get; set; }
 
-        [Required]
         [Display(Name = "Prezime")]
         public string prezime { get; set; }
 
-        [Required]
         [StringLength(11, ErrorMessage = "OIB mora imati 11 znamenki.", MinimumLength = 11)]
         [Display(Name = "OIB")]
         public string OIB { get; set; }

@@ -44,7 +44,7 @@ namespace Ulaznicar.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var dogadjaj = db.Dogadjaj.Where(s => s.datum >= DateTime.Today).Include(d => d.Lokacija);
+            var dogadjaj = db.Dogadjaj.Where(s => s.datum >= DateTime.Now).Include(d => d.Lokacija);
 
             if (!String.IsNullOrEmpty(searchString))
             {

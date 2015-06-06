@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="47310aef-8f9e-4166-8919-3dd1e40ee9fa"
+  name="dijagrami" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="7d8d6276-6755-49e5-b13b-83da609b6dd7"
+        name="Korisnik"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="5ae4b293-7db4-4be7-807a-e5a5ca01c83e"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="b49720f5-4100-4f9b-8390-777942344d67"
+              LastKnownName="Administrator"
+              LastKnownLocation="dijagrami.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="6e22c4f7-6341-4b58-b60c-8d542d78bf6b"
+            isDerived="false"
+            sourceEndRoleName="Korisnik"
+            targetEndRoleName="Pregled Događaja"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f39c34db-72cd-45c2-8a9a-7573666ed943"
+              LastKnownName="Pregled događaja"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="abf461a5-11e6-4477-b4e1-668214efae25"
+                  name="Korisnik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cf40e895-9525-406c-bbf2-ee663194bfd6"
+                  name="Pregled Događaja"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="32ef65c2-000f-404c-90ea-9cd9d0e809b5"
+            isDerived="false"
+            sourceEndRoleName="Korisnik"
+            targetEndRoleName="Rukovanje ulaznicama"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="3b8e6b13-f3d8-4ab0-9a6a-32d46a26ca52"
+              LastKnownName="Rukovanje ulaznicama"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="14ed4d26-85ce-4f2f-bb97-5c13962659b0"
+                  name="Korisnik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="01c5a8a0-53b0-42d3-b47d-38528cd2d816"
+                  name="Rukovanje ulaznicama"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="b49720f5-4100-4f9b-8390-777942344d67"
+        name="Administrator"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="87f149dc-7f4d-4d50-9328-6ec6922f6cb6"
+            isDerived="false"
+            sourceEndRoleName="Administrator"
+            targetEndRoleName="Upravljanje događajima"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="0c795d6a-f182-48b0-93c9-c4bf878850b0"
+              LastKnownName="Upravljanje događajima"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c5ecedee-59ba-4778-a553-cb5352e36e54"
+                  name="Administrator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5605a9d2-e1f9-4ee2-95e6-c0c8bbaa969a"
+                  name="Upravljanje događajima"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="871f7e9a-c6ce-4cd5-88d8-65ff54e4d732"
+            isDerived="false"
+            sourceEndRoleName="Administrator"
+            targetEndRoleName="Upravljanje  lokacijama"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="42e6d89e-f4b2-458c-a9f0-d57b4326da18"
+              LastKnownName="Upravljanje  lokacijama"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="54d1f649-5af8-4503-8184-4a8f24dbde52"
+                  name="Administrator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2f19325b-14fc-4017-8a9e-bb2d173269be"
+                  name="Upravljanje  lokacijama"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ca82b312-994f-4a82-acf4-dea9fb6385a2"
+            isDerived="false"
+            sourceEndRoleName="Administrator"
+            targetEndRoleName="Upravljanje vrstama ulaznica"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="dfb50403-337a-4ddb-a212-1788b5ac41f7"
+              LastKnownName="Upravljanje vrstama ulaznica"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aebd0f45-2dec-4bfb-b383-3855e6eb6199"
+                  name="Administrator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="238478a7-5998-4206-919d-66cba25bb051"
+                  name="Upravljanje vrstama ulaznica"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="df427d13-41ec-4f57-a87f-ffb3d7dc4bd8"
+            isDerived="false"
+            sourceEndRoleName="Administrator"
+            targetEndRoleName="Upravljanje cijenama ulaznica"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d58eaffe-7c2b-42ac-8223-cd8b3c7c5773"
+              LastKnownName="Upravljanje cijenama ulaznica"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9d7dc529-5f63-4c84-9515-4b44a913db76"
+                  name="Administrator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="75e26cce-2aac-475e-b3d8-99545c1463bb"
+                  name="Upravljanje cijenama ulaznica"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f39c34db-72cd-45c2-8a9a-7573666ed943"
+        name="Pregled događaja"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="84c82fc9-9cc8-4315-be7d-a1e65daadce5"
+        name="Kupovina ulaznica"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ece7e008-f29a-4ee4-a5fa-9d26890ee161"
+        name="Poklanjanje ulaznica"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3b8e6b13-f3d8-4ab0-9a6a-32d46a26ca52"
+        name="Rukovanje ulaznicama"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="37456ddd-6d0b-45af-9605-977b05a2ca8a">
+            <useCaseMoniker
+              Id="84c82fc9-9cc8-4315-be7d-a1e65daadce5"
+              LastKnownName="Kupovina ulaznica"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+          <include
+            Id="13a2fb62-66a1-4a48-a8b2-5a1d3e791b20">
+            <useCaseMoniker
+              Id="ece7e008-f29a-4ee4-a5fa-9d26890ee161"
+              LastKnownName="Poklanjanje ulaznica"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+          <include
+            Id="73165d1e-7f12-41dd-94be-2949347e1971">
+            <useCaseMoniker
+              Id="e1098f65-ea81-44b6-9ffa-fd10cc8eedeb"
+              LastKnownName="Stavljanje ulaznica na burzu"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e1098f65-ea81-44b6-9ffa-fd10cc8eedeb"
+        name="Stavljanje ulaznica na burzu"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0c795d6a-f182-48b0-93c9-c4bf878850b0"
+        name="Upravljanje događajima"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="47eeee11-2fe2-4048-8ea9-552c73fb483e">
+            <useCaseMoniker
+              Id="365e6c3b-03ba-4256-83c8-218422ce0309"
+              LastKnownName="Uređivanje postojećeg događaja"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+          <include
+            Id="8f4f7969-6796-423c-8a56-1be674cd49e6">
+            <useCaseMoniker
+              Id="5c16af60-9e20-4b71-a2ac-aa12b94a1f08"
+              LastKnownName="Brisanje događaja"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+          <include
+            Id="30dcdb02-36a9-4ee1-9ef1-62addeecf6d9">
+            <useCaseMoniker
+              Id="ea8a8d58-d91e-4776-b375-b8b3b46baaf5"
+              LastKnownName="Dodavanje  novog događaja"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="42e6d89e-f4b2-458c-a9f0-d57b4326da18"
+        name="Upravljanje  lokacijama"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="6e5c135e-ebfe-44f1-bade-029936478e52">
+            <useCaseMoniker
+              Id="998796e4-64b9-4f2e-901d-2ad6d35dc460"
+              LastKnownName="Dodavanje nove lokacije"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+          <include
+            Id="c0a94a7a-1d3c-4c67-979a-4ebc5fb6461b">
+            <useCaseMoniker
+              Id="fe42ab0a-29c5-4e40-b90e-48d3f284159f"
+              LastKnownName="Uređivanje lokacije"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+          <include
+            Id="14e1747e-99ea-4efa-8cbf-cf9622eab037">
+            <useCaseMoniker
+              Id="ff629e58-aa52-45df-bb07-0a50b772ddbd"
+              LastKnownName="Brisanje lokacije"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ea8a8d58-d91e-4776-b375-b8b3b46baaf5"
+        name="Dodavanje  novog događaja"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="365e6c3b-03ba-4256-83c8-218422ce0309"
+        name="Uređivanje postojećeg događaja"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5c16af60-9e20-4b71-a2ac-aa12b94a1f08"
+        name="Brisanje događaja"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="998796e4-64b9-4f2e-901d-2ad6d35dc460"
+        name="Dodavanje nove lokacije"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fe42ab0a-29c5-4e40-b90e-48d3f284159f"
+        name="Uređivanje lokacije"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ff629e58-aa52-45df-bb07-0a50b772ddbd"
+        name="Brisanje lokacije"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="dfb50403-337a-4ddb-a212-1788b5ac41f7"
+        name="Upravljanje vrstama ulaznica"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d58eaffe-7c2b-42ac-8223-cd8b3c7c5773"
+        name="Upravljanje cijenama ulaznica"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
