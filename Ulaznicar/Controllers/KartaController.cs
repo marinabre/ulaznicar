@@ -235,9 +235,10 @@ namespace Ulaznicar.Controllers
         }
 
         [HttpGet]
-        public ActionResult Show(byte[] image)
+        public ActionResult Show(int id)
         {
-            return new FileContentResult(image, "img/gif");
+            var image = context.Karta.Find(id).QR_KOD;
+            return new FileContentResult(image, "img");
         }
 
     }

@@ -39,7 +39,7 @@
         <td>
             @if (item.Dogadjaj.datum <= DateTime.Today)
             {
-                <img src="@Url.Action("Show", "Karta", new { id = item.QR_KOD })" alt="image" />
+                <img id ="the-image" src="@Url.Action("Show", "Karta", new { id = item.Id })" style="max-height:150px; max-width:150px; border-radius:10px" />
             }
         </td>
        
