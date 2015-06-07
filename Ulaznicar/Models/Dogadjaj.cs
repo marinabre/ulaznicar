@@ -27,7 +27,7 @@ namespace Ulaznicar.Models
         public int Id { get; set; }
         public string naziv { get; set; }
 
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy. HH:mm}", ApplyFormatInEditMode = true)]
         public System.DateTime datum { get; set; }
         public int IdLokacija { get; set; }
