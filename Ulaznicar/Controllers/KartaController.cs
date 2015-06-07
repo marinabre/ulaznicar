@@ -84,7 +84,7 @@ namespace Ulaznicar.Controllers
 
             if (dogadjaj.brojmjesta > 0)
             {
-                string zastitni = dogadjaj.naziv + " " + id.ToString() + " " + (brojevnostanje + 1).ToString();
+                string zastitni = (dogadjaj.naziv + " " + id.ToString() + " " + (brojevnostanje + 1).ToString()).GetHashCode().ToString();
                 QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.H);
                 QrCode qrCode = qrEncoder.Encode(zastitni);
 
