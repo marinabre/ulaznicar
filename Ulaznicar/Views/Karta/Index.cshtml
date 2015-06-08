@@ -21,11 +21,12 @@
             Lokacija
         </th>
         <th>
-            Cijena
+            Datum
         </th>
         <th>
-            Broj ulaznice
+            Cijena
         </th>
+
         <th>
             Vrsta ulaznice
         </th>
@@ -50,10 +51,10 @@
             @Html.DisplayFor(modelItem => item.Dogadjaj.Lokacija.naziv)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CijenaKarte.cijena)
+            @Html.DisplayFor(modelItem => item.Dogadjaj.datum)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.brojkarte)
+            @Html.DisplayFor(modelItem => item.CijenaKarte.cijena)
         </td>
 
         <td>
