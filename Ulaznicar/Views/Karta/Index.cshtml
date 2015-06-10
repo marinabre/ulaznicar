@@ -1,5 +1,8 @@
-﻿@model IEnumerable<Ulaznicar.Models.Karta>
-
+﻿@model PagedList<Ulaznicar.Models.Karta>
+@using PagedList.Mvc;
+@using PagedList;
+@using Microsoft.AspNet.Identity
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Moje ulaznice";
 }
@@ -72,3 +75,10 @@
 }
 
 </table>
+<div class="col-sm-10">
+    <div class="center">
+        <br />
+        Stranica @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) od @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+</div>
