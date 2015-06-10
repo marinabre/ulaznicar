@@ -7,6 +7,7 @@
 <h2>Ponudi ulaznicu na burzi</h2>
 
 
+@*@using (Html.BeginForm("Create", "Burza", null, FormMethod.Post, new { enctype = "multipart/form-data" }))*@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -15,11 +16,14 @@
         <h4>Burza</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
         @Html.HiddenFor(model => model.IdKupac)
         @Html.HiddenFor(model => model.datumponude)
         @Html.HiddenFor(model => model.datumprodaje)
 
-        @if (ViewBag.karta == null)
+        @*@if (ViewData["karta"] == null)
+        {*@
+        @if (ViewBag.ime == null)
         {
             <div class="form-group">
                 @Html.LabelFor(model => model.IdKarta, "Ulaznica za događaj", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -31,9 +35,16 @@
         }
         else
         {
-            Model.IdKarta = ViewBag.karta;
-            @Html.HiddenFor(model => model.IdKarta)
-            @Html.ViewBag.dogadjaj.naziv
+            <div class="form-group" style="font-size:medium">
+                <div class="col-md-10">
+                    <p>@Html.ViewBag.dogadjaj.naziv</p>
+                    <p>@Html.ViewBag.dogadjaj.Lokacija.naziv</p>
+                    <p> @Html.ViewBag.dogadjaj.datum</p>
+                </div>
+            </div>
+            @*@Html.Hidden("IdKarta",ViewData["karta"])*@
+            @Html.Hidden("Id", 0)
+            @Html.Hidden("IdKarta", (int)ViewBag.dogadjaj.Id)
 
         }
         <div class="form-group">

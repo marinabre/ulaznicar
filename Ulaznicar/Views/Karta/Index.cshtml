@@ -43,9 +43,15 @@
         <td>
             @if (item.Dogadjaj.datum <= DateTime.Today)
             {
-                <img id ="the-image" src="@Url.Action("Show", "Karta", new { id = item.Id })" style="max-height:150px; max-width:150px; border-radius:10px" />
+                <img id="the-image" src="@Url.Action("Show", "Karta", new { id = item.Id })" style="max-height:150px; max-width:150px; border-radius:10px" />
+            }
+            else
+            {
+                <img id="the-image" src="@Url.Action("Show", "Dogadjaj", new { id = item.Dogadjaj.Id })" style="max-height:150px; max-width:150px; border-radius:10px" />
             }
         </td>
+
+
        
         <td>
             @Html.DisplayFor(modelItem => item.Dogadjaj.naziv)
@@ -65,11 +71,15 @@
         </td>
         <td>
             @if (item.Dogadjaj.datum > DateTime.Now)
-            {
-                @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { id = item.Id })
-            } |
-            @Html.ActionLink("Detalji", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Pokloni prijatelju", "Pokloni", new { id = item.Id })
+            {<p>
+                @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { id = item.Dogadjaj.Id }, new { @class = "btn btn-success" })
+            </p>}
+            <p>
+                @Html.ActionLink("Detalji", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+            </p>
+            <p>
+                @Html.ActionLink("Pokloni prijatelju", "Pokloni", new { id = item.Id }, new { @class = "btn btn-primary" })
+            </p>
         </td>
     </tr>
 }

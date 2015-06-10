@@ -114,9 +114,10 @@ namespace Ulaznicar.Controllers
 
             if (id != null)
             {
-                var kupljena = db.KupljeneKarte.Find(id);
-                ViewBag.karta = id;
-                ViewBag.dogadjaj = kupljena.Karta.Dogadjaj;
+                var dogadjaj = db.Dogadjaj.Find(id);
+                ViewBag.dogadjaj = dogadjaj;
+                ViewBag.ime = id;
+                //ViewData["karta"] = dogadjaj.Id;
             }
             else
             {
@@ -125,7 +126,10 @@ namespace Ulaznicar.Controllers
 
                 foreach (var karta in kupljenekarte)
                 {
-                    dogadjaji.Add(karta.Karta.Dogadjaj);
+                    if (karta.Karta.Dogadjaj.datum >= DateTime.Today)
+                    {
+                        dogadjaji.Add(karta.Karta.Dogadjaj);
+                    }
                 }
 
                 ViewBag.IdKarta = new SelectList(dogadjaji, "Id", "naziv");
@@ -138,27 +142,34 @@ namespace Ulaznicar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,IdKupac,IdKarta,datumponude,datumprodaje,cijena")] Burza burza, int? kartaid)
+        public ActionResult Create([Bind(Include = "Id,IdKupac,IdKarta,datumponude,datumprodaje,cijena")] Burza burza)
         {
             var userId = User.Identity.GetUserId();
             var userUserName = User.Identity.GetUserName();
-            var korisnik = db.Korisnik.First(k => k.korisnickoime == userUserName).Id;
-            int idkarte;
-            var Id = burza.IdKarta;
-            if (kartaid == null)
-            {
-                idkarte = db.KupljeneKarte.Where(x => x.IdKorisnik == korisnik).Include(x => x.Karta).FirstOrDefault(x => x.Karta.Dogadjaj.Id == Id).IdKarta;
-            }
-            else { idkarte = (int)kartaid; }
+            var korisnik = db.Korisnik.AsNoTracking().First(k => k.korisnickoime == userUserName).Id;
+            var Idd = burza.IdKarta;
+
+            var idkarte = db.KupljeneKarte.AsNoTracking().Where(
+                x => x.IdKorisnik == korisnik).Include(x => x.Karta).FirstOrDefault(
+                x => x.Karta.Dogadjaj.Id == Idd
+                ).IdKarta;
+
+
             burza.IdKarta = idkarte;
             burza.datumponude = DateTime.Now;
+            if (burza.Id != 0)
+            {
+                burza.Id = 0;
+            }
 
-            if(ModelState.IsValid)
+            try
             {
                 db.Burza.Add(burza);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            catch
+            {
                 var kupljenekarte = db.KupljeneKarte.Where(kar => kar.IdKorisnik == korisnik).Include(x => x.Karta);
                 List<Dogadjaj> dogadjaji = new List<Dogadjaj>();
 
@@ -167,9 +178,9 @@ namespace Ulaznicar.Controllers
                     dogadjaji.Add(karta.Karta.Dogadjaj);
                 }
 
-                ViewBag.IdKarta = new SelectList(dogadjaji, "Id", "naziv", Id);
+                ViewBag.IdKarta = new SelectList(dogadjaji, "Id", "naziv", Idd);
                 return View(burza);
-
+            }
         }
 
         // GET: Burza/Edit/5

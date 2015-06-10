@@ -20,6 +20,9 @@
             <img src="@Url.Action("Show", "Karta", new { id = Model.QR_KOD })" alt="image" />
         </dd>
 }
+        <dd>
+                <img id="the-image" src="@Url.Action("Show", "Dogadjaj", new { id = Model.Dogadjaj.Id })" style="max-height:150px; max-width:150px; border-radius:10px" />
+        </dd>
         <dt>
             Naziv događaja : 
         </dt>
@@ -56,7 +59,9 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { id = Model.Id }) |
-    @Html.ActionLink("Pokloni", "Pokloni", new { id = Model.Id }) |
+    @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { id = Model.Dogadjaj.Id}, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Pokloni", "Pokloni", new { id = Model.Id }, new { @class = "btn btn-primary" }) 
+    </p>
+<p>
     @Html.ActionLink("Povratak na moje ulaznice", "Index")
 </p>

@@ -74,16 +74,16 @@
                         @Html.ActionLink("Ažuriraj", "Edit", new { id = item.Id })
                     </p>
                     <p>
-                        @Html.ActionLink("Izbriši", "Delete", new { id = item.Id })
+                        @Html.ActionLink("Izbriši", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
                     </p>
                 }
                 @if (Request.IsAuthenticated)
                 {
                     <p>
-                        @Html.ActionLink("Detalji", "Details", new { id = item.Id })
+                        @Html.ActionLink("Detalji", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
                     </p>
                     <p>
-                        @Html.ActionLink("Kupi ulaznicu!", "Create", "Karta", new { id = item.Id }, null)
+                        @Html.ActionLink("Kupi ulaznicu!", "Create", "Karta", new { id = item.Id }, new { @class = "btn btn-success" })
                     </p>
                 }
             </td>

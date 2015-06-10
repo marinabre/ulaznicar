@@ -71,13 +71,13 @@
             <td>
                 @if (ViewBag.vlastite.IndexOf(item.IdKarta) != -1)
                 {
-                    @Html.ActionLink("Izbriši", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Izbriši", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
                 }
                 else
                 {
                     if(item.IdKupac == null)
                     {
-                        @Html.ActionLink("Kupi ulaznicu!", "Kupovina", new { id = item.Id })
+                        @Html.ActionLink("Kupi ulaznicu!", "Kupovina", new { id = item.Id }, new { @class = "btn btn-success" })
                     }
                 }
             </td>

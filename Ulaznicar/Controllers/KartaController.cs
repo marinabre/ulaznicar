@@ -44,13 +44,22 @@ namespace Ulaznicar.Controllers
         }
 
         // GET: Karta/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Karta karta = context.Karta.Find(id);
+            if (karta == null)
+            {
+                return HttpNotFound();
+            }
+            return View(karta);
         }
 
         // GET: Karta/Create
-        public ActionResult Create(int id , int? idcijena)
+        public ActionResult Create(int id, int? idcijena)
         {
             var dogadjaj = context.Dogadjaj.Find(id);
             var brojevnostanje = (context.Karta.Where(x => x.IdDogadjaj == id)).Max(x => x.brojkarte);
@@ -58,87 +67,77 @@ namespace Ulaznicar.Controllers
             {
                 brojevnostanje = 0;
             }
-
-            if (idcijena == null)
+            try
             {
-                var cijena = context.CijenaKarte.Where(x => x.IdDogadjaj == id);
 
-                if (cijena.Count(x => x.IdDogadjaj == id) == 1)
+                if (idcijena == null)
                 {
-                    idcijena = cijena.First(x => x.IdDogadjaj == id).Id;
+                    var cijena = context.CijenaKarte.Where(x => x.IdDogadjaj == id);
+
+                    if (cijena.Count(x => x.IdDogadjaj == id) == 1)
+                    {
+                        idcijena = cijena.First(x => x.IdDogadjaj == id).Id;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Niste odabrali koju vrstu ulaznice želite!");
+                        return RedirectToAction("Details", "Dogadjaj", new { id = id });
+                    }
                 }
-                else
+
+                //provjera da nije vec stvorena karta, a da je netko odustao od kupovine
+                var kupljene = context.KupljeneKarte;
+                var karte = context.Karta.Where(x => x.IdDogadjaj == id);
+                foreach (var kart in karte)
                 {
-                    ModelState.AddModelError("", "Niste odabrali koju vrstu ulaznice želite!");
-                    return RedirectToAction("Details", "Dogadjaj", new { id = id });
+                    if (kupljene.FirstOrDefault(x => x.IdKarta == kart.Id) == null && kart.IdCijena == idcijena)
+                    {
+                        return RedirectToAction("Kupovina", new { id = kart.Id });
+                    }
+                }
+
+                if (dogadjaj.brojmjesta > 0)
+                {
+                    string zastitni = (dogadjaj.naziv + " " + id.ToString() + " " + (brojevnostanje + 1).ToString()).GetHashCode().ToString();
+                    QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.H);
+                    QrCode qrCode = qrEncoder.Encode(zastitni);
+
+                    Renderer renderer = new Renderer(5, Brushes.Black, Brushes.White);
+                    Stream memoryStream = new MemoryStream();
+                    renderer.WriteToStream(qrCode.Matrix, memoryStream, ImageFormat.Png);
+
+                    memoryStream.Position = 0;
+                    byte[] kod = ((MemoryStream)memoryStream).ToArray();
+
+                    Karta novaKarta = new Karta
+                    {
+                        zastitnikod = zastitni,
+                        IdDogadjaj = id,
+                        QR_KOD = kod,
+                        brojkarte = brojevnostanje + 1,
+                        IdCijena = (int)idcijena
+                    };
+
+                    context.Karta.Add(novaKarta);
+                    dogadjaj.brojmjesta -= 1;
+                    context.Entry(dogadjaj).State = EntityState.Modified;
+                    context.SaveChanges();
+
+                    context = new bazaUlazniceEntities();
+
+                    var idkarte = context.Karta.Where(x => x.zastitnikod == zastitni);
+
+                    return RedirectToAction("Kupovina", new { id = idkarte });
                 }
             }
-
-            //provjera da nije vec stvorena karta, a da je netko odustao od kupovine
-            var kupljene = context.KupljeneKarte;
-            var karte = context.Karta.Where(x => x.IdDogadjaj == id);
-            foreach (var kart in karte)
+            catch
             {
-                if (kupljene.FirstOrDefault(x => x.IdKarta == kart.Id) == null && kart.IdCijena == idcijena)
-                {
-                    return RedirectToAction("Kupovina", new { id = kart.Id });
-                }
+
+                return RedirectToAction("Details", "Dogadjaj", new { id = id });
             }
-
-            if (dogadjaj.brojmjesta > 0)
-            {
-                string zastitni = (dogadjaj.naziv + " " + id.ToString() + " " + (brojevnostanje + 1).ToString()).GetHashCode().ToString();
-                QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.H);
-                QrCode qrCode = qrEncoder.Encode(zastitni);
-
-                Renderer renderer = new Renderer(5, Brushes.Black, Brushes.White);
-                Stream memoryStream = new MemoryStream();
-                renderer.WriteToStream(qrCode.Matrix, memoryStream, ImageFormat.Png);
-
-                memoryStream.Position = 0;
-                byte[] kod = ((MemoryStream)memoryStream).ToArray();
-
-                Karta novaKarta = new Karta
-                {
-                    zastitnikod = zastitni,
-                    IdDogadjaj = id,
-                    QR_KOD = kod,
-                    brojkarte = brojevnostanje + 1,
-                    IdCijena = (int)idcijena
-                };
-                
-                context.Karta.Add(novaKarta);
-                dogadjaj.brojmjesta -= 1;
-                context.Entry(dogadjaj).State = EntityState.Modified;
-                context.SaveChanges();
-
-                context = new bazaUlazniceEntities();
-
-                var idkarte = context.Karta.Where(x => x.zastitnikod == zastitni);
-
-                return RedirectToAction("Kupovina", new { id = idkarte });
-            }
-
             return RedirectToAction("Details", "Dogadjaj", new { id = id });
         }
 
-        // POST: Karta/Create
-        //[HttpPost]
-        //public ActionResult Create(FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add insert logic here
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        // GET: Karta/Edit/5
 
         public ActionResult Pokloni(int id)
         {

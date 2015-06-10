@@ -56,7 +56,7 @@ namespace Ulaznicar.Controllers
                     if (DateTime.TryParseExact(searchString, "dd.MM.yyyy.", CultureInfo.InvariantCulture, style, out dt))
                     {
                         result = dt;
-                        dogadjaj = dogadjaj.Where(s => s.datum == result);
+                        dogadjaj = dogadjaj.Where(s => s.datum.CompareTo(result) == 0);
                     }
                 }
                 catch 
