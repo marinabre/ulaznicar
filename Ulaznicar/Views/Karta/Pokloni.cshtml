@@ -18,13 +18,6 @@
         @Html.HiddenFor(model => model.Id)
         @Html.HiddenFor(model => model.IdKarta)
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.IdKarta, "IdKarta", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdKarta", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdKarta, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
         <div class="form-group" style="font-size:medium">
             @Html.LabelFor(model => model.IdKarta, "Odabrana ulaznica", htmlAttributes: new { @class = "control-label col-md-2 text-primary" })
             <div class="col-md-10">
@@ -36,7 +29,6 @@
             </div>
         </div>
 
-
         <div class="form-group" style="font-size:medium">
             @Html.LabelFor(model => model.IdKorisnik, "Korisničko ime", htmlAttributes: new { @class = "control-label col-md-2 text-primary" })
             <div class="col-md-10">
@@ -44,8 +36,6 @@
                 @Html.ValidationMessageFor(model => model.IdKorisnik, "", new { @class = "text-danger" })
             </div>
         </div>
-
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

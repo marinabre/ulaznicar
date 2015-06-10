@@ -111,6 +111,7 @@ namespace Ulaznicar.Controllers
             var userId = User.Identity.GetUserId();
             var userUserName = User.Identity.GetUserName();
             var korisnik = db.Korisnik.First(k => k.korisnickoime == userUserName);
+            var postojeci = db.Burza;
 
             if (id != null)
             {
@@ -126,7 +127,9 @@ namespace Ulaznicar.Controllers
 
                 foreach (var karta in kupljenekarte)
                 {
-                    if (karta.Karta.Dogadjaj.datum >= DateTime.Today)
+                    //provjera je li karta stara i je li već postavljena na burzu
+                    var provjera = postojeci.FirstOrDefault(x=>x.IdKarta == karta.Id);
+                    if (karta.Karta.Dogadjaj.datum >= DateTime.Today && (provjera == null ||provjera.IdKupac != null))
                     {
                         dogadjaji.Add(karta.Karta.Dogadjaj);
                     }
