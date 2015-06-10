@@ -106,20 +106,30 @@ namespace Ulaznicar.Controllers
         }
 
         // GET: Burza/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
             var userId = User.Identity.GetUserId();
             var userUserName = User.Identity.GetUserName();
             var korisnik = db.Korisnik.First(k => k.korisnickoime == userUserName);
 
-            var kupljenekarte = db.KupljeneKarte.Where(kar => kar.IdKorisnik == korisnik.Id).Include(x => x.Karta);
-            List<Dogadjaj> dogadjaji = new List<Dogadjaj>();
-
-            foreach(var karta in kupljenekarte){
-                dogadjaji.Add(karta.Karta.Dogadjaj);
+            if (id != null)
+            {
+                var kupljena = db.KupljeneKarte.Find(id);
+                ViewBag.karta = id;
+                ViewBag.dogadjaj = kupljena.Karta.Dogadjaj;
             }
+            else
+            {
+                var kupljenekarte = db.KupljeneKarte.Where(kar => kar.IdKorisnik == korisnik.Id).Include(x => x.Karta);
+                List<Dogadjaj> dogadjaji = new List<Dogadjaj>();
 
-            ViewBag.IdKarta = new SelectList(dogadjaji, "Id", "naziv");
+                foreach (var karta in kupljenekarte)
+                {
+                    dogadjaji.Add(karta.Karta.Dogadjaj);
+                }
+
+                ViewBag.IdKarta = new SelectList(dogadjaji, "Id", "naziv");
+            }
             return View();
         }
 
@@ -128,36 +138,38 @@ namespace Ulaznicar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,IdKupac,IdKarta,datumponude,datumprodaje,cijena")] Burza burza)
+        public ActionResult Create([Bind(Include = "Id,IdKupac,IdKarta,datumponude,datumprodaje,cijena")] Burza burza, int? kartaid)
         {
             var userId = User.Identity.GetUserId();
             var userUserName = User.Identity.GetUserName();
             var korisnik = db.Korisnik.First(k => k.korisnickoime == userUserName).Id;
-
+            int idkarte;
             var Id = burza.IdKarta;
-            var idkarte = db.KupljeneKarte.Where(x => x.IdKorisnik == korisnik).Include(x=>x.Karta).FirstOrDefault(x => x.Karta.Dogadjaj.Id == Id).IdKarta;
-            
+            if (kartaid == null)
+            {
+                idkarte = db.KupljeneKarte.Where(x => x.IdKorisnik == korisnik).Include(x => x.Karta).FirstOrDefault(x => x.Karta.Dogadjaj.Id == Id).IdKarta;
+            }
+            else { idkarte = (int)kartaid; }
             burza.IdKarta = idkarte;
             burza.datumponude = DateTime.Now;
-            
 
-            if (burza.cijena != null && idkarte != null)
+            if(ModelState.IsValid)
             {
                 db.Burza.Add(burza);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+                var kupljenekarte = db.KupljeneKarte.Where(kar => kar.IdKorisnik == korisnik).Include(x => x.Karta);
+                List<Dogadjaj> dogadjaji = new List<Dogadjaj>();
 
-            var kupljenekarte = db.KupljeneKarte.Where(kar => kar.IdKorisnik == korisnik).Include(x => x.Karta);
-            List<Dogadjaj> dogadjaji = new List<Dogadjaj>();
+                foreach (var karta in kupljenekarte)
+                {
+                    dogadjaji.Add(karta.Karta.Dogadjaj);
+                }
 
-            foreach (var karta in kupljenekarte)
-            {
-                dogadjaji.Add(karta.Karta.Dogadjaj);
-            }
+                ViewBag.IdKarta = new SelectList(dogadjaji, "Id", "naziv", Id);
+                return View(burza);
 
-            ViewBag.IdKarta = new SelectList(dogadjaji, "Id", "naziv", Id);
-            return View(burza);
         }
 
         // GET: Burza/Edit/5
