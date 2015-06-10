@@ -22,7 +22,7 @@
 @using (Html.BeginForm())
 {
     <p>
-        Pretraži po nazivu: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        Pretraži : @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
         <input type="submit" value="Pretraži" />
     </p>
 }

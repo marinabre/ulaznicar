@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System.Data.Entity.Infrastructure;
+using System.Globalization;
 
 namespace Ulaznicar.Controllers
 {
@@ -48,8 +49,21 @@ namespace Ulaznicar.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
+                try {
+                    const DateTimeStyles style = DateTimeStyles.AllowWhiteSpaces;
+                    DateTime? result = null;
+                    DateTime dt;
+                    if (DateTime.TryParseExact(searchString, "dd.MM.yyyy.", CultureInfo.InvariantCulture, style, out dt))
+                    {
+                        result = dt;
+                        dogadjaj = dogadjaj.Where(s => s.datum == result);
+                    }
+                }
+                catch 
+                { 
                 dogadjaj = dogadjaj.Where(s => s.naziv.Contains(searchString)
                                        || s.Lokacija.naziv.Contains(searchString));
+                }
             }
             switch (sortOrder)
             {

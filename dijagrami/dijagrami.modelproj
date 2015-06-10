@@ -22,12 +22,40 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="burza.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="burza.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>burza.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="KupovanjeUlaznice.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="KupovanjeUlaznice.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>KupovanjeUlaznice.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="pregledpretrazivanje.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="pregledpretrazivanje.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>pregledpretrazivanje.usecasediagram</DependentUpon>
+    </Content>
     <Content Include="UMLUlaznicar.usecasediagram">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UMLUlaznicar.usecasediagram.layout">
       <SubType>Content</SubType>
       <DependentUpon>UMLUlaznicar.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="kupovinaulaznica.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kupovinaulaznica.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>kupovinaulaznica.usecasediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\dijagrami.uml">

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="dd1e6ed8-aaad-4ad7-9f23-64da9c1e5931" name="burza" linkedPackageId="9da12587-20a5-4348-85de-4244014df30c" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="450ca6f9-4246-4805-8e2a-ee00e19ab10a">
+      <profileInstance Id="54c875ed-b16f-4883-abfd-a990933e8042" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="c11bb45b-9ec7-4f01-8542-70f829331a2f">
+      <profileInstance Id="35dfa43d-f9ff-4696-8860-872dba100328" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="e0b46f0c-44f4-44aa-84a9-c0b95afcb6cb" name="Korisnik" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a499a247-b0f3-441d-953b-174f54699192" />
+        <targetEnds>
+          <association Id="b36d6f47-4091-4fcc-93a6-97d0674816e0" isDerived="false" sourceEndRoleName="Korisnik" targetEndRoleName="Pregled kupljenih karata" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2e1a0aa7-8ea6-448a-9b20-6598e80b1c22" LastKnownName="Pregled kupljenih ulaznica" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b3905ab8-80a7-4fff-90bd-4a211ebf3f7d" name="Korisnik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2511c965-e8f1-430c-87da-0020663f643a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d95ee522-dcff-425a-984b-4b14c78b7689" name="Pregled kupljenih karata" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="bcd6eda3-b6e4-40bb-b947-3072cb6c1a88" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f5168555-60f3-44b0-b1c1-d2db2cb924c7" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2e1a0aa7-8ea6-448a-9b20-6598e80b1c22" name="Pregled kupljenih ulaznica" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2049f3b8-8bb1-4b10-817e-3edfa96bf8e5" />
+        <extendedCases>
+          <extend Id="809ba61a-c4b1-4fc0-987a-82fd5ebbe8eb">
+            <useCaseMoniker Id="3a487e6e-4e2f-4df7-b901-6ac121ba681c" LastKnownName="Postavi ulaznicu na burzu" />
+            <elementDefinition Id="77e2c39e-2e4c-4bbf-b0a8-4be138589bbb" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3a487e6e-4e2f-4df7-b901-6ac121ba681c" name="Postavi ulaznicu na burzu" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b084386a-d67c-4738-a452-14ba058435a3" />
+        <targetEnds>
+          <association Id="a76c470e-2c5a-44db-95c9-15556ae3f554" isDerived="false" sourceEndRoleName="Postavi ulaznicu na burzu" targetEndRoleName="Baza podataka" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="a01ec1de-0227-4024-b776-9beab39da47e" LastKnownName="Baza podataka" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="28e473e9-d481-44a7-b89f-d5e10d1cd50e" name="Postavi ulaznicu na burzu" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d51b837a-4e7c-4b14-b177-e7561ed64e52" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="de8e2f60-383b-46c8-b8a0-05b7687f1669" name="Baza podataka" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9e81584e-f707-4dad-a8a1-a65e724c0016" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="52fa940b-f52f-4c72-8d70-71602d1640fb" />
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend Id="c057d931-fd1f-45ca-976f-a000a68420ac">
+            <useCaseMoniker Id="54449571-dd21-4d63-bf52-5148a45a435f" LastKnownName="Pregled burze" />
+            <elementDefinition Id="7307f259-cab7-4be9-836e-d3bec5e83ebc" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include Id="d91fa865-b0e4-41c4-83f1-313d79f51498">
+            <useCaseMoniker Id="7099d59c-2c7e-48ec-8f2a-6288e6a36539" LastKnownName="Unesi cijenu" />
+            <elementDefinition Id="701e8180-caf4-4f90-ae10-c71835c7a691" />
+          </include>
+          <include Id="304d12d2-a1ca-4eb8-a377-eadcf12eab62">
+            <useCaseMoniker Id="31561c10-c059-40b9-9b22-ec066b2b7611" LastKnownName="Odaberi ulaznicu" />
+            <elementDefinition Id="5d133e80-6e62-4699-93a1-dbbe6c80db77" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="7099d59c-2c7e-48ec-8f2a-6288e6a36539" name="Unesi cijenu" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e1eec23b-e9f4-4ed5-b990-aafd591f7e2e" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="a01ec1de-0227-4024-b776-9beab39da47e" name="Baza podataka" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b942dfbc-77dd-4c05-9e1e-9ffe138fe4af" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="31561c10-c059-40b9-9b22-ec066b2b7611" name="Odaberi ulaznicu" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cc7ab9e3-22c6-4a77-abc6-825c9280537f" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="54449571-dd21-4d63-bf52-5148a45a435f" name="Pregled burze" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="aa0299e3-f073-4cc8-ab48-a74f3e38a32a" />
+        <targetEnds>
+          <association Id="5e0b3261-fad0-4e03-bcde-a0eacb372549" isDerived="false" sourceEndRoleName="Pregled burze" targetEndRoleName="Baza podataka" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="a01ec1de-0227-4024-b776-9beab39da47e" LastKnownName="Baza podataka" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9d26b773-d21a-46e3-88ec-870b105bf7df" name="Pregled burze" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d293678e-bd65-4fd7-b658-38cbd4d8384c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e57fc451-7b2b-4681-a89f-9cae64d1f2b9" name="Baza podataka" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="23a1eff4-7f92-4f1b-8445-6a2fb60615d8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="599a432c-6cbe-4cdf-bae2-b46e119727d5" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="9da12587-20a5-4348-85de-4244014df30c" name="dijagrami">
+    <elementDefinition Id="47310aef-8f9e-4166-8919-3dd1e40ee9fa" />
+  </package>
+</useCaseModelRoot>

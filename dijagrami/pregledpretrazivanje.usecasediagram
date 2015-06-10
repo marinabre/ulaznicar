@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="8ceca851-9f47-4b8d-8c78-085748a69e8a" name="pregledpretrazivanje" linkedPackageId="c5601aef-2b0f-4e2c-911d-2b981f023fba" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="77db138e-f55b-4012-b8b4-bc0e3929ba63">
+      <profileInstance Id="54d85883-cacf-43a0-8077-b0b1ca046a5d" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="e05d2633-da15-43c5-9e1d-308392660126">
+      <profileInstance Id="7dde8e36-3ede-4420-b14e-b702795b5743" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="7db36a38-b0b8-4cc4-a58f-dc8afc1a1cf3" name="Korisnik" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3dccb22f-77fb-431c-842a-3b159aee73a1" />
+        <targetEnds>
+          <association Id="4355eaaa-d5fb-4d8d-9514-95023d4e30b9" isDerived="false" sourceEndRoleName="Korisnik" targetEndRoleName="Pretraži" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f5663e29-09c1-411b-9ff5-b795a3e193ba" LastKnownName="Pretraži" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5dc76554-b157-4cdc-8d86-ed40cf15311f" name="Korisnik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ae1a204b-e945-4281-95cf-ea12b698566c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7ce587c1-84af-4aac-999d-16d56f1ad632" name="Pretraži" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="abc031a9-c9ff-45f2-9d68-02f08b2d7f05" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1f8ceb4e-3c66-4203-b1ab-b2dfcfe33517" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f5663e29-09c1-411b-9ff5-b795a3e193ba" name="Pretraži" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ef311772-4ccc-4383-8cea-05bc0e7659fd" />
+        <extendedCases>
+          <extend Id="f4458199-977a-4013-8cd1-6d7444b6d3a8">
+            <useCaseMoniker Id="646ab123-386c-4b5a-867b-b4fba85d758c" LastKnownName="Pretraga po nazivu događaja" />
+            <elementDefinition Id="f0c59f90-9870-4b7a-ab8c-42b405771062" />
+          </extend>
+          <extend Id="d308b8db-db9d-42f4-892a-24858d0f4e26">
+            <useCaseMoniker Id="7b32ee47-d09d-453d-9152-2d5f7a143f19" LastKnownName="Pretraga po nazivu lokacije" />
+            <elementDefinition Id="b1436bef-28d2-436b-9f9a-ab3a47887ee4" />
+          </extend>
+          <extend Id="1561d2cb-8808-4018-81bd-c9df77bed50d">
+            <useCaseMoniker Id="e1349453-9a0d-4f3f-a916-c6fc917b9da4" LastKnownName="Pretraga po datumu" />
+            <elementDefinition Id="d6ba63c4-82b5-44d4-be5c-3cd5d47fd756" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include Id="af1147e2-90f9-4ba2-84ec-bf6de162a8e7">
+            <useCaseMoniker Id="4bd7e72c-35e3-468e-a74f-256d56554388" LastKnownName="Upiši parametar pretraživanja" />
+            <elementDefinition Id="ca8ae09b-f828-44cd-97df-a2a0f5ba72f3" />
+          </include>
+          <include Id="849d0493-d965-4298-8b91-df3ce28b7bfa">
+            <useCaseMoniker Id="f0326c17-77df-43c5-9abf-1fb4c7766921" LastKnownName="Pregled izabranog događaja" />
+            <elementDefinition Id="c00f1cf5-62df-4f79-b167-c846afd8b9ef" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="646ab123-386c-4b5a-867b-b4fba85d758c" name="Pretraga po nazivu događaja" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e2432e22-aedb-4287-9fec-29f1aaf7e81f" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="7b32ee47-d09d-453d-9152-2d5f7a143f19" name="Pretraga po nazivu lokacije" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ff3bae00-feb3-485a-92b8-894769355299" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e1349453-9a0d-4f3f-a916-c6fc917b9da4" name="Pretraga po datumu" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2ce3412f-008a-4855-99b2-706e34f5a932" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="a6245cfd-7717-45bc-8c6c-065ae2068446" name="Baza podataka" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="376a50ce-c5a9-4c89-8dbe-aac0143c76c8" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="4bd7e72c-35e3-468e-a74f-256d56554388" name="Upiši parametar pretraživanja" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2e99dc15-fe84-4608-a688-23b8e6ab158a" />
+        <targetEnds>
+          <association Id="99b50bd0-870c-4d0e-b16b-ff0cdc239e76" isDerived="false" sourceEndRoleName="upiši parametar pretrage" targetEndRoleName="Baza podataka" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="a6245cfd-7717-45bc-8c6c-065ae2068446" LastKnownName="Baza podataka" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c0ab2668-14ea-42f5-8406-f916b81e0bc9" name="upiši parametar pretrage" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ae07a971-0a9d-48fe-8877-d6f2aa5d3bb4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3eb405ce-13ad-4728-893c-f11b470ae77d" name="Baza podataka" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a51afba6-4f5c-4ffd-90be-6287eb3d3b24" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d14c9141-9aa9-44df-99b6-250945e329b4" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f0326c17-77df-43c5-9abf-1fb4c7766921" name="Pregled izabranog događaja" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="627111b5-45d4-460e-b172-2b6389b6f35f" />
+        <targetEnds>
+          <association Id="e0c0f2e2-4bb0-4f48-9677-003a26185c5f" isDerived="false" sourceEndRoleName="Pregled izabranog događaja" targetEndRoleName="Baza podataka" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="a6245cfd-7717-45bc-8c6c-065ae2068446" LastKnownName="Baza podataka" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="60dec33f-b423-4775-a742-9297307f7dc7" name="Pregled izabranog događaja" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="af656f1d-32f3-4dc4-8f49-87b6e5826c1d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e2191a67-3fb3-4484-ac64-70a6676c0170" name="Baza podataka" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6935986d-4e91-4ec6-9e15-d37c3c702da5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="edbbdf6d-966d-468d-8eb8-eded8086ea63" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="c5601aef-2b0f-4e2c-911d-2b981f023fba" name="dijagrami">
+    <elementDefinition Id="47310aef-8f9e-4166-8919-3dd1e40ee9fa" />
+  </package>
+</useCaseModelRoot>

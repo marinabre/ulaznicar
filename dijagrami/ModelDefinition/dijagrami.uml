@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="47310aef-8f9e-4166-8919-3dd1e40ee9fa"
   name="dijagrami" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -458,6 +458,2312 @@
         name="Upravljanje cijenama ulaznica"
         isAbstract="false"
         isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="dd20deac-0f45-4334-a466-19e979826a7b"
+        name="KupovanjeUlaznice"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="5a0d1e36-8f50-4504-9c6a-c4824b0e9259"
+            name="BehaviorExecutionSpecification9">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="8e5d00c9-bb58-4265-a89f-0a56f06ac6c7"
+                LastKnownName="ExecutionOccurrenceSpecification18"
+                LastKnownLocation="dijagrami.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="c8ea51b2-d4d0-47b0-9f77-967d3f3c560e"
+                LastKnownName="ExecutionOccurrenceSpecification17"
+                LastKnownLocation="dijagrami.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="65cf8b0d-3031-4268-81db-145a11a75612"
+                LastKnownName="MessageOccurrenceSpecification26"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="a7b36044-f2da-4aad-9a7a-b98dcc4eda0d"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="076157c4-ca9f-46f6-9877-dc8d1a6e7090"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="e181f034-38f3-4a8f-baa2-26f5a105be03"
+                LastKnownName="MessageOccurrenceSpecification29"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="b2e4c21e-f13a-4f31-9741-330a0aea4758"
+                LastKnownName="ExecutionOccurrenceSpecification19"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="a42b55f8-8ad1-4301-9962-8c6633d01d26"
+                LastKnownName="ExecutionOccurrenceSpecification20"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="968a557b-68c8-4ee6-83ce-920bbfc7ec84"
+                LastKnownName="MessageOccurrenceSpecification31"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="37ed9b8e-ce16-4706-b2d7-6daf6a64eaf9"
+                LastKnownName="MessageOccurrenceSpecification34"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="490cf1ec-b386-4d47-b624-c803ae458d36"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="bdd01eb7-7790-4916-b7b0-0c102afcc19e"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="d2445931-18f8-4183-b7b6-dda3d36f57b6"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="7eacc0d1-cc17-4b16-b2c8-7e44b01a3ffa"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="1412225f-5a15-4730-b692-e299b2710ace"
+                LastKnownName="MessageOccurrenceSpecification27"
+                LastKnownLocation="dijagrami.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="c8ea51b2-d4d0-47b0-9f77-967d3f3c560e"
+            name="ExecutionOccurrenceSpecification17">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="da72cc82-8447-448b-beb9-fc3e04b0f652"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="65cf8b0d-3031-4268-81db-145a11a75612"
+            name="MessageOccurrenceSpecification26">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ac63ffac-7352-4b9b-9024-7a6173159c1a"
+            name="MessageOccurrenceSpecification25">
+            <covered>
+              <lifelineMoniker
+                Id="589b820f-03f7-4b3d-9780-69ea31370c73"
+                LastKnownName="Korisnik"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="376fd32c-6775-4e73-9cfd-ce87a4127198"
+            name="BehaviorExecutionSpecification2">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="0f04df17-9e58-4978-979e-a8ceeb062655"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="dijagrami.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="17ae266a-c99f-45e6-8ac7-61f0bfa6926a"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="dijagrami.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="7992c7c1-256a-447e-8e04-50b9aa608422"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="2c344896-642e-48b3-934f-450578077332"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="dijagrami.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="17ae266a-c99f-45e6-8ac7-61f0bfa6926a"
+            name="ExecutionOccurrenceSpecification3">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="e1f3068a-3993-4166-8db0-80c3fb72086f"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="7992c7c1-256a-447e-8e04-50b9aa608422"
+            name="MessageOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a7b36044-f2da-4aad-9a7a-b98dcc4eda0d"
+            name="MessageOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="2c344896-642e-48b3-934f-450578077332"
+            name="MessageOccurrenceSpecification5">
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="076157c4-ca9f-46f6-9877-dc8d1a6e7090"
+            name="MessageOccurrenceSpecification6">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="0f04df17-9e58-4978-979e-a8ceeb062655"
+            name="ExecutionOccurrenceSpecification4">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="016cd3c3-97e6-40d5-89cb-b036a148dbab"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="e181f034-38f3-4a8f-baa2-26f5a105be03"
+            name="MessageOccurrenceSpecification29">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="9b99032a-3ced-479b-a7b1-446ff7768473"
+            name="BehaviorExecutionSpecification10">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="a42b55f8-8ad1-4301-9962-8c6633d01d26"
+                LastKnownName="ExecutionOccurrenceSpecification20"
+                LastKnownLocation="dijagrami.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="b2e4c21e-f13a-4f31-9741-330a0aea4758"
+                LastKnownName="ExecutionOccurrenceSpecification19"
+                LastKnownLocation="dijagrami.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="d1118595-52e5-46c5-80e4-4136f4720b96"
+                LastKnownName="MessageOccurrenceSpecification30"
+                LastKnownLocation="dijagrami.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="b2e4c21e-f13a-4f31-9741-330a0aea4758"
+            name="ExecutionOccurrenceSpecification19">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="29875b60-367b-4901-a0aa-171f0cf84837"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d1118595-52e5-46c5-80e4-4136f4720b96"
+            name="MessageOccurrenceSpecification30">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="a42b55f8-8ad1-4301-9962-8c6633d01d26"
+            name="ExecutionOccurrenceSpecification20">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="2cd93849-5b67-4bf2-9c7f-bba40a6f9e78"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="d9dbdb04-fc1c-4e41-890e-c2bfc73fedab"
+            name="BehaviorExecutionSpecification11">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="d084557f-b910-4e89-9781-d012da1b6855"
+                LastKnownName="ExecutionOccurrenceSpecification22"
+                LastKnownLocation="dijagrami.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="7d558826-4148-4862-995d-8169841e2e52"
+                LastKnownName="ExecutionOccurrenceSpecification21"
+                LastKnownLocation="dijagrami.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="ba53dfa5-fe3b-4b33-8337-7a76ad2325f1"
+                LastKnownName="MessageOccurrenceSpecification32"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="fddaef90-44d8-47a1-8fde-64fe57c46d62"
+                LastKnownName="MessageOccurrenceSpecification33"
+                LastKnownLocation="dijagrami.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="7d558826-4148-4862-995d-8169841e2e52"
+            name="ExecutionOccurrenceSpecification21">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="cf355f41-bf8d-4eb4-9b39-ae86c650e573"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ba53dfa5-fe3b-4b33-8337-7a76ad2325f1"
+            name="MessageOccurrenceSpecification32">
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="968a557b-68c8-4ee6-83ce-920bbfc7ec84"
+            name="MessageOccurrenceSpecification31">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="37ed9b8e-ce16-4706-b2d7-6daf6a64eaf9"
+            name="MessageOccurrenceSpecification34">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="fddaef90-44d8-47a1-8fde-64fe57c46d62"
+            name="MessageOccurrenceSpecification33">
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="d084557f-b910-4e89-9781-d012da1b6855"
+            name="ExecutionOccurrenceSpecification22">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="514a5908-dffa-405e-8d71-f5ce2747aa67"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="fef4caea-6097-499a-a590-4ddc3196adeb"
+            name="BehaviorExecutionSpecification5">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="589b820f-03f7-4b3d-9780-69ea31370c73"
+                LastKnownName="Korisnik"
+                LastKnownLocation="dijagrami.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="fb15ba4c-900b-4810-bd47-098636d9dc54"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="dijagrami.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="3435ec8b-e7e4-454f-a237-631dc389e18d"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="dijagrami.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="75e95727-7ef6-4fd1-b6cb-2ba7fe5a52d0"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="255a7576-e723-4f67-b3cc-1819235c5ae6"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="dijagrami.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="3435ec8b-e7e4-454f-a237-631dc389e18d"
+            name="ExecutionOccurrenceSpecification9">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="93bba2b9-7651-4e19-bb6d-fd7bf401f8d8"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="589b820f-03f7-4b3d-9780-69ea31370c73"
+                LastKnownName="Korisnik"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="75e95727-7ef6-4fd1-b6cb-2ba7fe5a52d0"
+            name="MessageOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="589b820f-03f7-4b3d-9780-69ea31370c73"
+                LastKnownName="Korisnik"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="490cf1ec-b386-4d47-b624-c803ae458d36"
+            name="MessageOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="255a7576-e723-4f67-b3cc-1819235c5ae6"
+            name="MessageOccurrenceSpecification13">
+            <covered>
+              <lifelineMoniker
+                Id="589b820f-03f7-4b3d-9780-69ea31370c73"
+                LastKnownName="Korisnik"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="bdd01eb7-7790-4916-b7b0-0c102afcc19e"
+            name="MessageOccurrenceSpecification14">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="fb15ba4c-900b-4810-bd47-098636d9dc54"
+            name="ExecutionOccurrenceSpecification10">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="1098350a-bca1-4448-857f-92ac93da7d3d"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="589b820f-03f7-4b3d-9780-69ea31370c73"
+                LastKnownName="Korisnik"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="8cc6d1b4-b9bc-4231-b9d2-f921d5606a65"
+            name="BehaviorExecutionSpecification6">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="f474cac4-5b79-41f4-bb90-f98a624dc0d8"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="dijagrami.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="b45bcace-8a28-4f4f-b43e-fa3b4fd31d32"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="dijagrami.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="a7c10c59-b828-4f46-b403-626a246f7076"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="502ded07-2e76-4d9b-89e5-ae843683528f"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="dijagrami.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="b45bcace-8a28-4f4f-b43e-fa3b4fd31d32"
+            name="ExecutionOccurrenceSpecification11">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="5ef9c77b-2aeb-4e16-b85a-e74f83917719"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d2445931-18f8-4183-b7b6-dda3d36f57b6"
+            name="MessageOccurrenceSpecification15">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a7c10c59-b828-4f46-b403-626a246f7076"
+            name="MessageOccurrenceSpecification16">
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="7eacc0d1-cc17-4b16-b2c8-7e44b01a3ffa"
+            name="MessageOccurrenceSpecification18">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="502ded07-2e76-4d9b-89e5-ae843683528f"
+            name="MessageOccurrenceSpecification17">
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="f474cac4-5b79-41f4-bb90-f98a624dc0d8"
+            name="ExecutionOccurrenceSpecification12">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="30ca3b53-2d6f-4e4a-9369-ff3255fad4b0"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="1412225f-5a15-4730-b692-e299b2710ace"
+            name="MessageOccurrenceSpecification27">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="59599da2-760c-454f-bacc-087e3c781d37"
+            name="MessageOccurrenceSpecification28">
+            <covered>
+              <lifelineMoniker
+                Id="589b820f-03f7-4b3d-9780-69ea31370c73"
+                LastKnownName="Korisnik"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="8e5d00c9-bb58-4265-a89f-0a56f06ac6c7"
+            name="ExecutionOccurrenceSpecification18">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="083909c0-6ae1-47ca-a04d-b71675d2104b"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="cd50fba3-8a71-41e9-99da-1532bc5f0746"
+            name="BehaviorExecutionSpecification12">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="51fb2afc-8529-444f-8cb9-02680b7da95d"
+                LastKnownName="ExecutionOccurrenceSpecification24"
+                LastKnownLocation="dijagrami.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="3ade0fe9-4db3-4cf3-8406-52410b8f2797"
+                LastKnownName="ExecutionOccurrenceSpecification23"
+                LastKnownLocation="dijagrami.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="31f0762c-13ae-4ce4-a907-8093384a91cf"
+                LastKnownName="MessageOccurrenceSpecification36"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="6e78d684-5264-4459-97ff-c3e739453432"
+                LastKnownName="MessageOccurrenceSpecification39"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="ba4d2181-a2f0-4b4d-982c-ec3cb3db1a82"
+                LastKnownName="MessageOccurrenceSpecification42"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="cad8a421-1549-432a-b484-0d94f2b81a7f"
+                LastKnownName="MessageOccurrenceSpecification43"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="ec307448-cebb-45d2-abae-4e988fa5826a"
+                LastKnownName="ExecutionOccurrenceSpecification27"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="f702b730-1b94-46a7-98c6-dddd2be43f9d"
+                LastKnownName="ExecutionOccurrenceSpecification28"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="e9b9fa02-1c71-42f3-82af-864b177e019a"
+                LastKnownName="MessageOccurrenceSpecification37"
+                LastKnownLocation="dijagrami.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="3ade0fe9-4db3-4cf3-8406-52410b8f2797"
+            name="ExecutionOccurrenceSpecification23">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="eeb3c466-6d29-49ed-a110-fdbf2d3f8056"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a4615c3a-9194-4f35-9ac4-d223bdfe51b1"
+            name="MessageOccurrenceSpecification35">
+            <covered>
+              <lifelineMoniker
+                Id="589b820f-03f7-4b3d-9780-69ea31370c73"
+                LastKnownName="Korisnik"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="31f0762c-13ae-4ce4-a907-8093384a91cf"
+            name="MessageOccurrenceSpecification36">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="5d7f6ff3-653d-4a86-9f61-fb8ed3916634"
+            name="BehaviorExecutionSpecification13">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="72b86984-1d85-40cf-bb62-4e8b8f039d16"
+                LastKnownName="ExecutionOccurrenceSpecification26"
+                LastKnownLocation="dijagrami.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="e84ec161-d2c5-4927-a92d-cbcb64d3e132"
+                LastKnownName="ExecutionOccurrenceSpecification25"
+                LastKnownLocation="dijagrami.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="3de7d5f0-c037-442c-a24e-bae7978e2ad2"
+                LastKnownName="MessageOccurrenceSpecification40"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="0c8391f2-db9e-4310-974a-098a470ae871"
+                LastKnownName="MessageOccurrenceSpecification41"
+                LastKnownLocation="dijagrami.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="e84ec161-d2c5-4927-a92d-cbcb64d3e132"
+            name="ExecutionOccurrenceSpecification25">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="a5d02f09-ac06-4fbf-8b2c-db53e3c5cc37"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="3de7d5f0-c037-442c-a24e-bae7978e2ad2"
+            name="MessageOccurrenceSpecification40">
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="6e78d684-5264-4459-97ff-c3e739453432"
+            name="MessageOccurrenceSpecification39">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0c8391f2-db9e-4310-974a-098a470ae871"
+            name="MessageOccurrenceSpecification41">
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ba4d2181-a2f0-4b4d-982c-ec3cb3db1a82"
+            name="MessageOccurrenceSpecification42">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="72b86984-1d85-40cf-bb62-4e8b8f039d16"
+            name="ExecutionOccurrenceSpecification26">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="4781b723-4b26-4d46-97f5-1556b2eeb0a7"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="15337337-1bac-4631-842e-4a20cb51f16e"
+                LastKnownName="Baza podataka"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="cad8a421-1549-432a-b484-0d94f2b81a7f"
+            name="MessageOccurrenceSpecification43">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="960282e7-1f70-463a-8e8a-6731c10fccc0"
+            name="BehaviorExecutionSpecification14">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="f702b730-1b94-46a7-98c6-dddd2be43f9d"
+                LastKnownName="ExecutionOccurrenceSpecification28"
+                LastKnownLocation="dijagrami.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="ec307448-cebb-45d2-abae-4e988fa5826a"
+                LastKnownName="ExecutionOccurrenceSpecification27"
+                LastKnownLocation="dijagrami.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="c5d5abd7-c8d2-4a57-9be9-bc02db38c383"
+                LastKnownName="MessageOccurrenceSpecification44"
+                LastKnownLocation="dijagrami.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="ec307448-cebb-45d2-abae-4e988fa5826a"
+            name="ExecutionOccurrenceSpecification27">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="e6205f7c-e28c-4fed-b253-e2a9aeb1a7c7"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="c5d5abd7-c8d2-4a57-9be9-bc02db38c383"
+            name="MessageOccurrenceSpecification44">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="f702b730-1b94-46a7-98c6-dddd2be43f9d"
+            name="ExecutionOccurrenceSpecification28">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="bbd0a419-dd5e-4a4e-9254-ba53e609b960"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="47bbf7b6-00d7-4ada-9622-abc1ae5cb9b2"
+            name="MessageOccurrenceSpecification38">
+            <covered>
+              <lifelineMoniker
+                Id="589b820f-03f7-4b3d-9780-69ea31370c73"
+                LastKnownName="Korisnik"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="e9b9fa02-1c71-42f3-82af-864b177e019a"
+            name="MessageOccurrenceSpecification37">
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="51fb2afc-8529-444f-8cb9-02680b7da95d"
+            name="ExecutionOccurrenceSpecification24">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="26edf727-e032-40d1-9973-b1c90ed1b57c"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="dijagrami.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+                LastKnownName="Sustav"
+                LastKnownLocation="dijagrami.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="589b820f-03f7-4b3d-9780-69ea31370c73"
+            name="Korisnik"
+            isActor="true"
+            lifelineDisplayName="Korisnik">
+            <represents>
+              <propertyMoniker
+                Id="30f0608f-6de9-40eb-bcf9-910244e8a1ad"
+                LastKnownLocation="dijagrami.uml" />
+            </represents>
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="ac63ffac-7352-4b9b-9024-7a6173159c1a"
+                LastKnownName="MessageOccurrenceSpecification25"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="3435ec8b-e7e4-454f-a237-631dc389e18d"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="fb15ba4c-900b-4810-bd47-098636d9dc54"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="59599da2-760c-454f-bacc-087e3c781d37"
+                LastKnownName="MessageOccurrenceSpecification28"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="a4615c3a-9194-4f35-9ac4-d223bdfe51b1"
+                LastKnownName="MessageOccurrenceSpecification35"
+                LastKnownLocation="dijagrami.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="47bbf7b6-00d7-4ada-9622-abc1ae5cb9b2"
+                LastKnownName="MessageOccurrenceSpecification38"
+                LastKnownLocation="dijagrami.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="cf48ba82-8ca4-4fcb-b4c3-c3b55991baca"
+            name="Sustav"
+            isActor="false"
+            lifelineDisplayName="Sustav">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="c8ea51b2-d4d0-47b0-9f77-967d3f3c560e"
+                LastKnownName="ExecutionOccurrenceSpecification17"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="8e5d00c9-bb58-4265-a89f-0a56f06ac6c7"
+                LastKnownName="ExecutionOccurrenceSpecification18"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="3ade0fe9-4db3-4cf3-8406-52410b8f2797"
+                LastKnownName="ExecutionOccurrenceSpecification23"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="51fb2afc-8529-444f-8cb9-02680b7da95d"
+                LastKnownName="ExecutionOccurrenceSpecification24"
+                LastKnownLocation="dijagrami.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="15337337-1bac-4631-842e-4a20cb51f16e"
+            name="Baza podataka"
+            isActor="false"
+            lifelineDisplayName="Baza podataka">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="17ae266a-c99f-45e6-8ac7-61f0bfa6926a"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="0f04df17-9e58-4978-979e-a8ceeb062655"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="7d558826-4148-4862-995d-8169841e2e52"
+                LastKnownName="ExecutionOccurrenceSpecification21"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="d084557f-b910-4e89-9781-d012da1b6855"
+                LastKnownName="ExecutionOccurrenceSpecification22"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="b45bcace-8a28-4f4f-b43e-fa3b4fd31d32"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="f474cac4-5b79-41f4-bb90-f98a624dc0d8"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="e84ec161-d2c5-4927-a92d-cbcb64d3e132"
+                LastKnownName="ExecutionOccurrenceSpecification25"
+                LastKnownLocation="dijagrami.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="72b86984-1d85-40cf-bb62-4e8b8f039d16"
+                LastKnownName="ExecutionOccurrenceSpecification26"
+                LastKnownLocation="dijagrami.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="99b3ea8e-4765-48ef-8ffe-212c6c168622"
+            name="zatraži_kupnju_ulaznice"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ac63ffac-7352-4b9b-9024-7a6173159c1a"
+                LastKnownName="MessageOccurrenceSpecification25"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="65cf8b0d-3031-4268-81db-145a11a75612"
+                LastKnownName="MessageOccurrenceSpecification26"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="db0f07ab-4d74-41f0-b548-d60ffe0482e1"
+            name="dohvati_vrste_ulaznica_za_događaj"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="a7b36044-f2da-4aad-9a7a-b98dcc4eda0d"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="7992c7c1-256a-447e-8e04-50b9aa608422"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="2f601b6d-5571-4dd6-9b3c-0e6eb9b605fa"
+            name="vraća_podatke"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="2c344896-642e-48b3-934f-450578077332"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="076157c4-ca9f-46f6-9877-dc8d1a6e7090"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="48107752-4ec5-4297-bb4d-b717aac46076"
+            name="provjera_broja_vrste_ulaznica"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="e181f034-38f3-4a8f-baa2-26f5a105be03"
+                LastKnownName="MessageOccurrenceSpecification29"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d1118595-52e5-46c5-80e4-4136f4720b96"
+                LastKnownName="MessageOccurrenceSpecification30"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="55cfd721-4b38-45f2-ad47-4d5490747873"
+            name="[ima_više_vrsta]dohvati_detalje_o_događaju"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="968a557b-68c8-4ee6-83ce-920bbfc7ec84"
+                LastKnownName="MessageOccurrenceSpecification31"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ba53dfa5-fe3b-4b33-8337-7a76ad2325f1"
+                LastKnownName="MessageOccurrenceSpecification32"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="c0be99a1-8f54-4196-b85a-fb7c766ecf1d"
+            name="vrati_detalje_događaja"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="fddaef90-44d8-47a1-8fde-64fe57c46d62"
+                LastKnownName="MessageOccurrenceSpecification33"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="37ed9b8e-ce16-4706-b2d7-6daf6a64eaf9"
+                LastKnownName="MessageOccurrenceSpecification34"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="87bead09-7e7a-4d2a-b9cf-39f473765953"
+            name="[ima_više_vrsta]detalji_o_događaju"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="490cf1ec-b386-4d47-b624-c803ae458d36"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="75e95727-7ef6-4fd1-b6cb-2ba7fe5a52d0"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="123a47e4-43f7-439d-92d7-b659f52a284b"
+            name="odabir_vrste_ulaznice"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="255a7576-e723-4f67-b3cc-1819235c5ae6"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="bdd01eb7-7790-4916-b7b0-0c102afcc19e"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="7ac38339-7612-4937-9180-adb27458be79"
+            name="stvori_ulaznicu"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d2445931-18f8-4183-b7b6-dda3d36f57b6"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="a7c10c59-b828-4f46-b403-626a246f7076"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="9cce6ba9-7678-48d9-8458-976981f4c478"
+            name="vrati_podatke_o_ulaznici"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="502ded07-2e76-4d9b-89e5-ae843683528f"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="7eacc0d1-cc17-4b16-b2c8-7e44b01a3ffa"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="e609363b-1f84-4be8-a93d-b2a1d70d853e"
+            name="detalji_o_ulaznici"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="1412225f-5a15-4730-b692-e299b2710ace"
+                LastKnownName="MessageOccurrenceSpecification27"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="59599da2-760c-454f-bacc-087e3c781d37"
+                LastKnownName="MessageOccurrenceSpecification28"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="3576967a-b4d9-457a-9a80-ac4ccc437622"
+            name="kupi_ulaznicu"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="a4615c3a-9194-4f35-9ac4-d223bdfe51b1"
+                LastKnownName="MessageOccurrenceSpecification35"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="31f0762c-13ae-4ce4-a907-8093384a91cf"
+                LastKnownName="MessageOccurrenceSpecification36"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="a0fc4354-9711-4bd1-8d99-7bdd362c70b2"
+            name="pohrani_podatke_o_kupovini"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="6e78d684-5264-4459-97ff-c3e739453432"
+                LastKnownName="MessageOccurrenceSpecification39"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="3de7d5f0-c037-442c-a24e-bae7978e2ad2"
+                LastKnownName="MessageOccurrenceSpecification40"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="d127220e-77a7-462b-925c-414d8129e1d6"
+            name="odgovor_na_pohranu"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0c8391f2-db9e-4310-974a-098a470ae871"
+                LastKnownName="MessageOccurrenceSpecification41"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ba4d2181-a2f0-4b4d-982c-ec3cb3db1a82"
+                LastKnownName="MessageOccurrenceSpecification42"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="8361e959-fdca-4a67-a913-da1712992c22"
+            name="[odgovor_pozitivan]preusmjeri_na_kupljene_karte"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="cad8a421-1549-432a-b484-0d94f2b81a7f"
+                LastKnownName="MessageOccurrenceSpecification43"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="c5d5abd7-c8d2-4a57-9be9-bc02db38c383"
+                LastKnownName="MessageOccurrenceSpecification44"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="e23f4b1e-bc6b-4df6-a0e6-dd5feeed67a1"
+            name="ulaznica_kupljena"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="e9b9fa02-1c71-42f3-82af-864b177e019a"
+                LastKnownName="MessageOccurrenceSpecification37"
+                LastKnownLocation="dijagrami.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="47bbf7b6-00d7-4ada-9622-abc1ae5cb9b2"
+                LastKnownName="MessageOccurrenceSpecification38"
+                LastKnownLocation="dijagrami.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+        <ownedAttributesInternal>
+          <property
+            Id="30f0608f-6de9-40eb-bcf9-910244e8a1ad"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <actorMoniker
+                Id="7d8d6276-6755-49e5-b13b-83da609b6dd7"
+                LastKnownName="Korisnik"
+                LastKnownLocation="dijagrami.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="3dccb22f-77fb-431c-842a-3b159aee73a1"
+        name="Korisnik"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="1f8ceb4e-3c66-4203-b1ab-b2dfcfe33517"
+            isDerived="false"
+            sourceEndRoleName="Korisnik"
+            targetEndRoleName="Pretraži"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ef311772-4ccc-4383-8cea-05bc0e7659fd"
+              LastKnownName="Pretraži"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ae1a204b-e945-4281-95cf-ea12b698566c"
+                  name="Korisnik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="abc031a9-c9ff-45f2-9d68-02f08b2d7f05"
+                  name="Pretraži"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ef311772-4ccc-4383-8cea-05bc0e7659fd"
+        name="Pretraži"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="f0c59f90-9870-4b7a-ab8c-42b405771062">
+            <useCaseMoniker
+              Id="e2432e22-aedb-4287-9fec-29f1aaf7e81f"
+              LastKnownName="Pretraga po nazivu događaja"
+              LastKnownLocation="dijagrami.uml" />
+          </extend>
+          <extend
+            Id="b1436bef-28d2-436b-9f9a-ab3a47887ee4">
+            <useCaseMoniker
+              Id="ff3bae00-feb3-485a-92b8-894769355299"
+              LastKnownName="Pretraga po nazivu lokacije"
+              LastKnownLocation="dijagrami.uml" />
+          </extend>
+          <extend
+            Id="d6ba63c4-82b5-44d4-be5c-3cd5d47fd756">
+            <useCaseMoniker
+              Id="2ce3412f-008a-4855-99b2-706e34f5a932"
+              LastKnownName="Pretraga po datumu"
+              LastKnownLocation="dijagrami.uml" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include
+            Id="ca8ae09b-f828-44cd-97df-a2a0f5ba72f3">
+            <useCaseMoniker
+              Id="2e99dc15-fe84-4608-a688-23b8e6ab158a"
+              LastKnownName="Upiši parametar pretraživanja"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+          <include
+            Id="c00f1cf5-62df-4f79-b167-c846afd8b9ef">
+            <useCaseMoniker
+              Id="627111b5-45d4-460e-b172-2b6389b6f35f"
+              LastKnownName="Pregled izabranog događaja"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e2432e22-aedb-4287-9fec-29f1aaf7e81f"
+        name="Pretraga po nazivu događaja"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ff3bae00-feb3-485a-92b8-894769355299"
+        name="Pretraga po nazivu lokacije"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2ce3412f-008a-4855-99b2-706e34f5a932"
+        name="Pretraga po datumu"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="376a50ce-c5a9-4c89-8dbe-aac0143c76c8"
+        name="Baza podataka"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2e99dc15-fe84-4608-a688-23b8e6ab158a"
+        name="Upiši parametar pretraživanja"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d14c9141-9aa9-44df-99b6-250945e329b4"
+            isDerived="false"
+            sourceEndRoleName="upiši parametar pretrage"
+            targetEndRoleName="Baza podataka"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="376a50ce-c5a9-4c89-8dbe-aac0143c76c8"
+              LastKnownName="Baza podataka"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ae07a971-0a9d-48fe-8877-d6f2aa5d3bb4"
+                  name="upiši parametar pretrage"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a51afba6-4f5c-4ffd-90be-6287eb3d3b24"
+                  name="Baza podataka"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="627111b5-45d4-460e-b172-2b6389b6f35f"
+        name="Pregled izabranog događaja"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="edbbdf6d-966d-468d-8eb8-eded8086ea63"
+            isDerived="false"
+            sourceEndRoleName="Pregled izabranog događaja"
+            targetEndRoleName="Baza podataka"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="376a50ce-c5a9-4c89-8dbe-aac0143c76c8"
+              LastKnownName="Baza podataka"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="af656f1d-32f3-4dc4-8f49-87b6e5826c1d"
+                  name="Pregled izabranog događaja"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6935986d-4e91-4ec6-9e15-d37c3c702da5"
+                  name="Baza podataka"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="a499a247-b0f3-441d-953b-174f54699192"
+        name="Korisnik"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="f5168555-60f3-44b0-b1c1-d2db2cb924c7"
+            isDerived="false"
+            sourceEndRoleName="Korisnik"
+            targetEndRoleName="Pregled kupljenih karata"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="2049f3b8-8bb1-4b10-817e-3edfa96bf8e5"
+              LastKnownName="Pregled kupljenih ulaznica"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2511c965-e8f1-430c-87da-0020663f643a"
+                  name="Korisnik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bcd6eda3-b6e4-40bb-b947-3072cb6c1a88"
+                  name="Pregled kupljenih karata"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2049f3b8-8bb1-4b10-817e-3edfa96bf8e5"
+        name="Pregled kupljenih ulaznica"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="77e2c39e-2e4c-4bbf-b0a8-4be138589bbb">
+            <useCaseMoniker
+              Id="b084386a-d67c-4738-a452-14ba058435a3"
+              LastKnownName="Postavi ulaznicu na burzu"
+              LastKnownLocation="dijagrami.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b084386a-d67c-4738-a452-14ba058435a3"
+        name="Postavi ulaznicu na burzu"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="52fa940b-f52f-4c72-8d70-71602d1640fb"
+            isDerived="false"
+            sourceEndRoleName="Postavi ulaznicu na burzu"
+            targetEndRoleName="Baza podataka"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="b942dfbc-77dd-4c05-9e1e-9ffe138fe4af"
+              LastKnownName="Baza podataka"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d51b837a-4e7c-4b14-b177-e7561ed64e52"
+                  name="Postavi ulaznicu na burzu"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9e81584e-f707-4dad-a8a1-a65e724c0016"
+                  name="Baza podataka"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend
+            Id="7307f259-cab7-4be9-836e-d3bec5e83ebc">
+            <useCaseMoniker
+              Id="aa0299e3-f073-4cc8-ab48-a74f3e38a32a"
+              LastKnownName="Pregled burze"
+              LastKnownLocation="dijagrami.uml" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include
+            Id="701e8180-caf4-4f90-ae10-c71835c7a691">
+            <useCaseMoniker
+              Id="e1eec23b-e9f4-4ed5-b990-aafd591f7e2e"
+              LastKnownName="Unesi cijenu"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+          <include
+            Id="5d133e80-6e62-4699-93a1-dbbe6c80db77">
+            <useCaseMoniker
+              Id="cc7ab9e3-22c6-4a77-abc6-825c9280537f"
+              LastKnownName="Odaberi ulaznicu"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e1eec23b-e9f4-4ed5-b990-aafd591f7e2e"
+        name="Unesi cijenu"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="b942dfbc-77dd-4c05-9e1e-9ffe138fe4af"
+        name="Baza podataka"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cc7ab9e3-22c6-4a77-abc6-825c9280537f"
+        name="Odaberi ulaznicu"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="aa0299e3-f073-4cc8-ab48-a74f3e38a32a"
+        name="Pregled burze"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="599a432c-6cbe-4cdf-bae2-b46e119727d5"
+            isDerived="false"
+            sourceEndRoleName="Pregled burze"
+            targetEndRoleName="Baza podataka"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="b942dfbc-77dd-4c05-9e1e-9ffe138fe4af"
+              LastKnownName="Baza podataka"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d293678e-bd65-4fd7-b658-38cbd4d8384c"
+                  name="Pregled burze"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="23a1eff4-7f92-4f1b-8445-6a2fb60615d8"
+                  name="Baza podataka"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="4bea2462-434c-4622-8b7f-833d19ce03da"
+        name="Korisnik"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="3a1d4ff6-5736-4ddb-91ec-625ddf116b53"
+            isDerived="false"
+            sourceEndRoleName="Korisnik"
+            targetEndRoleName="Kupi ulaznicu"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="2ec45392-46fd-4370-bb5e-131e299428b6"
+              LastKnownName="Kupi ulaznicu"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7255ee91-9137-4450-9330-2a5798af2ba8"
+                  name="Korisnik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0685663d-a12c-496a-88be-471cb39d5826"
+                  name="Kupi ulaznicu"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="fb6eb9ec-c765-49ac-ab54-2fec1d60f7e7"
+            isDerived="false"
+            sourceEndRoleName="Korisnik"
+            targetEndRoleName="Pregledaj vlastite ulaznice"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8e570384-c0b7-4cea-85cf-3e75cdaeaf7b"
+              LastKnownName="Pregledaj vlastite ulaznice"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="14cb0333-72d5-4a0a-b571-ef3b5b75a606"
+                  name="Korisnik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ff383507-a200-409d-99ae-ed07aab4b484"
+                  name="Pregledaj vlastite ulaznice"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="dc5ddde7-08e9-46c2-9ded-7cd6d5b133a4"
+        name="Baza podataka"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2ec45392-46fd-4370-bb5e-131e299428b6"
+        name="Kupi ulaznicu"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="1529d014-6270-4cbc-9f85-d60c2c95b696">
+            <useCaseMoniker
+              Id="987b2f36-9940-4447-82dc-d671cfbbe1ed"
+              LastKnownName="Pregled vrsta ulaznica"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+          <include
+            Id="54d32423-6d77-4d62-839f-040d977950c3">
+            <useCaseMoniker
+              Id="35655b55-f13c-495e-9606-98c9976f5b7d"
+              LastKnownName="Unesi podatke za plaćanje"
+              LastKnownLocation="dijagrami.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="987b2f36-9940-4447-82dc-d671cfbbe1ed"
+        name="Pregled vrsta ulaznica"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="35655b55-f13c-495e-9606-98c9976f5b7d"
+        name="Unesi podatke za plaćanje"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="2928708b-b1ed-4345-b08a-0753fbbe3fc0"
+            isDerived="false"
+            sourceEndRoleName="Unesi podatke za plaćanje"
+            targetEndRoleName="Baza podataka"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="dc5ddde7-08e9-46c2-9ded-7cd6d5b133a4"
+              LastKnownName="Baza podataka"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="535ca9c5-fa27-40ba-858a-53705b394486"
+                  name="Unesi podatke za plaćanje"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0e31b20f-3d18-4999-8a87-6d00d1ba4f7d"
+                  name="Baza podataka"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8e570384-c0b7-4cea-85cf-3e75cdaeaf7b"
+        name="Pregledaj vlastite ulaznice"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="28c9d60f-97b6-4bf7-8a01-18722d5a4d89"
+        name="Pregledaj detalje"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="066d0bfb-9e06-40d1-9cba-8588067d2be0"
+            isDerived="false"
+            sourceEndRoleName="Pregledaj detalje"
+            targetEndRoleName="Baza podataka"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="dc5ddde7-08e9-46c2-9ded-7cd6d5b133a4"
+              LastKnownName="Baza podataka"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d56aee6a-25ca-467d-a155-6090afc2425c"
+                  name="Pregledaj detalje"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b68a7078-26aa-4f35-a70c-076fe4f8ed67"
+                  name="Baza podataka"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend
+            Id="eac2fa95-8c1d-4a27-ac63-7c37c2616aaa">
+            <useCaseMoniker
+              Id="8e570384-c0b7-4cea-85cf-3e75cdaeaf7b"
+              LastKnownName="Pregledaj vlastite ulaznice"
+              LastKnownLocation="dijagrami.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5e888bd3-d740-48b9-8bd5-22d27ede14f5"
+        name="Postavi na burzu"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="400e322a-9e23-4a39-87e1-64030e7720cb"
+            isDerived="false"
+            sourceEndRoleName="Postavi na burzu"
+            targetEndRoleName="Baza podataka"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="dc5ddde7-08e9-46c2-9ded-7cd6d5b133a4"
+              LastKnownName="Baza podataka"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d5941cbb-ac1e-46e0-a186-e21d255de73d"
+                  name="Postavi na burzu"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="20a40a37-0689-4beb-86a6-f4e495cb4b91"
+                  name="Baza podataka"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend
+            Id="3d18f71c-5601-42ef-8e6c-bb7fda59be2e">
+            <useCaseMoniker
+              Id="8e570384-c0b7-4cea-85cf-3e75cdaeaf7b"
+              LastKnownName="Pregledaj vlastite ulaznice"
+              LastKnownLocation="dijagrami.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f1aba0eb-ef65-4fe2-9edd-2b2cdc24f6c4"
+        name="Pokloni prijatelju"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="63fb04ee-e444-433b-b904-416adc6bc85f"
+            isDerived="false"
+            sourceEndRoleName="Pokloni prijatelju"
+            targetEndRoleName="Baza podataka"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="dc5ddde7-08e9-46c2-9ded-7cd6d5b133a4"
+              LastKnownName="Baza podataka"
+              LastKnownLocation="dijagrami.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b9f1b70c-a6e7-4252-bfbf-15c6b5b408af"
+                  name="Pokloni prijatelju"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7227d56f-731f-4704-8c0e-bfe76dfe78cd"
+                  name="Baza podataka"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend
+            Id="e76ce019-f4f8-432c-acb1-bb32673195be">
+            <useCaseMoniker
+              Id="8e570384-c0b7-4cea-85cf-3e75cdaeaf7b"
+              LastKnownName="Pregledaj vlastite ulaznice"
+              LastKnownLocation="dijagrami.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="da72cc82-8447-448b-beb9-fc3e04b0f652"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="083909c0-6ae1-47ca-a04d-b71675d2104b"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="e1f3068a-3993-4166-8db0-80c3fb72086f"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="016cd3c3-97e6-40d5-89cb-b036a148dbab"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="29875b60-367b-4901-a0aa-171f0cf84837"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="2cd93849-5b67-4bf2-9c7f-bba40a6f9e78"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="93bba2b9-7651-4e19-bb6d-fd7bf401f8d8"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="1098350a-bca1-4448-857f-92ac93da7d3d"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="5ef9c77b-2aeb-4e16-b85a-e74f83917719"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="30ca3b53-2d6f-4e4a-9369-ff3255fad4b0"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="cf355f41-bf8d-4eb4-9b39-ae86c650e573"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="514a5908-dffa-405e-8d71-f5ce2747aa67"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="eeb3c466-6d29-49ed-a110-fdbf2d3f8056"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="26edf727-e032-40d1-9973-b1c90ed1b57c"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="a5d02f09-ac06-4fbf-8b2c-db53e3c5cc37"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="4781b723-4b26-4d46-97f5-1556b2eeb0a7"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="e6205f7c-e28c-4fed-b253-e2a9aeb1a7c7"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="bbd0a419-dd5e-4a4e-9254-ba53e609b960"
+        name="ExecutionEvent" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UMLUseCaseDiagram1">
+  <useCaseModelRootMoniker Id="ec872a77-9e49-4ea8-b07d-c2475be1d4e4" />
+  <nestedChildShapes>
+    <actorShape Id="01e4a190-3ca3-4d28-b402-fb221828fddc" absoluteBounds="1.125, 2.625, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="e79a06cd-df8d-4d6b-860a-3e1fb8797c10" LastKnownName="Korisnik" />
+      <relativeChildShapes />
+    </actorShape>
+    <actorShape Id="d1bcf8be-6367-4b83-8e05-919f4551a580" absoluteBounds="6.125, 2.625, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="864d6b8d-f141-44e5-8ae2-07a7809a2ca4" LastKnownName="Baza podataka" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseShape Id="8743d2e2-0391-44bd-bb72-203d2c9efc18" absoluteBounds="2.125, 1.875, 1.125, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="d9783628-b6bf-41b7-a183-825b21b58f37" LastKnownName="Kupi ulaznicu" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(1.625 : 2.73214285714286); (2.34215840489786 : 2.32233805434408)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="18c8bc02-b08a-4117-a267-17ed85a9da45" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="01e4a190-3ca3-4d28-b402-fb221828fddc" />
+        <useCaseShapeMoniker Id="8743d2e2-0391-44bd-bb72-203d2c9efc18" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="d6b0099d-be94-4511-8a5e-bccf8dc1924b" absoluteBounds="3, 0.875, 1.625, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="4657b82e-8b06-469c-b12c-0633ee35912a" LastKnownName="Pregled vrsta ulaznica" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(2.95220588235294 : 1.90441176470588); (3.47201523081233 : 1.47123730765639)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="0eaeef5d-2e74-4593-9fde-8c68c260fa73" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="8743d2e2-0391-44bd-bb72-203d2c9efc18" />
+        <useCaseShapeMoniker Id="d6b0099d-be94-4511-8a5e-bccf8dc1924b" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="dc422e9a-ee37-4f1b-a15a-84d69f91d460" absoluteBounds="4.25, 1.75, 1.25, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="59651d3f-ae0f-494a-a0eb-37c37d22ebbf" LastKnownName="Unesi podatke za plaćanje" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(3.24884128152832 : 2.10896167767062); (4.25101791598503 : 2.08032805954328)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="62594c36-70b9-4d4d-bfba-66b83d6d467b" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="3.5677305405086095, 2.1284278714517009, 0.52439594268798828, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="8743d2e2-0391-44bd-bb72-203d2c9efc18" />
+        <useCaseShapeMoniker Id="dc422e9a-ee37-4f1b-a15a-84d69f91d460" />
+      </nodes>
+    </includeConnector>
+    <useCaseAssociationConnector edgePoints="[(5.29892506420817 : 2.29212607644609); (6.125 : 2.73958333333333)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="454ebcc7-6ac3-4d37-a7bb-a3259f0875de" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="dc422e9a-ee37-4f1b-a15a-84d69f91d460" />
+        <actorShapeMoniker Id="d1bcf8be-6367-4b83-8e05-919f4551a580" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="8187f7be-481e-4dc6-b50f-d8a0bcb16c67" absoluteBounds="2.125, 3.125, 1.25, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="7a3f51a2-9100-4d8c-b121-86416f761974" LastKnownName="Pregledaj vlastite ulaznice" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(1.625 : 2.96590909090909); (2.28753745412754 : 3.20683180150092)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="0222aab8-0f62-4feb-87ac-699b443f3573" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="01e4a190-3ca3-4d28-b402-fb221828fddc" />
+        <useCaseShapeMoniker Id="8187f7be-481e-4dc6-b50f-d8a0bcb16c67" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="5f80d07f-67e3-4a48-b316-d6c848c98146" absoluteBounds="4, 2.625, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="fad176fe-17ea-4552-9b8c-292749c00a25" LastKnownName="Pregledaj detalje" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(4.06587842893777 : 2.99903473458921); (3.25858341950421 : 3.22969045157023)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="2c771750-570d-4562-90e9-7e4ce17bc684" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="3.3125, 2.9375, 0.59375, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="5f80d07f-67e3-4a48-b316-d6c848c98146" />
+        <useCaseShapeMoniker Id="8187f7be-481e-4dc6-b50f-d8a0bcb16c67" />
+      </nodes>
+    </extendConnector>
+    <useCaseAssociationConnector edgePoints="[(5 : 2.875); (6.125 : 2.875)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="89f19755-3fa7-4991-b664-182874916768" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="5f80d07f-67e3-4a48-b316-d6c848c98146" />
+        <actorShapeMoniker Id="d1bcf8be-6367-4b83-8e05-919f4551a580" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="200ded97-d985-4327-b72e-e359796a3951" absoluteBounds="4, 3.375, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="322d9ebc-23c1-4715-b26d-2f284d75e238" LastKnownName="Postavi na burzu" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(4.01923802617959 : 3.55631971802566); (3.33858869474677 : 3.45908409924954)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="22b65391-bf86-44be-bcbf-8fbbbfb11b03" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="3.4375, 3.375, 0.64583333333333348, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="200ded97-d985-4327-b72e-e359796a3951" />
+        <useCaseShapeMoniker Id="8187f7be-481e-4dc6-b50f-d8a0bcb16c67" />
+      </nodes>
+    </extendConnector>
+    <useCaseAssociationConnector edgePoints="[(4.89043440472151 : 3.46882623811139); (6.125 : 2.975)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="c1845515-2751-4bf0-9fa7-4efe4aa2d320" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="200ded97-d985-4327-b72e-e359796a3951" />
+        <actorShapeMoniker Id="d1bcf8be-6367-4b83-8e05-919f4551a580" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="44834a37-93fb-4898-af51-07222bb0ee81" absoluteBounds="4, 4, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="143dbea8-9263-4d14-876f-ec51cd4bf678" LastKnownName="Pokloni prijatelju" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(4.14644660940673 : 4.07322330470336); (3.14043440472151 : 3.57021720236076)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="7c7519c0-24a7-485b-90ca-38a37c118c6c" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="44834a37-93fb-4898-af51-07222bb0ee81" />
+        <useCaseShapeMoniker Id="8187f7be-481e-4dc6-b50f-d8a0bcb16c67" />
+      </nodes>
+    </extendConnector>
+    <useCaseAssociationConnector edgePoints="[(4.78166841232076 : 4.04344316429811); (6.125 : 3.05833333333333)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="48c3eeb2-923d-4e8a-aba8-e4cce9ef3937" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="44834a37-93fb-4898-af51-07222bb0ee81" />
+        <actorShapeMoniker Id="d1bcf8be-6367-4b83-8e05-919f4551a580" />
+      </nodes>
+    </useCaseAssociationConnector>
+  </nestedChildShapes>
+</useCaseDiagram>

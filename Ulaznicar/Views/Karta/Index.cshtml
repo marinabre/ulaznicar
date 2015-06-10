@@ -61,7 +61,10 @@
             @Html.DisplayFor(modelItem => item.CijenaKarte.VrstaKarte.imekategorije)
         </td>
         <td>
-            @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { id = item.Id }) |
+            @if (item.Dogadjaj.datum > DateTime.Now)
+            {
+                @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { id = item.Id })
+            } |
             @Html.ActionLink("Detalji", "Details", new { id = item.Id }) |
             @Html.ActionLink("Pokloni prijatelju", "Pokloni", new { id = item.Id })
         </td>

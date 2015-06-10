@@ -24,7 +24,7 @@ namespace Ulaznicar.Controllers
     {
         bazaUlazniceEntities context = new bazaUlazniceEntities();
         // GET: Karta
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             var userId = User.Identity.GetUserId();
             var userUserName = User.Identity.GetUserName();
@@ -37,7 +37,10 @@ namespace Ulaznicar.Controllers
             {
                 karte.Add(context.Karta.Find(kup.IdKarta));
             }
-            return View(karte);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+
+            return View(karte.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Karta/Details/5

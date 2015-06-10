@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="burza">
+  <useCaseModelRootMoniker Id="dd1e6ed8-aaad-4ad7-9f23-64da9c1e5931" />
+  <nestedChildShapes>
+    <actorShape Id="64da2bac-36ee-4319-8239-df0563dbb2fd" absoluteBounds="1.25, 2.625, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="e0b46f0c-44f4-44aa-84a9-c0b95afcb6cb" LastKnownName="Korisnik" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseShape Id="98d7af00-6585-43a8-a682-589d10eb5bdf" absoluteBounds="2.125, 2.625, 1.25, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="2e1a0aa7-8ea6-448a-9b20-6598e80b1c22" LastKnownName="Pregled kupljenih ulaznica" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(1.75 : 2.8875); (2.12810175611876 : 2.90640508780594)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="b36d6f47-4091-4fcc-93a6-97d0674816e0" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="64da2bac-36ee-4319-8239-df0563dbb2fd" />
+        <useCaseShapeMoniker Id="98d7af00-6585-43a8-a682-589d10eb5bdf" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="25e51b4a-72a7-4b15-b62c-7828074a6bca" absoluteBounds="4, 2.625, 1.375, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="3a487e6e-4e2f-4df7-b901-6ac121ba681c" LastKnownName="Postavi ulaznicu na burzu" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(3.375 : 2.9375); (4 : 2.9375)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="809ba61a-c4b1-4fc0-987a-82fd5ebbe8eb" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="3.4375, 2.75, 0.57166666666666632, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="98d7af00-6585-43a8-a682-589d10eb5bdf" />
+        <useCaseShapeMoniker Id="25e51b4a-72a7-4b15-b62c-7828074a6bca" />
+      </nodes>
+    </extendConnector>
+    <useCaseShape Id="73c992ac-fafa-4ce9-a683-92c770f2e1c4" absoluteBounds="5, 1.75, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="7099d59c-2c7e-48ec-8f2a-6288e6a36539" LastKnownName="Unesi cijenu" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(4.93948560638796 : 2.64674737724466); (5.30119628118285 : 2.22938890632748)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="d91fa865-b0e4-41c4-83f1-313d79f51498" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="5.0769058915379768, 2.3396729719246712, 0.52439594268798828, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="25e51b4a-72a7-4b15-b62c-7828074a6bca" />
+        <useCaseShapeMoniker Id="73c992ac-fafa-4ce9-a683-92c770f2e1c4" />
+      </nodes>
+    </includeConnector>
+    <actorShape Id="7869bc08-76e1-471a-a838-dc0bd8ac2b9f" absoluteBounds="6.125, 2.75, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="a01ec1de-0227-4024-b776-9beab39da47e" LastKnownName="Baza podataka" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseAssociationConnector edgePoints="[(5.37272906576882 : 2.96287885428773); (6.125 : 2.99074074074074)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="a76c470e-2c5a-44db-95c9-15556ae3f554" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="25e51b4a-72a7-4b15-b62c-7828074a6bca" />
+        <actorShapeMoniker Id="7869bc08-76e1-471a-a838-dc0bd8ac2b9f" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="a6cd59ec-24fa-4b0f-b9ca-88b96fbe10a1" absoluteBounds="3.75, 1.75, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="31561c10-c059-40b9-9b22-ec066b2b7611" LastKnownName="Odaberi ulaznicu" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(4.54484085675589 : 2.63180183590549); (4.36361480780321 : 2.24346030243545)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="304d12d2-a1ca-4eb8-a377-eadcf12eab62" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="25e51b4a-72a7-4b15-b62c-7828074a6bca" />
+        <useCaseShapeMoniker Id="a6cd59ec-24fa-4b0f-b9ca-88b96fbe10a1" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="c95a5bdf-fec9-437d-925a-bbef9e68b3af" absoluteBounds="4.125, 3.625, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="54449571-dd21-4d63-bf52-5148a45a435f" LastKnownName="Pregled burze" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(4.66667622543447 : 3.24985661848293); (4.64165741511632 : 3.62513877325521)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="c057d931-fd1f-45ca-976f-a000a68420ac" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="25e51b4a-72a7-4b15-b62c-7828074a6bca" />
+        <useCaseShapeMoniker Id="c95a5bdf-fec9-437d-925a-bbef9e68b3af" />
+      </nodes>
+    </extendConnector>
+    <useCaseAssociationConnector edgePoints="[(4.97855339059327 : 3.69822330470336); (6.125 : 3.125)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="5e0b3261-fad0-4e03-bcde-a0eacb372549" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="c95a5bdf-fec9-437d-925a-bbef9e68b3af" />
+        <actorShapeMoniker Id="7869bc08-76e1-471a-a838-dc0bd8ac2b9f" />
+      </nodes>
+    </useCaseAssociationConnector>
+  </nestedChildShapes>
+</useCaseDiagram>
