@@ -1,0 +1,52 @@
+﻿@model Ulaznicar.Models.Karta
+
+<div>
+    <h4>Karta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.zastitnikod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zastitnikod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QR_KOD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QR_KOD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.brojkarte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.brojkarte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CijenaKarte.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CijenaKarte.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dogadjaj.naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dogadjaj.naziv)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

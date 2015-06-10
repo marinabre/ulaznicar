@@ -358,6 +358,7 @@
     <Content Include="Views\CijenaKarte\Edit.cshtml" />
     <Content Include="Views\CijenaKarte\Index.cshtml" />
     <Content Include="Views\Burza\Kupovina.cshtml" />
+    <Content Include="Views\Manage\zaIspis.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

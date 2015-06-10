@@ -138,14 +138,20 @@ namespace Ulaznicar.Controllers
             return RedirectToAction("Details", "Dogadjaj", new { id = id });
         }
 
-
+        // GET: Karta/Edit/5
         public ActionResult Pokloni(int id)
         {
             var karta = context.Karta.Find(id);
-            ViewBag.odabran = karta.Dogadjaj;
+            var odabran = karta.Dogadjaj;
+
+            ViewBag.naziv = odabran.naziv;
+            ViewBag.lok = odabran.Lokacija.naziv;
+            ViewBag.dat = odabran.datum;
             ViewBag.cijena = karta.CijenaKarte.VrstaKarte.imekategorije;
+
             ViewBag.IdKorisnik = new SelectList(context.Korisnik, "Id", "korisnickoime");
             var kupljena = context.KupljeneKarte.First(x => x.IdKarta == id);
+
             return View(kupljena);
         }
 
@@ -166,7 +172,7 @@ namespace Ulaznicar.Controllers
             }
             catch
             {
-                return View();
+                return RedirectToAction("Pokloni", new {id = kupljenakarta.Id});
             }
         }
 

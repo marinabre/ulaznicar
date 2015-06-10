@@ -10,21 +10,24 @@
     <h4>Ulaznica</h4>
     <hr />
     <dl class="dl-horizontal">
-@if (Model.Dogadjaj.datum <= DateTime.Today)
+        @if (Model.Dogadjaj.datum <= DateTime.Today)
         {
-        <dt>
-            QR kod ulaznice :
-        </dt>
+            <dt>
+                QR kod ulaznice :
+            </dt>
 
-        <dd>
-            <img src="@Url.Action("Show", "Karta", new { id = Model.QR_KOD })" alt="image" />
-        </dd>
-}
-        <dd>
+            <dd>
+                <img src="@Url.Action("Show", "Karta", new { id = Model.QR_KOD })" alt="image" />
+            </dd>
+        }
+        else
+        {
+            <dd>
                 <img id="the-image" src="@Url.Action("Show", "Dogadjaj", new { id = Model.Dogadjaj.Id })" style="max-height:150px; max-width:150px; border-radius:10px" />
-        </dd>
+            </dd>
+        }
         <dt>
-            Naziv događaja : 
+            Naziv događaja :
         </dt>
 
         <dd>
@@ -39,7 +42,7 @@
             @Html.DisplayFor(model => model.CijenaKarte.VrstaKarte.imekategorije)
         </dd>
         <dt>
-            Cijena : 
+            Cijena :
         </dt>
 
         <dd>
