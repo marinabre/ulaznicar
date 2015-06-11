@@ -155,7 +155,7 @@ namespace Ulaznicar.Controllers
             var idkarte = db.KupljeneKarte.AsNoTracking().Where(
                 x => x.IdKorisnik == korisnik).Include(x => x.Karta).FirstOrDefault(
                 x => x.Karta.Dogadjaj.Id == Idd
-                ).IdKarta;
+                ).Id;
 
 
             burza.IdKarta = idkarte;

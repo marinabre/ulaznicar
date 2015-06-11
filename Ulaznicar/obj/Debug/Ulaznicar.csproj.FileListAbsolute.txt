@@ -63,3 +63,4 @@ C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Microsoft.Owin.Secur
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\obj\Debug\Ulaznicar.dll
 C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\obj\Debug\Ulaznicar.pdb
+C:\Users\Ivyclover\Documents\GitHub\ulaznicar\Ulaznicar\obj\Debug\Ulaznicar.csprojResolveAssemblyReference.cache
