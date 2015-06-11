@@ -49,6 +49,9 @@
     <Reference Include="PagedList.Mvc">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Rotativa">
+      <HintPath>..\packages\Rotativa.1.6.4\lib\net40\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -260,6 +263,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\bazaulaznice.edmx">
@@ -279,6 +283,7 @@
       <DependentUpon>bazaulaznice.edmx</DependentUpon>
       <LastGenOutput>bazaulaznice.cs</LastGenOutput>
     </Content>
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -358,7 +363,7 @@
     <Content Include="Views\CijenaKarte\Edit.cshtml" />
     <Content Include="Views\CijenaKarte\Index.cshtml" />
     <Content Include="Views\Burza\Kupovina.cshtml" />
-    <Content Include="Views\Manage\zaIspis.cshtml" />
+    <Content Include="Views\Karta\Ispis.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

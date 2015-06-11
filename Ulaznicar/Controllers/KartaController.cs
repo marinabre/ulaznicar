@@ -16,6 +16,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System.IO;
 using PagedList;
+using Rotativa;
 
 namespace Ulaznicar.Controllers
 {
@@ -233,6 +234,18 @@ namespace Ulaznicar.Controllers
         }
 
 
+        //public ActionResult KartazaIspis(int invoiceId)
+        //{
+        //    var invoiceViewModel;
+        //    // code to retrieve data from a database
+        //    return View(invoiceViewModel);
+        //}
+        //public ActionResult Ispis(int invoiceId)
+        //{
+        //    return new ActionAsPdf(
+        //                   "Invoice",
+        //                   new { invoiceId = invoiceId }) { FileName = "Invoice.pdf" };
+        //}
 
         // GET: Karta/Delete/5
         public ActionResult Delete(int id)
@@ -262,6 +275,12 @@ namespace Ulaznicar.Controllers
             var image = context.Karta.Find(id).QR_KOD;
             return new FileContentResult(image, "img");
         }
+
+
+
+
+
+
 
     }
 }

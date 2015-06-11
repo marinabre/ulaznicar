@@ -26,6 +26,23 @@
         <input type="submit" value="Pretraži" />
     </p>
 }
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <div class="radio-inline">
+            @Html.RadioButton("search", "Događaj", true,
+          new { id = "Događaj" }) po događaju
+        </div>
+        <div class="radio-inline">
+            @Html.RadioButton("search", "Lokacija",
+           new { id = "Lokacija" }) po lokaciji
+        </div>
+        <div class="radio-inline">
+            @Html.RadioButton("search", "Datum",
+           new { id = "Datum" }) po datumu
+        </div>
+    </div>
+}
 <table class="table">
     <tr>
         <th>
