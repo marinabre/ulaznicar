@@ -15,7 +15,7 @@
         <h4>Pokloni ulaznicu korisniku : </h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+        @*@Html.HiddenFor(model => model.Id)*@
         @Html.HiddenFor(model => model.IdKarta)
 
         @*<div class="form-group">
@@ -26,7 +26,7 @@
             </div>
         </div>*@
         <div class="form-group" style="font-size:medium">
-            @Html.LabelFor(model => model.IdKarta, "Odabrana ulaznica", htmlAttributes: new { @class = "control-label col-md-2 text-primary" })
+            @Html.Label("Odabrana ulaznica", htmlAttributes: new { @class = "control-label col-md-2 text-primary" })
             <div class="col-md-10">
                 <p>@Html.ViewBag.naziv</p>
                 <p>@Html.ViewBag.lok</p>

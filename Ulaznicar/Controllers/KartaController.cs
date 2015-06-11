@@ -36,6 +36,7 @@ namespace Ulaznicar.Controllers
             foreach (var kup in kupljene)
             {
                 karte.Add(context.Karta.Find(kup.IdKarta));
+                ViewData[kup.IdKarta.ToString()] = kup.Id;
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
@@ -51,6 +52,7 @@ namespace Ulaznicar.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Karta karta = context.Karta.Find(id);
+            ViewBag.kup = context.KupljeneKarte.FirstOrDefault(x => x.IdKarta == id).Id;
             if (karta == null)
             {
                 return HttpNotFound();
@@ -139,18 +141,25 @@ namespace Ulaznicar.Controllers
         }
 
         // GET: Karta/Edit/5
-        public ActionResult Pokloni(int id)
+        public ActionResult Pokloni(int? id)
         {
-            var karta = context.Karta.Find(id);
-            var odabran = karta.Dogadjaj;
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var userId = User.Identity.GetUserId();
+            var userUserName = User.Identity.GetUserName();
+
+            var kupljena = context.KupljeneKarte.Find(id);
+            var odabran = kupljena.Karta.Dogadjaj;
 
             ViewBag.naziv = odabran.naziv;
             ViewBag.lok = odabran.Lokacija.naziv;
             ViewBag.dat = odabran.datum;
-            ViewBag.cijena = karta.CijenaKarte.VrstaKarte.imekategorije;
+            ViewBag.cijena = kupljena.Karta.CijenaKarte.VrstaKarte.imekategorije;
 
-            ViewBag.IdKorisnik = new SelectList(context.Korisnik, "Id", "korisnickoime");
-            var kupljena = context.KupljeneKarte.First(x => x.IdKarta == id);
+            ViewBag.IdKorisnik = new SelectList(context.Korisnik.Where(x=>x.korisnickoime != userUserName), "Id", "korisnickoime");
+
 
             return View(kupljena);
         }

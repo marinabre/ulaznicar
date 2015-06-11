@@ -78,7 +78,7 @@
                 @Html.ActionLink("Detalji", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
             </p>
             <p>
-                @Html.ActionLink("Pokloni prijatelju", "Pokloni", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Pokloni prijatelju", "Pokloni", new {id = ViewData[item.Id.ToString()]}, new { @class = "btn btn-primary" })
             </p>
         </td>
     </tr>
