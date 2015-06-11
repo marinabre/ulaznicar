@@ -40,6 +40,7 @@ namespace Ulaznicar.Controllers
             }
             int pageSize = 10;
             int pageNumber = (page ?? 1);
+            karte.OrderBy(x => x.Dogadjaj.datum);
 
             return View(karte.ToPagedList(pageNumber, pageSize));
         }
@@ -151,6 +152,10 @@ namespace Ulaznicar.Controllers
             var userUserName = User.Identity.GetUserName();
 
             var kupljena = context.KupljeneKarte.Find(id);
+            if (kupljena == null)
+            {
+                return HttpNotFound();
+            }
             var odabran = kupljena.Karta.Dogadjaj;
 
             ViewBag.naziv = odabran.naziv;
