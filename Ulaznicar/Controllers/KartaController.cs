@@ -127,11 +127,8 @@ namespace Ulaznicar.Controllers
                     context.Entry(dogadjaj).State = EntityState.Modified;
                     context.SaveChanges();
 
-                    context = new bazaUlazniceEntities();
-
-                    var idkarte = context.Karta.Where(x => x.zastitnikod == zastitni);
-
-                    return RedirectToAction("Kupovina", new { id = idkarte });
+                    //moguće jer nakon populiranja objekta u bazu, savechanges vrati ID u naš ovdje objekt :3
+                    return RedirectToAction("Kupovina", new { id = novaKarta.Id });
                 }
             }
             catch
