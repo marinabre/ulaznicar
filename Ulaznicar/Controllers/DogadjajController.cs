@@ -21,18 +21,18 @@ namespace Ulaznicar.Controllers
         private bazaUlazniceEntities db = new bazaUlazniceEntities();
 
         // GET: Dogadjaj
-        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page, string search)
         {
             var userId = User.Identity.GetUserId();
             var userUserName = User.Identity.GetUserName();
             ViewBag.user = userUserName;
 
-
-
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NazivSortParm = String.IsNullOrEmpty(sortOrder) ? "naziv_desc" : "";
             ViewBag.DatumSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.LokSortParm = String.IsNullOrEmpty(sortOrder) ? "lok_desc" : "";
+
+            var dogadjaj = db.Dogadjaj.Where(s => s.datum >= DateTime.Now).Include(d => d.Lokacija);
 
             if (searchString != null)
             {
@@ -45,26 +45,37 @@ namespace Ulaznicar.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var dogadjaj = db.Dogadjaj.Where(s => s.datum >= DateTime.Now).Include(d => d.Lokacija);
-
             if (!String.IsNullOrEmpty(searchString))
             {
-                try {
-                    const DateTimeStyles style = DateTimeStyles.AllowWhiteSpaces;
-                    DateTime? result = null;
-                    DateTime dt;
-                    if (DateTime.TryParseExact(searchString, "dd.MM.yyyy.", CultureInfo.InvariantCulture, style, out dt))
-                    {
-                        result = dt;
-                        dogadjaj = dogadjaj.Where(s => s.datum.CompareTo(result) == 0);
-                    }
-                }
-                catch 
-                { 
-                dogadjaj = dogadjaj.Where(s => s.naziv.Contains(searchString)
-                                       || s.Lokacija.naziv.Contains(searchString));
+                switch (search)
+                {
+                    case "Lokacija":
+                        dogadjaj = dogadjaj.Where(s => s.Lokacija.naziv.Contains(searchString));
+                        break;
+                    case "Datum":
+                        try
+                        {
+                            const DateTimeStyles style = DateTimeStyles.AllowWhiteSpaces;
+                            DateTime? result = null;
+                            DateTime dt;
+                            if (DateTime.TryParseExact(searchString, "dd.MM.yyyy.", CultureInfo.InvariantCulture, style, out dt))
+                            {
+                                result = dt.Date;
+                                var result2 = result.Value.AddDays(1);
+                                dogadjaj = (from Dogadjaj in db.Dogadjaj
+                                            where Dogadjaj.datum >= result
+                                                  && Dogadjaj.datum < result2
+                                            select Dogadjaj);
+                            }
+                        }
+                        catch { ViewBag.pogreska = "Krivo ste unjeli datum! Pokušajte ponovno!";}
+                        break;
+                    default:
+                        dogadjaj = dogadjaj.Where(s => s.naziv.Contains(searchString));
+                        break;
                 }
             }
+
             switch (sortOrder)
             {
                 case "naziv_desc":
@@ -87,8 +98,12 @@ namespace Ulaznicar.Controllers
             int pageSize = 10;
             int pageNumber = (page ?? 1);
 
-            return View(dogadjaj.ToPagedList(pageNumber, pageSize));
+            if (dogadjaj.Count() == 0)
+            {
+                ViewBag.rezultat = "Nema događaja koji odgovaraju kriteriju '" + searchString + "'. Pokušajte sa drugačijim pojmom.";
+            }
 
+            return View(dogadjaj.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Dogadjaj/Details/5
