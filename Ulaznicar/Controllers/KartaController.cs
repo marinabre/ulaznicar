@@ -17,6 +17,7 @@ using Microsoft.Owin.Security;
 using System.IO;
 using PagedList;
 using Rotativa;
+using System.ComponentModel;
 
 namespace Ulaznicar.Controllers
 {
@@ -25,25 +26,50 @@ namespace Ulaznicar.Controllers
     {
         bazaUlazniceEntities context = new bazaUlazniceEntities();
         // GET: Karta
-        public ActionResult Index(int? page)
+        public ActionResult Index(string sortOrder, string currentFilter, int? page)
         {
             var userId = User.Identity.GetUserId();
             var userUserName = User.Identity.GetUserName();
             var id = (context.Korisnik.Where(x => x.korisnickoime == userUserName).First()).Id;
+
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NazivSortParm = String.IsNullOrEmpty(sortOrder) ? "naziv_desc" : "naziv_asc";
+            ViewBag.DatumSortParm = sortOrder == "Date" ? "Date" : "";
+            ViewBag.LokSortParm = String.IsNullOrEmpty(sortOrder) ? "lok_desc" : "";
 
             var kupljene = context.KupljeneKarte.Where(x => x.IdKorisnik == id);
             List<Karta> karte = new List<Karta>();
 
             foreach (var kup in kupljene)
             {
-                karte.Add(context.Karta.Find(kup.IdKarta));
+                karte.Add(context.Karta.Where(x=>x.Id == kup.IdKarta).Include(x=>x.Dogadjaj.Lokacija).Single());
                 ViewData[kup.IdKarta.ToString()] = kup.Id;
             }
-            int pageSize = 10;
+            int pageSize = 5;
             int pageNumber = (page ?? 1);
-            karte.OrderBy(x => x.Dogadjaj.datum);
 
-            return View(karte.ToPagedList(pageNumber, pageSize));
+            var poredane = karte.OrderByDescending(x => x.Dogadjaj.datum);
+
+            switch (sortOrder)
+            {
+                case "naziv_desc":
+                    poredane = karte.OrderByDescending(x => x.Dogadjaj.naziv);
+                    break;
+                case "naziv_asc":
+                    poredane = karte.OrderBy(x => x.Dogadjaj.naziv);
+                    break;
+                case "date_desc":
+                    poredane = karte.OrderByDescending(x => x.Dogadjaj.datum);
+                    break;
+                case "lok_desc":
+                    poredane = karte.OrderByDescending(x => x.Dogadjaj.Lokacija.naziv);
+                    break;
+                default:  // date descending
+                    break;
+            }
+
+
+            return View(poredane.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Karta/Details/5

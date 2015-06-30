@@ -19,11 +19,28 @@
         Pretraži : @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
         <input type="submit" value="Pretraži" />
     </p>
+    <div class="form-group">
+        <div class="radio-inline">
+            @Html.RadioButton("search", "Dogadjaj", true,
+          new { id = "Dogadjaj" }) po događaju
+        </div>
+        <div class="radio-inline">
+            @Html.RadioButton("search", "Lokacija",
+           new { id = "Lokacija" }) po lokaciji
+        </div>
+        <div class="radio-inline">
+            @Html.RadioButton("search", "Datum",
+           new { id = "Datum" }) po datumu
+        </div>
+    </div>
 }
 <table class="table">
     <tr>
         <th>
             @Html.ActionLink("Naziv događaja", "Index", new { sortOrder = ViewBag.NazivSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Datum događaja
         </th>
         <th>
             @Html.ActionLink("Datum ponude", "Index", new { sortOrder = ViewBag.DatumSortParm, currentFilter = ViewBag.CurrentFilter })
@@ -45,6 +62,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.KupljeneKarte.Karta.Dogadjaj.naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KupljeneKarte.Karta.Dogadjaj.datum)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.datumponude)

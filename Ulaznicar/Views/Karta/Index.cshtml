@@ -18,13 +18,13 @@
             QR kod ulaznice
         </th>
         <th>
-            Naziv događaja
+            @Html.ActionLink("Naziv događaja", "Index", new { sortOrder = ViewBag.NazivSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            Lokacija
+            @Html.ActionLink("Lokacija", "Index", new { sortOrder = ViewBag.LokSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            Datum
+            @Html.ActionLink("Datum održavanja", "Index", new { sortOrder = ViewBag.DatumSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
             Cijena
@@ -72,7 +72,7 @@
         <td>
             @if (item.Dogadjaj.datum > DateTime.Now)
             {<p>
-                @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { lov = item.Dogadjaj.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { id = item.Id }, new { @class = "btn btn-success" })
             </p>}
             <p>
                 @Html.ActionLink("Detalji", "Details", new { id = item.Id }, new { @class = "btn btn-info" })

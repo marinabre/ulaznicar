@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System.Data.Entity.Infrastructure;
 using Ulaznicar.Models;
+using System.Globalization;
 
 namespace Ulaznicar.Controllers
 {
@@ -20,7 +21,7 @@ namespace Ulaznicar.Controllers
         private bazaUlazniceEntities db = new bazaUlazniceEntities();
 
         // GET: Burza
-        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page, string search)
         {
             var burza = db.Burza.Include(b => b.Korisnik).Where(b=>b.IdKupac == null);
 
@@ -58,12 +59,38 @@ namespace Ulaznicar.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-
             if (!String.IsNullOrEmpty(searchString))
             {
-                burza = burza.Where(s => s.KupljeneKarte.Karta.Dogadjaj.naziv.Contains(searchString)
-                                       || s.cijena.Equals(Decimal.Parse(searchString)));
+                switch (search)
+                {
+                    case "Lokacija":
+                        burza = burza.Where(s => s.KupljeneKarte.Karta.Dogadjaj.Lokacija.naziv.Contains(searchString));
+                        break;
+                    case "Datum":
+                        try
+                        {
+                            const DateTimeStyles style = DateTimeStyles.AllowWhiteSpaces;
+                            DateTime? result = null;
+                            DateTime dt;
+                            if (DateTime.TryParseExact(searchString, "dd.MM.yyyy.", CultureInfo.InvariantCulture, style, out dt))
+                            {
+                                result = dt.Date;
+                                var result2 = result.Value.AddDays(1);
+                                burza = (from Burza in db.Burza
+                                            where Burza.datumponude >= result
+                                                  && Burza.datumponude < result2
+                                         select Burza);
+                            }
+                        }
+                        catch { ViewBag.pogreska = "Krivo ste unjeli datum! Pokušajte ponovno!"; }
+                        break;
+                    default:
+                        burza = burza.Include(x => x.KupljeneKarte.Karta.Dogadjaj).Where(
+                            s => s.KupljeneKarte.Karta.Dogadjaj.naziv.Contains(searchString));
+                        break;
+                }
             }
+            
             switch (sortOrder)
             {
                 case "naziv_desc":
@@ -115,13 +142,18 @@ namespace Ulaznicar.Controllers
 
             if (id != null)
             {
-                var dogadjaj = db.Dogadjaj.Find(id);
-                ViewBag.dogadjaj = dogadjaj;
-                ViewBag.ime = id;
-                //ViewData["karta"] = dogadjaj.Id;
+                var kupljena = db.KupljeneKarte.Where(x => x.IdKarta == id).Include(x => x.Karta).Single();
+                var provjera = postojeci.FirstOrDefault(x=>x.IdKarta == kupljena.Id);
+                if (provjera == null || provjera.IdKupac != null)
+                {
+                    var dogadjaj = db.Dogadjaj.Find(kupljena.Karta.IdDogadjaj);
+                    ViewBag.dogadjaj = dogadjaj;
+                    ViewBag.ime = id;
+                    return View();
+                }
+                return RedirectToAction("Index");
             }
-            else
-            {
+
                 var kupljenekarte = db.KupljeneKarte.Where(kar => kar.IdKorisnik == korisnik.Id).Include(x => x.Karta);
                 List<Dogadjaj> dogadjaji = new List<Dogadjaj>();
 
@@ -129,14 +161,14 @@ namespace Ulaznicar.Controllers
                 {
                     //provjera je li karta stara i je li već postavljena na burzu
                     var provjera = postojeci.FirstOrDefault(x=>x.IdKarta == karta.Id);
-                    if (karta.Karta.Dogadjaj.datum >= DateTime.Today && (provjera == null ||provjera.IdKupac != null))
+                    if (karta.Karta.Dogadjaj.datum >= DateTime.Now && (provjera == null || provjera.IdKupac != null))
                     {
                         dogadjaji.Add(karta.Karta.Dogadjaj);
                     }
                 }
 
                 ViewBag.IdKarta = new SelectList(dogadjaji, "Id", "naziv");
-            }
+
             return View();
         }
 
