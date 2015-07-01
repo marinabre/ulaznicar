@@ -21,17 +21,35 @@
         @Html.HiddenFor(model => model.datumponude)
         @Html.HiddenFor(model => model.datumprodaje)
 
-        @*@if (ViewData["karta"] == null)
-        {*@
+
         @if (ViewBag.ime != null)
         {
             <div class="form-group" style="font-size:medium">
+                @Html.Label("Naziv događaja", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     <p>@Html.ViewBag.dogadjaj.naziv</p>
-                    <p>@Html.ViewBag.dogadjaj.Lokacija.naziv</p>
-                    <p> @Html.ViewBag.dogadjaj.datum</p>
                 </div>
             </div>
+        <div class="form-group" style="font-size:medium">
+            @Html.Label("Naziv lokacije", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <p>@Html.ViewBag.dogadjaj.Lokacija.naziv</p>
+            </div>
+        </div>
+        <div class="form-group" style="font-size:medium">
+            @Html.Label("Datum održavanja", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <p> @Html.ViewBag.dogadjaj.datum</p>
+            </div>
+        </div>
+    <div class="form-group" style="font-size:medium">
+        @Html.Label("Kupljena po cijeni", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <p> @Html.ViewBag.cijena</p>
+        </div>
+    </div>
+
+
             @*@Html.Hidden("IdKarta",ViewData["karta"])*@
             @Html.Hidden("Id", 0)
             @Html.Hidden("IdKarta", (int)ViewBag.dogadjaj.Id)

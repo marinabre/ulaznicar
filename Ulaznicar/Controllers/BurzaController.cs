@@ -147,6 +147,7 @@ namespace Ulaznicar.Controllers
                 if (provjera == null || provjera.IdKupac != null)
                 {
                     var dogadjaj = db.Dogadjaj.Find(kupljena.Karta.IdDogadjaj);
+                    ViewBag.cijena = kupljena.Karta.CijenaKarte.cijena;
                     ViewBag.dogadjaj = dogadjaj;
                     ViewBag.ime = id;
                     return View();
