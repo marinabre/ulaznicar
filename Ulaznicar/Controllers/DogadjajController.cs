@@ -28,7 +28,7 @@ namespace Ulaznicar.Controllers
             ViewBag.user = userUserName;
 
             ViewBag.CurrentSort = sortOrder;
-            ViewBag.NazivSortParm = String.IsNullOrEmpty(sortOrder) ? "naziv_desc" : "";
+            ViewBag.NazivSortParm = String.IsNullOrEmpty(sortOrder) ? "naziv_asc" : "";
             ViewBag.DatumSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.LokSortParm = String.IsNullOrEmpty(sortOrder) ? "lok_desc" : "";
 
@@ -78,8 +78,8 @@ namespace Ulaznicar.Controllers
 
             switch (sortOrder)
             {
-                case "naziv_desc":
-                    dogadjaj = dogadjaj.OrderByDescending(s => s.naziv);
+                case "naziv_asc":
+                    dogadjaj = dogadjaj.OrderBy(s => s.naziv);
                     break;
                 case "Date":
                     dogadjaj = dogadjaj.OrderByDescending(s => s.datum);
