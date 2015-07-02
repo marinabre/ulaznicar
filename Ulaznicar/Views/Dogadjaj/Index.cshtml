@@ -94,7 +94,7 @@
                 @if (ViewBag.user == "ADMIN")
                 {
                     <p>
-                        @Html.ActionLink("Ažuriraj", "Edit", new { id = item.Id })
+                        @Html.ActionLink("Ažuriraj", "Edit", new { id = item.Id }, new { @class = "btn btn-default" })
                     </p>
                     <p>
                         @Html.ActionLink("Izbriši", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
