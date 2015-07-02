@@ -71,14 +71,25 @@
         </td>
         <td>
             @if (item.Dogadjaj.datum > DateTime.Now)
-            {<p>
-                @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { id = item.Id }, new { @class = "btn btn-success" })
-            </p>}
+            {
+                if (ViewData[item.zastitnikod] != null)
+                {
+                    <p>
+                        @Html.ActionLink("Ukloni s burze", "Delete", "Burza", new { id = ViewData[item.zastitnikod] }, new { @class = "btn btn-danger" })
+                    </p>
+                }
+                else
+                {
+                <p>
+                    @Html.ActionLink("Stavi na burzu", "Create", "Burza", new { id = item.Id }, new { @class = "btn btn-success" })
+                </p>
+                }
+            }
             <p>
                 @Html.ActionLink("Detalji", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
             </p>
             <p>
-                @Html.ActionLink("Pokloni prijatelju", "Pokloni", new {id = ViewData[item.Id.ToString()]}, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Pokloni prijatelju", "Pokloni", new { id = ViewData[item.Id.ToString()] }, new { @class = "btn btn-primary" })
             </p>
         </td>
     </tr>

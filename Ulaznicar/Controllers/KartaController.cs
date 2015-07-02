@@ -37,6 +37,8 @@ namespace Ulaznicar.Controllers
             ViewBag.DatumSortParm = sortOrder == "Date" ? "Date" : "";
             ViewBag.LokSortParm = String.IsNullOrEmpty(sortOrder) ? "lok_desc" : "";
 
+            var burza = context.Burza;
+
             var kupljene = context.KupljeneKarte.Where(x => x.IdKorisnik == id);
             List<Karta> karte = new List<Karta>();
 
@@ -44,6 +46,11 @@ namespace Ulaznicar.Controllers
             {
                 karte.Add(context.Karta.Where(x=>x.Id == kup.IdKarta).Include(x=>x.Dogadjaj.Lokacija).Single());
                 ViewData[kup.IdKarta.ToString()] = kup.Id;
+                var naburzi = burza.Where(x => x.IdKarta == kup.Id).SingleOrDefault();
+                if (naburzi != null && naburzi.IdKupac == null)
+                {
+                    ViewData[kup.Karta.zastitnikod] = naburzi.Id;
+                }
             }
             int pageSize = 5;
             int pageNumber = (page ?? 1);
