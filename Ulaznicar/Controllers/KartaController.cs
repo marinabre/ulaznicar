@@ -34,7 +34,7 @@ namespace Ulaznicar.Controllers
 
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NazivSortParm = String.IsNullOrEmpty(sortOrder) ? "naziv_desc" : "naziv_asc";
-            ViewBag.DatumSortParm = sortOrder == "Date" ? "Date" : "";
+            ViewBag.DatumSortParm = sortOrder == "Date" ? "Date" : "date_asc";
             ViewBag.LokSortParm = String.IsNullOrEmpty(sortOrder) ? "lok_desc" : "";
 
             var burza = context.Burza;
@@ -65,8 +65,8 @@ namespace Ulaznicar.Controllers
                 case "naziv_asc":
                     poredane = karte.OrderBy(x => x.Dogadjaj.naziv);
                     break;
-                case "date_desc":
-                    poredane = karte.OrderByDescending(x => x.Dogadjaj.datum);
+                case "date_asc":
+                    poredane = karte.OrderBy(x => x.Dogadjaj.datum);
                     break;
                 case "lok_desc":
                     poredane = karte.OrderByDescending(x => x.Dogadjaj.Lokacija.naziv);

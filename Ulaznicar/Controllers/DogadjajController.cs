@@ -29,7 +29,7 @@ namespace Ulaznicar.Controllers
 
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NazivSortParm = String.IsNullOrEmpty(sortOrder) ? "naziv_asc" : "";
-            ViewBag.DatumSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.DatumSortParm = sortOrder == "Date" ? "Date" : "date_desc";
             ViewBag.LokSortParm = String.IsNullOrEmpty(sortOrder) ? "lok_desc" : "";
 
             var dogadjaj = db.Dogadjaj.Where(s => s.datum >= DateTime.Now).Include(d => d.Lokacija);
