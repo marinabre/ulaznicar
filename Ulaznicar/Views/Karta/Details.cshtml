@@ -34,7 +34,20 @@
         <dd>
             @Html.DisplayFor(model => model.Dogadjaj.naziv)
         </dd>
+        <dt>
+            Naziv lokacije :
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Dogadjaj.Lokacija.naziv)
+        </dd>
+        <dt>
+            Adresa lokacije :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dogadjaj.Lokacija.adresa)
+        </dd>
         <dt>
             Vrsta ulaznice :
         </dt>
