@@ -81,9 +81,9 @@ namespace Ulaznicar.Controllers
                 case "naziv_asc":
                     dogadjaj = dogadjaj.OrderBy(s => s.naziv);
                     break;
-                case "Date":
-                    dogadjaj = dogadjaj.OrderByDescending(s => s.datum);
-                    break;
+                //case "Date":
+                //    dogadjaj = dogadjaj.OrderByDescending(s => s.datum);
+                //    break;
                 case "date_desc":
                     dogadjaj = dogadjaj.OrderByDescending(s => s.datum);
                     break;
