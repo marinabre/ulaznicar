@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -21,8 +22,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                @if (Request.IsAuthenticated)
+                {
+                    @if (User.Identity.GetUserName() != "ADMIN")
+                        {
                     <li>@Html.ActionLink("O ulazničaru", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                        }
+                    }
                     <li>@Html.ActionLink("Popis događaja", "Index", "Dogadjaj")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
