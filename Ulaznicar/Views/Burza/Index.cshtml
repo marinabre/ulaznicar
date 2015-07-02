@@ -89,7 +89,7 @@
         @if (Request.IsAuthenticated)
         {
          
-                @if (ViewBag.vlastite.IndexOf(item.IdKarta) != -1)
+                if (ViewBag.vlastite.IndexOf(item.IdKarta) != -1)
                 {
                     <td>
                         @Html.ActionLink("Ažuriraj", "Edit", new { id = item.Id }, new { @class = "btn btn-default" }) |
