@@ -35,9 +35,9 @@ namespace Ulaznicar.Controllers
 
             foreach (var kup in kupljene)
             {
-                if (burza.FirstOrDefault(x => x.IdKarta == kup.IdKarta) != null)
+                if (burza.FirstOrDefault(x => x.IdKarta == kup.Id) != null)
                 {
-                    karte.Add(kup.IdKarta);
+                    karte.Add(kup.Id);
                 }
             }
             ViewBag.vlastite = karte;
