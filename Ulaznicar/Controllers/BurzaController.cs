@@ -30,7 +30,7 @@ namespace Ulaznicar.Controllers
             var korisnik = db.Korisnik.First(k => k.korisnickoime == userUserName);
 
             //provjeravamo ima li korisnik neku svoju kartu već na burzi, te mu želimo omogućiti da ju može maknuti
-            var kupljene = db.KupljeneKarte.Where(x => x.IdKorisnik == korisnik.Id).Include(b=>b.Karta);
+            var kupljene = db.KupljeneKarte.Where(x => x.IdKorisnik == korisnik.Id).Include(b=>b.Karta.Dogadjaj);
             List<int> karte = new List<int>();
 
             foreach (var kup in kupljene)

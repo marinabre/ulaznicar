@@ -37,6 +37,9 @@
 <table class="table">
     <tr>
         <th>
+            Plakat
+        </th>
+        <th>
             @Html.ActionLink("Naziv događaja", "Index", new { sortOrder = ViewBag.NazivSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
@@ -60,6 +63,9 @@
 @foreach (var item in Model)
 {
     <tr>
+        <td>
+            <img id="the-image" src="@Url.Action("Show", "Dogadjaj", new { id = item.KupljeneKarte.Karta.Dogadjaj.Id })" style="max-height:150px; max-width:150px; border-radius:10px" />
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.KupljeneKarte.Karta.Dogadjaj.naziv)
         </td>
