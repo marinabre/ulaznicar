@@ -48,7 +48,7 @@
 <p>
     @if (Model.IdKupac == null)
     {
-        @Html.ActionLink("Kupi ovu ulaznicu", "Edit", new { id = Model.Id })
+        @Html.ActionLink("Kupi ovu ulaznicu", "Kupovina", new { id = Model.Id }, new { @class = "btn btn-success" })
     }
     @Html.ActionLink("Povratak na burzu", "Index")
 </p>
