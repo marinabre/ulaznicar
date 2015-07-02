@@ -13,9 +13,9 @@
          <dt>
             Plakat
         </dt>
-            <img id="the-image" src="@Url.Action("Show", "Dogadjaj", new { id = Model.KupljeneKarte.Karta.Dogadjaj.Id })" style="max-height:150px; max-width:150px; border-radius:10px" />
+            
         <dd>
-            @Html.DisplayFor(model => model.KupljeneKarte.Karta.Dogadjaj.naziv)
+            <img id="the-image" src="@Url.Action("Show", "Dogadjaj", new { id = Model.KupljeneKarte.Karta.Dogadjaj.Id })" style="max-height:150px; max-width:150px; border-radius:10px" />
         </dd>
     
         <dt>
@@ -25,21 +25,27 @@
         <dd>
             @Html.DisplayFor(model => model.KupljeneKarte.Karta.Dogadjaj.naziv)
         </dd>
+        <dt>
+            Naziv lokacije
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.KupljeneKarte.Karta.Dogadjaj.Lokacija.naziv)
+        </dd>
+        <dt>
+            Adresa lokacije
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KupljeneKarte.Karta.Dogadjaj.Lokacija.adresa)
+        </dd>
+        
         <dt>
             Datum ponude
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.datumponude)
-        </dd>
-
-        <dt>
-            Datum prodaje
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.datumprodaje)
         </dd>
 
         <dt>
