@@ -54,9 +54,6 @@
         <th>
             @Html.ActionLink("Cijena", "Index", new { sortOrder = ViewBag.CijenaSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
-        <th>
-            Kupac
-        </th>
         <th></th>
     </tr>
 
@@ -81,9 +78,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.cijena)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Korisnik.korisnickoime)
-        </td>
+
         @if (ViewBag.user == "ADMIN")
         {
             <td>
