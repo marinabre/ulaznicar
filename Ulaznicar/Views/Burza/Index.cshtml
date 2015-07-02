@@ -46,10 +46,10 @@
             Datum događaja
         </th>
         <th>
-            @Html.ActionLink("Datum ponude", "Index", new { sortOrder = ViewBag.DatumSortParm, currentFilter = ViewBag.CurrentFilter })
+            Lokacija
         </th>
         <th>
-            Datum prodaje
+            @Html.ActionLink("Datum ponude", "Index", new { sortOrder = ViewBag.DatumSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
             @Html.ActionLink("Cijena", "Index", new { sortOrder = ViewBag.CijenaSortParm, currentFilter = ViewBag.CurrentFilter })
@@ -70,10 +70,10 @@
             @Html.DisplayFor(modelItem => item.KupljeneKarte.Karta.Dogadjaj.datum)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.datumponude)
+            @Html.DisplayFor(modelItem => item.KupljeneKarte.Karta.Dogadjaj.Lokacija.naziv)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.datumprodaje)
+            @Html.DisplayFor(modelItem => item.datumponude)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.cijena)
