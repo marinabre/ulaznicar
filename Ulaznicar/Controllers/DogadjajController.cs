@@ -145,6 +145,14 @@ namespace Ulaznicar.Controllers
                         dogadjaj.plakat = reader.ReadBytes(upload.ContentLength);
                     }
                 }
+
+                const DateTimeStyles style = DateTimeStyles.AllowWhiteSpaces;
+                DateTime dt;
+                if (DateTime.TryParseExact(dogadjaj.datum.ToString(), "dd.MM.yyyy. HH:mm", CultureInfo.InvariantCulture, style, out dt))
+                {
+                   dogadjaj.datum = dt;
+                }
+
                 if (ModelState.IsValid)
                 {
                     db.Dogadjaj.Add(dogadjaj);
@@ -190,6 +198,15 @@ namespace Ulaznicar.Controllers
                 var dogadjaji = (db.Dogadjaj.AsNoTracking().Where(x => x.Id == dogadjaj.Id));
                 dogadjaj.plakat = dogadjaji.FirstOrDefault(x => x.Id == dogadjaj.Id).plakat;
             }
+
+            //const DateTimeStyles style = DateTimeStyles.AllowWhiteSpaces;
+            //DateTime dt;
+            //if (DateTime.TryParseExact(dogadjaj.datum.ToString(), "dd.MM.yyyy. HH:mm", CultureInfo.InvariantCulture, style, out dt))
+            //{
+            //    dogadjaj.datum = dt;
+            //}
+
+
             if (ModelState.IsValid)
             {
                 if (upload != null && upload.ContentLength > 0)
