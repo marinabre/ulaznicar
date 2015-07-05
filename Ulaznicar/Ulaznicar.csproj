@@ -342,7 +342,6 @@
     <Content Include="Views\Dogadjaj\Details.cshtml" />
     <Content Include="Views\Dogadjaj\Edit.cshtml" />
     <Content Include="Views\Dogadjaj\Index.cshtml" />
-    <Content Include="Views\Dogadjaj\Common.cshtml" />
     <Content Include="Views\Karta\Index.cshtml" />
     <Content Include="Views\Karta\Pokloni.cshtml" />
     <Content Include="Views\Karta\Details.cshtml" />
